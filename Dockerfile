@@ -5,7 +5,7 @@
 
 FROM node:0.12.7
 
-MAINTAINER Luis Capelo <luiscape@gmail.com>
+MAINTAINER Luis Capelo <capelo@un.org>
 
 # Clone app and install dependencies.
 RUN \
