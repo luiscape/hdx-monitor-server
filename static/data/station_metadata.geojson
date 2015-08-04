@@ -1,0 +1,5269 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "276",
+        "totalDocks": "25",
+        "statusValue": "In Service",
+        "stAddress1": "Duane St & Greenwich St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0104554,
+          40.71748752
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "285",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & E 14 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99074142,
+          40.73454567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "291",
+        "totalDocks": "20",
+        "statusValue": "In Service",
+        "stAddress1": "Madison St & Montgomery St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984844,
+          40.713126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "293",
+        "totalDocks": "55",
+        "statusValue": "In Service",
+        "stAddress1": "Lafayette St & E 8 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9907647,
+          40.73028666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "328",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Watts St & Greenwich St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00965965,
+          40.72405549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "331",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Pike St & Monroe St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99193043,
+          40.71173107
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "332",
+        "totalDocks": "24",
+        "statusValue": "In Service",
+        "stAddress1": "Cherry St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97948148,
+          40.71219906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "341",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Stanton St & Mangin St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97628939,
+          40.71782143
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "342",
+        "totalDocks": "29",
+        "statusValue": "In Service",
+        "stAddress1": "Columbia St & Rivington St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98016555,
+          40.71739973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "351",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Front St & Maiden Ln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00612572,
+          40.70530954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "357",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "E 11 St & Broadway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99158043,
+          40.73261787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "358",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "Christopher St & Greenwich St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00711384,
+          40.73291553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "360",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "William St & Pine St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00887308,
+          40.70717936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "361",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "Allen St & Hester St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99190759,
+          40.71605866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "364",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Lafayette Ave & Classon Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96023854,
+          40.68900443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "365",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Fulton St & Grand Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9614583,
+          40.68223166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "366",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "Clinton Ave & Myrtle Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.968896,
+          40.693261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "367",
+        "totalDocks": "34",
+        "statusValue": "In Service",
+        "stAddress1": "E 53 St & Lexington Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97069431,
+          40.75828065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "373",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Willoughby Ave & Walworth St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95381995,
+          40.69331716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "377",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "6 Ave & Canal St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00566443,
+          40.72243797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "379",
+        "totalDocks": "42",
+        "statusValue": "In Service",
+        "stAddress1": "W 31 St & 7 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9916,
+          40.749156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "383",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Greenwich Ave & Charles St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.000271,
+          40.735238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "387",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Centre St & Chambers St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0046073,
+          40.71273266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "388",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "W 26 St & 10 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.002950346,
+          40.749717753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "393",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "E 5 St & Avenue C"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97995466,
+          40.72299208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "394",
+        "totalDocks": "32",
+        "statusValue": "In Service",
+        "stAddress1": "E 9 St & Avenue C"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97768752,
+          40.72521311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "416",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Cumberland St & Lafayette Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97265183,
+          40.68753406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "436",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Hancock St & Bedford Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95399026,
+          40.68216564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "440",
+        "totalDocks": "32",
+        "statusValue": "In Service",
+        "stAddress1": "E 45 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97282625,
+          40.75255434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "441",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "E 52 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.967416,
+          40.756014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "442",
+        "totalDocks": "51",
+        "statusValue": "In Service",
+        "stAddress1": "W 27 St & 7 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993915,
+          40.746647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "447",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "8 Ave & W 52 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9851615,
+          40.76370739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "448",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "W 37 St & 10 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9979009,
+          40.75660359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "449",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "W 52 St & 9 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98789473,
+          40.76461837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "454",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "E 51 St & 1 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96592976,
+          40.75455731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "455",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "1 Ave & E 44 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96905301,
+          40.75001986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "458",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "11 Ave & W 27 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.005226,
+          40.751396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "459",
+        "totalDocks": "49",
+        "statusValue": "In Service",
+        "stAddress1": "W 20 St & 11 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.007756,
+          40.746745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "462",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "W 22 St & 10 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00451887,
+          40.74691959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "463",
+        "totalDocks": "25",
+        "statusValue": "In Service",
+        "stAddress1": "9 Ave & W 16 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00443172,
+          40.74206539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "464",
+        "totalDocks": "59",
+        "statusValue": "In Service",
+        "stAddress1": "E 56 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96759673,
+          40.75934501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "465",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 41 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98658032,
+          40.75513557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "467",
+        "totalDocks": "34",
+        "statusValue": "In Service",
+        "stAddress1": "Dean St & 4 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97895137,
+          40.68312489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "468",
+        "totalDocks": "59",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 55 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98192338,
+          40.7652654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "469",
+        "totalDocks": "57",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 53 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98268129,
+          40.76344058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "470",
+        "totalDocks": "37",
+        "statusValue": "In Service",
+        "stAddress1": "W 20 St & 8 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00004031,
+          40.74345335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "471",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Grand St & Havemeyer St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95698119,
+          40.71286844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "473",
+        "totalDocks": "42",
+        "statusValue": "In Service",
+        "stAddress1": "Rivington St & Chrystie St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9919254,
+          40.72110063
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "474",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "5 Ave & E 29 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98683077,
+          40.7451677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "475",
+        "totalDocks": "37",
+        "statusValue": "In Service",
+        "stAddress1": "E 16 St & Irving Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98758561,
+          40.73524276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "476",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "E 31 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97966069,
+          40.74394314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "477",
+        "totalDocks": "59",
+        "statusValue": "In Service",
+        "stAddress1": "W 41 St & 8 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9900262,
+          40.75640548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "478",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "11 Ave & W 41 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99884222,
+          40.76030096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "479",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "9 Ave & W 45 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9912551,
+          40.76019252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "480",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "W 53 St & 10 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99061728,
+          40.76669671
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "483",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "E 12 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98889957,
+          40.73223272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "484",
+        "totalDocks": "44",
+        "statusValue": "In Service",
+        "stAddress1": "W 44 St & 5 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98014437,
+          40.75500254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "485",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "W 37 St & 5 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98338988,
+          40.75038009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "486",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 29 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98855723,
+          40.7462009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "487",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "E 20 St & FDR Drive"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97573881,
+          40.73314259
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "488",
+        "totalDocks": "41",
+        "statusValue": "In Service",
+        "stAddress1": "W 39 St & 9 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99372222,
+          40.75645824
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "489",
+        "totalDocks": "37",
+        "statusValue": "In Service",
+        "stAddress1": "10 Ave & W 28 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00176802,
+          40.75066386
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "490",
+        "totalDocks": "59",
+        "statusValue": "In Service",
+        "stAddress1": "8 Ave & W 33 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.993934,
+          40.751551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "491",
+        "totalDocks": "53",
+        "statusValue": "In Service",
+        "stAddress1": "E 24 St & Park Ave S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98602213,
+          40.74096374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "492",
+        "totalDocks": "49",
+        "statusValue": "In Service",
+        "stAddress1": "W 33 St & 7 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99093085,
+          40.75019995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "493",
+        "totalDocks": "34",
+        "statusValue": "In Service",
+        "stAddress1": "W 45 St & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98291153,
+          40.7568001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "494",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "W 26 St & 8 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99723551,
+          40.74734825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "496",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "E 16 St & 5 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99238967,
+          40.73726186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "497",
+        "totalDocks": "59",
+        "statusValue": "In Service",
+        "stAddress1": "E 17 St & Broadway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99009296,
+          40.73704984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "500",
+        "totalDocks": "52",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 51 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98336183,
+          40.76228826
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "501",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "FDR Drive & E 35 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97121214,
+          40.744219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "502",
+        "totalDocks": "30",
+        "statusValue": "In Service",
+        "stAddress1": "Henry St & Grand St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981346,
+          40.714215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "504",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "1 Ave & E 15 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98165557,
+          40.73221853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "505",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "6 Ave & W 33 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98848395,
+          40.74901271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "507",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "E 25 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97973776,
+          40.73912601
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "508",
+        "totalDocks": "24",
+        "statusValue": "Not In Service",
+        "stAddress1": "W 46 St & 11 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99667444,
+          40.76341379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "509",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "9 Ave & W 22 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00197139,
+          40.7454973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "511",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "E 14 St & Avenue B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97772429,
+          40.72938685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "512",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "W 29 St & 9 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99839279,
+          40.7500727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "516",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "E 47 St & 1 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96784384,
+          40.75206862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "517",
+        "totalDocks": "59",
+        "statusValue": "In Service",
+        "stAddress1": "Pershing Square South"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97791,
+          40.751581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "518",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "E 39 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9734419,
+          40.74780373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "520",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "W 52 St & 5 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97648516,
+          40.75992262
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "521",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "8 Ave & W 31 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.994442075491,
+          40.750967348716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "522",
+        "totalDocks": "51",
+        "statusValue": "In Service",
+        "stAddress1": "E 51 St & Lexington Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97207836,
+          40.75714758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "523",
+        "totalDocks": "51",
+        "statusValue": "In Service",
+        "stAddress1": "W 38 St & 8 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99138152,
+          40.75466591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "524",
+        "totalDocks": "57",
+        "statusValue": "In Service",
+        "stAddress1": "W 43 St & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98316936,
+          40.75527307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "525",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "W 34 St & 11 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0021163,
+          40.75594159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "527",
+        "totalDocks": "59",
+        "statusValue": "In Service",
+        "stAddress1": "E 33 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.976056,
+          40.744023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "528",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "2 Ave & E 31 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97706058,
+          40.74290902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "529",
+        "totalDocks": "41",
+        "statusValue": "In Service",
+        "stAddress1": "W 42 St & 8 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99098507,
+          40.7575699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "530",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "11 Ave & W 59 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990541,
+          40.771522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "531",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Forsyth St & Broome St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99266288,
+          40.71893904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "532",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "S 5 Pl & S 4 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.960876,
+          40.710451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "533",
+        "totalDocks": "50",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 39 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98721619,
+          40.75299641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "534",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Water - Whitehall Plaza"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0127234,
+          40.70255065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "536",
+        "totalDocks": "29",
+        "statusValue": "In Service",
+        "stAddress1": "1 Ave & E 30 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97536082,
+          40.74144387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "537",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Lexington Ave & E 24 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98409214,
+          40.74025878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "538",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "E 48 St & Madison Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.976684,
+          40.75666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "539",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Metropolitan Ave & Bedford Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96024116,
+          40.71534825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "545",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "E 23 St & 1 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97809472,
+          40.736502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "546",
+        "totalDocks": "38",
+        "statusValue": "In Service",
+        "stAddress1": "E 30 St & Park Ave S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98303529,
+          40.74444921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2000",
+        "totalDocks": "30",
+        "statusValue": "In Service",
+        "stAddress1": "Front St & Washington St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98940236,
+          40.70255088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2001",
+        "totalDocks": "15",
+        "statusValue": "In Service",
+        "stAddress1": "Sands St & Navy St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.979927,
+          40.699773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2002",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Wythe Ave & Metropolitan Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.963198,
+          40.716887
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2003",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "1 Ave & E 18 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98054420948,
+          40.733812191966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2004",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "6 Ave & Broome St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.004704,
+          40.724399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2006",
+        "totalDocks": "49",
+        "statusValue": "In Service",
+        "stAddress1": "Central Park S & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97634151,
+          40.76590936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2008",
+        "totalDocks": "24",
+        "statusValue": "In Service",
+        "stAddress1": "Little West St & 1 Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01677685,
+          40.70569254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2009",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "Catherine St & Monroe St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99682619,
+          40.71117444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2010",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Grand St & Greene St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00234737,
+          40.72165481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2012",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "E 27 St & 1 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.976806,
+          40.739445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2017",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "E 43 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97121414,
+          40.75022392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2021",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "W 45 St & 8 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98859651,
+          40.75929124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2022",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "E 59 St & Sutton Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95920622,
+          40.75849116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2023",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "E 55 St & Lexington Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97031366,
+          40.75968085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "3002",
+        "totalDocks": "25",
+        "statusValue": "In Service",
+        "stAddress1": "South End Ave & Liberty St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.015756,
+          40.711512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "72",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "W 52 St & 11 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99392888,
+          40.76727216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "72",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "W 52 St & 11 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99392888,
+          40.76727216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "79",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "Franklin St & W Broadway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00666661,
+          40.71911552
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "83",
+        "totalDocks": "62",
+        "statusValue": "In Service",
+        "stAddress1": "Atlantic Ave & Fort Greene Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97632328,
+          40.68382604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "116",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "W 17 St & 8 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00149746,
+          40.74177603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "119",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Park Ave & St Edwards St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97803415,
+          40.69608941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "120",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Lexington Ave & Classon Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95928168,
+          40.68676793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "128",
+        "totalDocks": "30",
+        "statusValue": "In Service",
+        "stAddress1": "MacDougal St & Prince St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00297088,
+          40.72710258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "137",
+        "totalDocks": "46",
+        "statusValue": "In Service",
+        "stAddress1": "E 56 St & Madison Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.972924,
+          40.761628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "143",
+        "totalDocks": "24",
+        "statusValue": "In Service",
+        "stAddress1": "Clinton St & Joralemon St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99337909,
+          40.69239502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "144",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Nassau St & Navy St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98068914,
+          40.69839895
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "146",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Hudson St & Reade St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0091059,
+          40.71625008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "147",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "Greenwich St & Warren St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01121978,
+          40.71542197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "150",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "E 2 St & Avenue C"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98085795,
+          40.7208736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "151",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "Cleveland Pl & Spring St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99720307,
+          40.7218158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "152",
+        "totalDocks": "29",
+        "statusValue": "In Service",
+        "stAddress1": "Warren St & Church St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00910627,
+          40.71473993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "153",
+        "totalDocks": "55",
+        "statusValue": "In Service",
+        "stAddress1": "E 40 St & 5 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9816324043,
+          40.752062307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "157",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Henry St & Atlantic Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99612349,
+          40.69089272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "160",
+        "totalDocks": "26",
+        "statusValue": "In Service",
+        "stAddress1": "E 37 St & Lexington Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.978311,
+          40.748238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "161",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "LaGuardia Pl & W 3 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99810231,
+          40.72917025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "164",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "E 47 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97032517,
+          40.75323098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "167",
+        "totalDocks": "45",
+        "statusValue": "In Service",
+        "stAddress1": "E 39 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97604882,
+          40.7489006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "168",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "W 18 St & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99456405,
+          40.73971301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "173",
+        "totalDocks": "51",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 49 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98442659,
+          40.76064679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "174",
+        "totalDocks": "30",
+        "statusValue": "In Service",
+        "stAddress1": "E 25 St & 1 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97738662,
+          40.7381765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "195",
+        "totalDocks": "45",
+        "statusValue": "In Service",
+        "stAddress1": "Liberty St & Broadway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01043382,
+          40.70905623
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "212",
+        "totalDocks": "3",
+        "statusValue": "Not In Service",
+        "stAddress1": "W 16 St & The High Line"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00681753,
+          40.74334935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "216",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Columbia Heights & Cranberry St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99548059,
+          40.70037867
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "217",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Old Fulton St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99383605,
+          40.70277159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "218",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Gallatin Pl & Livingston St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98707105,
+          40.69028437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "223",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "W 13 St & 7 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99994661,
+          40.73781509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "224",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Spruce St & Nassau St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00552427,
+          40.71146364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "225",
+        "totalDocks": "37",
+        "statusValue": "In Service",
+        "stAddress1": "W 14 St & The High Line"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00803013,
+          40.74195138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "228",
+        "totalDocks": "55",
+        "statusValue": "In Service",
+        "stAddress1": "E 48 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.971878855,
+          40.7546011026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "229",
+        "totalDocks": "18",
+        "statusValue": "Not In Service",
+        "stAddress1": "Great Jones St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99379025,
+          40.72743423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "232",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Cadman Plaza E & Tillary St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99014892,
+          40.69597683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "233",
+        "totalDocks": "38",
+        "statusValue": "In Service",
+        "stAddress1": "Cadman Plaza W & Pierrepont St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990527391434,
+          40.694757013639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "236",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "St Marks Pl & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98713956,
+          40.7284186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "239",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Willoughby St & Fleet St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9813018,
+          40.69196566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "241",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "DeKalb Ave & S Portland Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97493121,
+          40.68981035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "243",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Fulton St & Rockwell Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.979382,
+          40.688226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "244",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Willoughby Ave & Hall St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96536851,
+          40.69196035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "245",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Myrtle Ave & St Edwards St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97703874,
+          40.69327018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "248",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Laight St & Hudson St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00771779,
+          40.72185379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "249",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Harrison St & Hudson St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0090009,
+          40.71870987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "251",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Mott St & Prince St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99480012,
+          40.72317958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "252",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "MacDougal St & Washington Sq"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99852205,
+          40.73226398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "254",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "W 11 St & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99800419,
+          40.73532427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "257",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Lispenard St & Broadway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00247214,
+          40.71939226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "258",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "DeKalb Ave & Vanderbilt Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96885458,
+          40.68940747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "259",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "South St & Whitehall St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01234218,
+          40.70122128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "260",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "Broad St & Bridge St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01167797,
+          40.70365182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "261",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Johnson St & Gold St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98362464,
+          40.69474881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "262",
+        "totalDocks": "24",
+        "statusValue": "In Service",
+        "stAddress1": "Washington Park"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9737299,
+          40.6917823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "263",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Elizabeth St & Hester St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.996375,
+          40.71729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "264",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Maiden Ln & Pearl St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00731853,
+          40.70706456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "265",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "Stanton St & Chrystie St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99147535,
+          40.72229346
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "266",
+        "totalDocks": "24",
+        "statusValue": "In Service",
+        "stAddress1": "Avenue D & E 8 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97574813,
+          40.72368361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "267",
+        "totalDocks": "57",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 36 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98765428,
+          40.75097711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "268",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Howard St & Centre St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99973337,
+          40.71910537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "270",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Adelphi St & Myrtle Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97178913,
+          40.69308257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "271",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Ashland Pl & Hanson Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97805813,
+          40.68528172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "274",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Lafayette Ave & Fort Greene Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.976682,
+          40.68691865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "275",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Washington Ave & Greene Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96563307,
+          40.68650065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "276",
+        "totalDocks": "25",
+        "statusValue": "In Service",
+        "stAddress1": "Duane St & Greenwich St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0104554,
+          40.71748752
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "278",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Concord St & Bridge St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98476437,
+          40.69766564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "279",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "Peck Slip & Front St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00167,
+          40.707873
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "280",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "E 10 St & 5 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99510132,
+          40.73331967
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "281",
+        "totalDocks": "59",
+        "statusValue": "In Service",
+        "stAddress1": "Grand Army Plaza & Central Park S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97371465,
+          40.7643971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "282",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Kent Ave & S 11 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96834101,
+          40.70827295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "284",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "Greenwich Ave & 8 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0026376103,
+          40.7390169121
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "285",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & E 14 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99074142,
+          40.73454567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "289",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Monroe St & Classon Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95881081,
+          40.6845683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "290",
+        "totalDocks": "29",
+        "statusValue": "In Service",
+        "stAddress1": "2 Ave & E 58 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96478473,
+          40.76020258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "291",
+        "totalDocks": "20",
+        "statusValue": "In Service",
+        "stAddress1": "Madison St & Montgomery St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984844,
+          40.713126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "294",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Washington Square E"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9957214,
+          40.73049393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "295",
+        "totalDocks": "24",
+        "statusValue": "In Service",
+        "stAddress1": "Pike St & E Broadway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99293911,
+          40.71406667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "296",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "Division St & Bowery"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9970468,
+          40.71413089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "297",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "E 15 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.986923,
+          40.734232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "298",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "3 Ave & Schermerhorn St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9796772,
+          40.68683208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "300",
+        "totalDocks": "55",
+        "statusValue": "In Service",
+        "stAddress1": "Shevchenko Pl & E 7 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990214,
+          40.728145
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "301",
+        "totalDocks": "37",
+        "statusValue": "In Service",
+        "stAddress1": "E 2 St & Avenue B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98368779,
+          40.72217444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "302",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Avenue D & E 3 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97793172,
+          40.72082834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "303",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Mercer St & Spring St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99949601,
+          40.72362738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "304",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & Battery Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01361706,
+          40.70463334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "307",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Canal St & Rutgers St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98990025,
+          40.71427487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "308",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "St James Pl & Oliver St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99851193,
+          40.71307916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "309",
+        "totalDocks": "41",
+        "statusValue": "In Service",
+        "stAddress1": "Murray St & West St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.013012,
+          40.7149787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "311",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Norfolk St & Broome St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98802084,
+          40.7172274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "312",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Allen St & E Houston St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.989111,
+          40.722055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "313",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Washington Ave & Park Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96751037,
+          40.69610226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "314",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Cadman Plaza West & Montague St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.990539,
+          40.69383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "315",
+        "totalDocks": "29",
+        "statusValue": "In Service",
+        "stAddress1": "South St & Gouverneur Ln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00670227,
+          40.70355377
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "316",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "Fulton St & William St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00653609,
+          40.70955958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "317",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "E 6 St & Avenue B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98185424,
+          40.72453734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "318",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "E 43 St & Vanderbilt Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9779874,
+          40.75320159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "320",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Leonard St & Church St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.005549,
+          40.717571
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "321",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Cadman Plaza E & Red Cross Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98971773,
+          40.69991755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "322",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Clinton St & Tillary St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.991218,
+          40.696192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "323",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Lawrence St & Willoughby St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98631746,
+          40.69236178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "324",
+        "totalDocks": "51",
+        "statusValue": "In Service",
+        "stAddress1": "DeKalb Ave & Hudson Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.981013,
+          40.689888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "325",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "E 19 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98473765,
+          40.73624527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "326",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "E 11 St & 1 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98426726,
+          40.72953837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "327",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Vesey Pl & River Terrace"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01658354,
+          40.7153379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "328",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Watts St & Greenwich St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00965965,
+          40.72405549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "329",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Greenwich St & N Moore St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01020609,
+          40.72043411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "330",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Reade St & Broadway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00562789,
+          40.71450451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "331",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Pike St & Monroe St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99193043,
+          40.71173107
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "332",
+        "totalDocks": "24",
+        "statusValue": "In Service",
+        "stAddress1": "Cherry St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97948148,
+          40.71219906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "336",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "Sullivan St & Washington Sq"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99906065,
+          40.73047747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "337",
+        "totalDocks": "37",
+        "statusValue": "In Service",
+        "stAddress1": "Old Slip & Front St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00838676,
+          40.7037992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "339",
+        "totalDocks": "24",
+        "statusValue": "In Service",
+        "stAddress1": "Avenue D & E 12 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97422494,
+          40.72580614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "340",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Madison St & Clinton St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98776323,
+          40.71269042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "341",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Stanton St & Mangin St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97628939,
+          40.71782143
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "342",
+        "totalDocks": "29",
+        "statusValue": "In Service",
+        "stAddress1": "Columbia St & Rivington St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98016555,
+          40.71739973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "343",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Clinton Ave & Flushing Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96986848,
+          40.69794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "344",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Monroe St & Bedford Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95380904,
+          40.6851443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "345",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "W 13 St & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99704374,
+          40.73649403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "346",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Bank St & Hudson St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00618026,
+          40.73652889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "347",
+        "totalDocks": "35",
+        "statusValue": "Not In Service",
+        "stAddress1": "W Houston St & Hudson St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00748842,
+          40.72873888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "348",
+        "totalDocks": "42",
+        "statusValue": "In Service",
+        "stAddress1": "W Broadway & Spring St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00154702,
+          40.72490985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "349",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Rivington St & Ridge St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98329859,
+          40.71850211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "350",
+        "totalDocks": "28",
+        "statusValue": "In Service",
+        "stAddress1": "Clinton St & Grand St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9870295,
+          40.71559509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "351",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Front St & Maiden Ln"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00612572,
+          40.70530954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "352",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "W 56 St & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97722479,
+          40.76340613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "353",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "S Portland Ave & Hanson Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97431458,
+          40.68539567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "354",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Emerson Pl & Myrtle Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96223558,
+          40.69363137
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "355",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "Bayard St & Baxter St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99974372,
+          40.71602118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "356",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Bialystoker Pl & Delancey St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98261206,
+          40.71622644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "357",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "E 11 St & Broadway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99158043,
+          40.73261787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "358",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "Christopher St & Greenwich St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00711384,
+          40.73291553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "359",
+        "totalDocks": "55",
+        "statusValue": "In Service",
+        "stAddress1": "E 47 St & Park Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97498696,
+          40.75510267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "360",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "William St & Pine St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00887308,
+          40.70717936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "361",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "Allen St & Hester St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99190759,
+          40.71605866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "362",
+        "totalDocks": "57",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 37 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98753523,
+          40.75172632
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "363",
+        "totalDocks": "49",
+        "statusValue": "In Service",
+        "stAddress1": "West Thames St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01713445,
+          40.70834698
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "364",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Lafayette Ave & Classon Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96023854,
+          40.68900443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "365",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Fulton St & Grand Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9614583,
+          40.68223166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "366",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "Clinton Ave & Myrtle Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.968896,
+          40.693261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "367",
+        "totalDocks": "34",
+        "statusValue": "In Service",
+        "stAddress1": "E 53 St & Lexington Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97069431,
+          40.75828065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "368",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Carmine St & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00214988,
+          40.73038599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "369",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "Washington Pl & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00026394,
+          40.73224119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "372",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Franklin Ave & Myrtle Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.958089,
+          40.694528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "373",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Willoughby Ave & Walworth St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95381995,
+          40.69331716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "375",
+        "totalDocks": "30",
+        "statusValue": "In Service",
+        "stAddress1": "Mercer St & Bleecker St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99695094,
+          40.72679454
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "376",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "John St & William St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00722156,
+          40.70862144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "377",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "6 Ave & Canal St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00566443,
+          40.72243797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "379",
+        "totalDocks": "42",
+        "statusValue": "In Service",
+        "stAddress1": "W 31 St & 7 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9916,
+          40.749156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "380",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "W 4 St & 7 Ave S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00293877,
+          40.73401143
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "382",
+        "totalDocks": "36",
+        "statusValue": "In Service",
+        "stAddress1": "University Pl & E 14 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99200509,
+          40.73492695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "383",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Greenwich Ave & Charles St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.000271,
+          40.735238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "385",
+        "totalDocks": "29",
+        "statusValue": "In Service",
+        "stAddress1": "E 55 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96603308,
+          40.75797322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "386",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "Centre St & Worth St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00234482,
+          40.71494807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "387",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Centre St & Chambers St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0046073,
+          40.71273266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "388",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "W 26 St & 10 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.002950346,
+          40.749717753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "389",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & Berry St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96525063,
+          40.71044554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "390",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Duffield St & Willoughby St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9842844,
+          40.69221589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "391",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Clark St & Henry St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99344559,
+          40.69760127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "392",
+        "totalDocks": "32",
+        "statusValue": "In Service",
+        "stAddress1": "Jay St & Tech Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.987167,
+          40.695065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "393",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "E 5 St & Avenue C"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97995466,
+          40.72299208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "394",
+        "totalDocks": "32",
+        "statusValue": "In Service",
+        "stAddress1": "E 9 St & Avenue C"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97768752,
+          40.72521311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "395",
+        "totalDocks": "30",
+        "statusValue": "In Service",
+        "stAddress1": "Bond St & Schermerhorn St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98410637,
+          40.68807003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "397",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Fulton St & Clermont Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96922273,
+          40.68415748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "398",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Atlantic Ave & Furman St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9999786,
+          40.69165183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "399",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "Lafayette Ave & St James Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9647628,
+          40.68851534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "400",
+        "totalDocks": "15",
+        "statusValue": "In Service",
+        "stAddress1": "Pitt St & Stanton St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98178024,
+          40.71926081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "401",
+        "totalDocks": "42",
+        "statusValue": "In Service",
+        "stAddress1": "Allen St & Rivington St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98997825,
+          40.72019576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "402",
+        "totalDocks": "42",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & E 22 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98955109,
+          40.7403432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "403",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "E 2 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99069656,
+          40.72502876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "404",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "9 Ave & W 14 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00550867,
+          40.7405826
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "405",
+        "totalDocks": "40",
+        "statusValue": "In Service",
+        "stAddress1": "Washington St & Gansevoort St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.008119,
+          40.739323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "406",
+        "totalDocks": "34",
+        "statusValue": "In Service",
+        "stAddress1": "Hicks St & Montague St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99595065,
+          40.69512845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "407",
+        "totalDocks": "43",
+        "statusValue": "In Service",
+        "stAddress1": "Henry St & Poplar St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.991454,
+          40.700469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "408",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Market St & Cherry St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99400398,
+          40.71076228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "409",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "DeKalb Ave & Skillman St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95643107,
+          40.6906495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "410",
+        "totalDocks": "35",
+        "statusValue": "In Service",
+        "stAddress1": "Suffolk St & Stanton St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98517977,
+          40.72066442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "411",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "E 6 St & Avenue D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97668709,
+          40.72228087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "412",
+        "totalDocks": "29",
+        "statusValue": "In Service",
+        "stAddress1": "Forsyth St & Canal St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99422366,
+          40.7158155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "414",
+        "totalDocks": "24",
+        "statusValue": "In Service",
+        "stAddress1": "Pearl St & Anchorage Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98765762,
+          40.70281858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "415",
+        "totalDocks": "42",
+        "statusValue": "In Service",
+        "stAddress1": "Pearl St & Hanover Square"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00926027,
+          40.7047177
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "416",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Cumberland St & Lafayette Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97265183,
+          40.68753406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "417",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Barclay St & Church St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01020234,
+          40.71291224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "418",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Front St & Gold St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.982578,
+          40.70224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "419",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Carlton Ave & Park Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97355569,
+          40.69580705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "420",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Clermont Ave & Lafayette Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96968902,
+          40.68764484
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "421",
+        "totalDocks": "19",
+        "statusValue": "In Service",
+        "stAddress1": "Clermont Ave & Park Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97129668,
+          40.69573398
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "422",
+        "totalDocks": "55",
+        "statusValue": "In Service",
+        "stAddress1": "W 59 St & 10 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988038,
+          40.770513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "423",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "W 54 St & 9 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98690506,
+          40.76584941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "426",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "West St & Chambers St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01322069,
+          40.71754834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "427",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "Bus Slip & State St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.013942,
+          40.701907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "430",
+        "totalDocks": "27",
+        "statusValue": "In Service",
+        "stAddress1": "York St & Jay St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98656928,
+          40.7014851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "431",
+        "totalDocks": "30",
+        "statusValue": "In Service",
+        "stAddress1": "Hanover Pl & Livingston St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98263429,
+          40.68864636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "432",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "E 7 St & Avenue A"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98379855,
+          40.72621788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "433",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "E 13 St & Avenue A"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98057249,
+          40.72955361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "439",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "E 4 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98978041,
+          40.7262807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "440",
+        "totalDocks": "32",
+        "statusValue": "In Service",
+        "stAddress1": "E 45 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97282625,
+          40.75255434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "167",
+        "totalDocks": "45",
+        "statusValue": "In Service",
+        "stAddress1": "E 39 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97604882,
+          40.7489006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "168",
+        "totalDocks": "47",
+        "statusValue": "In Service",
+        "stAddress1": "W 18 St & 6 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99456405,
+          40.73971301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "173",
+        "totalDocks": "51",
+        "statusValue": "In Service",
+        "stAddress1": "Broadway & W 49 St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98442659,
+          40.76064679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "174",
+        "totalDocks": "30",
+        "statusValue": "In Service",
+        "stAddress1": "E 25 St & 1 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97738662,
+          40.7381765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "195",
+        "totalDocks": "45",
+        "statusValue": "In Service",
+        "stAddress1": "Liberty St & Broadway"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01043382,
+          40.70905623
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "212",
+        "totalDocks": "3",
+        "statusValue": "Not In Service",
+        "stAddress1": "W 16 St & The High Line"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00681753,
+          40.74334935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "216",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Columbia Heights & Cranberry St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99548059,
+          40.70037867
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "218",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "Gallatin Pl & Livingston St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98707105,
+          40.69028437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "223",
+        "totalDocks": "33",
+        "statusValue": "In Service",
+        "stAddress1": "W 13 St & 7 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99994661,
+          40.73781509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "224",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Spruce St & Nassau St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00552427,
+          40.71146364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "228",
+        "totalDocks": "55",
+        "statusValue": "In Service",
+        "stAddress1": "E 48 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.971878855,
+          40.7546011026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "237",
+        "totalDocks": "39",
+        "statusValue": "In Service",
+        "stAddress1": "E 11 St & 2 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98672378,
+          40.73047309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "242",
+        "totalDocks": "23",
+        "statusValue": "In Service",
+        "stAddress1": "Flushing Ave & Carlton Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.97350332,
+          40.69788349
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "243",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Fulton St & Rockwell Pl"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.979382,
+          40.688226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "244",
+        "totalDocks": "31",
+        "statusValue": "In Service",
+        "stAddress1": "Willoughby Ave & Hall St"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96536851,
+          40.69196035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "228",
+        "totalDocks": "55",
+        "statusValue": "In Service",
+        "stAddress1": "E 48 St & 3 Ave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.971878855,
+          40.7546011026
+        ]
+      }
+    }
+  ]
+}

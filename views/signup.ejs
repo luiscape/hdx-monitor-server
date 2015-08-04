@@ -1,0 +1,59 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Raleway:400,200">
+    <script src="js/vendor/helpers/modernizr.js"></script>
+    <style>
+        body { background-color: #fff; }
+    </style>
+</head>
+<body>
+
+<!-- New form -->
+<!-- <div class="top-bar"></div> -->
+<div class="container">
+<div class="cd-form">
+<div class="col-md-12">
+        <div class="col-md-4">
+            <img src="img/rolltime_logo.svg">
+        </div>
+        <div class="col-md-8">
+        <form class="cd-form floating-labels" action="/signup" method="post" novalidate>
+            <fieldset>
+                <% if (message.length > 0) { %>
+                    <div class="error-message"><%= message %></div>
+                <% } %>
+                <div class="icon">
+                    <label class="cd-label" for="cd-email">Email</label>
+                    <input class="email" type="email" name="email" id="cd-email" required>
+                </div>
+                <div class="icon">
+                    <label class="cd-label" for="cd-password">Password</label>
+                    <input class="password" type="password" name="password" id="cd-password" required>
+                </div>
+
+                <div>
+                    <input type="submit" value="Signup">
+                </div>
+            </fieldset>
+        </form>
+        </div>
+    </div>
+    </div>
+        <div class="cd-form signup-footer">
+            <p>Already have an account? <a href="/login">Login</a></p>
+            <p>Or go <a href="/">home</a>.</p>
+            <hr>
+        </div>
+</div>
+
+</body>
+
+<script src="js/vendor/jquery/jquery-2.1.4.js"></script>
+<script src="js/formvalidation.js"></script>
+</html>
