@@ -22,10 +22,11 @@
     <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
     <script src="js/modernizr.js"></script> <!-- Modernizr -->
     
-    <title>3D Rotating Navigation | CodyHouse</title>
+    <title>HDX Monitor</title>
 </head>
 <body>
     <header class="cd-header">
+        <a href="#0" class="cd-logo"><img src="img/cd-logo.svg" alt="Logo"></a>
         <a href="#0" class="cd-3d-nav-trigger">
             Menu
             <span></span>
@@ -34,26 +35,13 @@
     
     <main>
 
-        <h1>Crete a DataStore</h1>
-
-        <div class="login-form">
-          <div class="form-group">
-            <input type="text" class="form-control login-field" value="" placeholder="HDX Resource ID" id="resourceid">
-              <label class="login-field-icon fui-info-circle" for="login-name"></label>
-              <br>
-              <button onclick="CallAPICreateDatastore(document.getElementById('resourceid').value)" class="btn btn-primary btn-lg btn-block" id="createDataStoreButton">Create DataStore</button>
-            </div>
-            <a class="login-link" href="https://github.com/luiscape/hdx-monitor">Source code.</a>
-
-          <div id="datastore-status-box"></div>
-        </div>
-
+        <h1>DataTeam Monitor</h1>
 
     </main>
     
     <nav class="cd-3d-nav-container">
         <ul class="cd-3d-nav">
-            <li>
+            <li class="cd-selected">
                 <a href="/">Dashboard</a>
             </li>
 
@@ -65,8 +53,8 @@
                 <a href="#0">Organizations</a>
             </li>
 
-            <li class="cd-selected">
-                <a href="#0">DataStores</a>
+            <li>
+                <a href="/datastore">DataStores</a>
             </li>
 
             <li>
