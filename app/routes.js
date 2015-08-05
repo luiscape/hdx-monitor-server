@@ -1,7 +1,7 @@
 module.exports = function(app, passport) {
 
   // show the home page (will also have our login links)
-  app.get('/', function(req, res) {
+  app.get('/', isLoggedOut, function(req, res) {
     res.render('index.ejs')
   })
 
@@ -18,6 +18,14 @@ module.exports = function(app, passport) {
     res.redirect('/')
   })
 
+  app.get('/dashboard', isLoggedIn, function(req, res) {
+    res.render('dashboard.ejs')
+  })
+
+  app.get('/datastore', isLoggedIn, function(req, res) {
+    res.render('datastore.ejs')
+  })
+
   // =============================================================================
   // AUTHENTICATE (FIRST LOGIN) ==================================================
   // =============================================================================
@@ -27,14 +35,6 @@ module.exports = function(app, passport) {
   // show the login form
   app.get('/login', isLoggedOut, function(req, res) {
     res.render('login.ejs', { message: req.flash('loginMessage') })
-  })
-
-  app.get('/dashboard', isLoggedOut, function(req, res) {
-    res.render('dashboard.ejs')
-  })
-
-  app.get('/datastore', isLoggedOut, function(req, res) {
-    res.render('datastore.ejs')
   })
 
   // process the login form
@@ -74,6 +74,14 @@ module.exports = function(app, passport) {
    })
   )
 
+  //
+  // Any other routes redirect
+  // to /datastore.
+  //
+  app.use(function (req, res, next) {
+    res.status(404).redirect('/')
+  })
+
 }
 
 // route middleware to ensure user is logged in
@@ -91,5 +99,5 @@ function isLoggedOut (req, res, next) {
     return next()
   }
 
-  res.redirect('/')
+  res.redirect('/dashboard')
 }
