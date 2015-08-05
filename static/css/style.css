@@ -14,10 +14,40 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
-  background-color: #485274; }
+  background-color: #ecf0f1; }
 
 a {
   text-decoration: none; }
+
+/* -------------------------------- 
+
+Title styles 
+
+-------------------------------- */
+
+.title-container {
+  border: 3px solid #2B3145 ;
+  margin-top: 25%;
+  margin-right: 30%;
+  margin-left: 30%;
+  padding-top: 1%;
+  padding-bottom: 3%;
+}
+
+.title {
+  font-family: 'Raleway';
+  font-weight: 700;
+  text-align: center;
+  font-size: 45px;
+  letter-spacing: 10px;
+  margin-bottom: 0px !important;
+  color: #2B3145;
+}
+
+.login-logo {
+  max-width: 150px;
+  padding-top: 30%;
+}
 
 /* -------------------------------- 
 
@@ -79,7 +109,7 @@ Main Components
     position: absolute;
     width: 28px;
     height: 3px;
-    background-color: #FFF;
+    background-color: #2d3347;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
   .cd-3d-nav-trigger span {
@@ -105,7 +135,7 @@ Main Components
     background-color: rgba(255, 255, 255, 0); }
     .nav-is-visible .cd-3d-nav-trigger span::before, .nav-is-visible .cd-3d-nav-trigger span::after {
       /* keep visible other 2 lines */
-      background-color: white; }
+      background-color: rgb(43, 49, 69); }
     .nav-is-visible .cd-3d-nav-trigger span::before {
       -webkit-transform: translateY(8px) rotate(-45deg);
       -moz-transform: translateY(8px) rotate(-45deg);
@@ -354,7 +384,7 @@ main {
     text-align: center;
     font-size: 2.4rem;
     font-weight: 300;
-    color: #ffffff;
+    color: #2B3145;
     margin: 2em auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
@@ -402,6 +432,7 @@ Form
 -------------------------------- */
 .signup-footer {
   padding-left: 3em;
+  font-size: 13px;
 }
 .cd-form {
   width: 90%;
