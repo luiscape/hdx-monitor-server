@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/flat-ui.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/vendor/nprogress.js"></script> -->
 
     <!-- FlatUI -->
     <!-- <script src="js/vendor/jquery.min.js"></script> -->
@@ -34,13 +35,14 @@
         <h1>Create a DataStore</h1>
 
         <div class="login-form">
-          <div class="form-group">
-            <input type="text" class="form-control login-field" value="" placeholder="HDX Resource ID" id="resourceid">
+          <form class="form-group" action="/datastore" method="post">
+            <input type="text" class="form-control login-field" value="" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
               <label class="login-field-icon fui-info-circle" for="login-name"></label>
               <br>
-              <button onclick="CallAPICreateDatastore(document.getElementById('resourceid').value)" class="btn btn-primary btn-lg btn-block" id="createDataStoreButton">Create DataStore</button>
-            </div>
-            <a class="login-link" href="https://github.com/luiscape/hdx-monitor">Source code.</a>
+              <button type="submit" class="btn btn-primary btn-lg btn-block" id="create-datastore-button">Create DataStore</button>
+          </form>
+
+          <a class="login-link" href="https://github.com/luiscape/hdx-monitor">Source code.</a>
 
           <div id="datastore-status-box"></div>
         </div>
@@ -81,7 +83,5 @@
 
 </body>
 </html>
-
-
 
 
