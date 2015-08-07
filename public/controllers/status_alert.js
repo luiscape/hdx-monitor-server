@@ -1,36 +1,31 @@
 //
-// Controllers for the Monitor Application.
+// Service status.
 //
-angular.module('Monitor', [])
+app.controller('StatusAlertController', ['$http', '$window', function ($http, $window) {
 
-  //
-  // Service status.
-  //
-  .controller('StatusAlertController', ['$http', '$window', function ($http, $window) {
-
-    self.check = function (service) {
-      var service_url = '/api/' + service
-      $http.get(service_url + '/status')
-        .then(
-          function (response) {
-            if (response.data.online) {
-              displayAlert(0, '  ONLINE')
-            } else {
-              displayAlert(2, '  OFFLINE')
-            }
-          },
-          function (response) {
+  self.check = function (service) {
+    var service_url = '/api/' + service
+    $http.get(service_url + '/status')
+      .then(
+        function (response) {
+          if (response.data.online) {
+            displayAlert(0, '  ONLINE')
+          } else {
             displayAlert(2, '  OFFLINE')
           }
-      )
-    }
+        },
+        function (response) {
+          displayAlert(2, '  OFFLINE')
+        }
+    )
+  }
 
-    //
-    // Runs on load.
-    //
-    self.check($window.service)
+  //
+  // Runs on load.
+  //
+  self.check($window.service)
 
-  }])
+}])
 
 
 //
@@ -72,7 +67,3 @@ function displayAlert (alertType, alertMessage) {
   var doc = document.getElementById('status-alert')
   doc.innerHTML = alertContainer
 }
-
-//
-//
-//
