@@ -1,4 +1,46 @@
 //
+// Controllers for the Monitor Application.
+//
+angular.module('Monitor', [])
+
+  //
+  // Service status.
+  //
+  .controller('StatusAlertController', ['$http', function ($http) {
+    self.check = function () {
+      var service_url = '/api/datastore'
+      $http.get(service_url + '/status')
+        .then(
+          function (response) {
+            if (response.data.online) {
+              displayAlert(0, '  ONLINE')
+            } else {
+              displayAlert(2, '  OFFLINE')
+            }
+          },
+          function (response) {
+            displayAlert(2, '  OFFLINE')
+          }
+      )
+    }
+
+    //
+    // Runs on load.
+    //
+    self.check()
+  }])
+
+  //
+  // DataStore interaction.
+  //
+  .controller('DataStoreController', ['$http', function ($http) {
+    var self = this
+    self.submit = function () {
+      console.log('Form submitted: ' + this.resourceid)
+    }
+  }])
+
+//
 // Displays the status of a
 // service on the service's
 // respective page.
@@ -39,43 +81,5 @@ function displayAlert (alertType, alertMessage) {
 }
 
 //
-// Controlllers for the DataStore.
 //
-angular.module('Monitor', [])
-  .controller('StatusAlertController', ['$http', function ($http) {
-    self.check = function () {
-      var service_url = '/api/datastore'
-      $http.get(service_url + '/status')
-        .then(
-          function (response) {
-            if (response.data.online) {
-              displayAlert(0, '  ONLINE')
-            } else {
-              displayAlert(2, '  OFFLINE')
-            }
-          },
-          function (response) {
-            displayAlert(2, '  OFFLINE')
-          }
-      )
-    }
-
-    //
-    // Runs on load.
-    //
-    self.check()
-  }])
-  // angular.module('Monitor, [])
-  // .controller('DataStoreController', ['$http', function ($http) {
-  //   self.submit = function () {
-  //     $http.get('/api/datastore')
-  //       .then(
-  //         function (response) {
-  //           displayAlert(0, '  ONLINE')
-  //         },
-  //         function (response) {
-  //           displayAlert(2, '  OFFLINE')
-  //         }
-  //     )
-  //   }
-  // }])
+//

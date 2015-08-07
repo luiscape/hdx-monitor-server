@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" ng-app="Monitor">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +8,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/flat-ui.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <script src="js/vendor/nprogress.js"></script> -->
-
-    <!-- FlatUI -->
-    <!-- <script src="js/vendor/jquery.min.js"></script> -->
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
@@ -25,8 +20,8 @@
 <body>
     <header class="cd-header">
     <!-- pulsing signal -->
-    <div class="service-status-container">
-        <a class="status-icon" href="#" id='statusAlert'></a>
+    <div class="service-status-container" ng-controller="StatusAlertController as status">
+        <a class="status-icon" href="#" ng-init="status.check()" id='status-alert'></a>
         <div class="alert-container" id="alert-container"></div>
     </div>
         <a href="#0" class="cd-3d-nav-trigger">
@@ -39,12 +34,12 @@
 
         <h1>Create a DataStore</h1>
 
-        <div class="login-form">
-          <form class="form-group" action="/datastore" method="post">
-            <input type="text" class="form-control login-field" value="" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
-              <label class="login-field-icon fui-info-circle" for="login-name"></label>
-              <br>
-              <button type="submit" class="btn btn-primary btn-lg btn-block" id="create-datastore-button">Create DataStore</button>
+        <div class="login-form" ng-controller="DataStoreController as datastore">
+          <form class="form-group" ng-submit="datastore.submit()">
+            <input type="text" class="form-control login-field" value="" ng-model="datastore.resourceid" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
+            <label class="login-field-icon fui-info-circle" for="login-name"></label>
+            <br>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="create-datastore-button">Create DataStore</button>
           </form>
 
           <a class="login-link" href="https://github.com/luiscape/hdx-monitor">Source code.</a>
@@ -83,10 +78,11 @@
 
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/flat-ui.min.js"></script>
-    <script src="js/main.js"></script> <!-- Resource jQuery -->
+    <script src="js/main.js"></script>
     <script src="js/create-ui.js"></script>
-    <script src="js/service_status.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
 
+    <script src="controllers/status_alert.js"></script>
 </body>
 </html>
 
