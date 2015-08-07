@@ -35,7 +35,7 @@
 
         <h1>Create a DataStore</h1>
 
-        <!-- <div class="login-form" ng-controller="DataStoreController as datastore">
+        <div class="login-form" ng-controller="DataStoreController as datastore">
           <form class="form-group" ng-submit="datastore.submit()">
             <input type="text" class="form-control login-field" value="" ng-model="datastore.resourceid" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
             <label class="login-field-icon fui-info-circle" for="login-name"></label>
@@ -46,7 +46,7 @@
           <a class="login-link" href="https://github.com/luiscape/hdx-monitor-datastore">Source code.</a>
 
           <div id="datastore-status-box"></div>
-        </div> -->
+        </div>
 
 
     </main>
@@ -84,10 +84,13 @@
 
     <!-- angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
+
+    <!-- modules -->
+    <script src="modules/app.js"></script>
     
     <!-- controller -->
     <script src="controllers/status_alert.js"></script>
-    <!-- <script src="controllers/datastore.js"></script> -->
+    <script src="controllers/datastore.js"></script>
 </body>
 </html>
 
