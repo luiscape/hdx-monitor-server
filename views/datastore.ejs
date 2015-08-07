@@ -21,7 +21,8 @@
     <header class="cd-header">
         <!-- service alert -->
         <div class="service-status-container" ng-controller="StatusAlertController as status">
-            <a class="status-icon" href="#" ng-init="status.check()" id='status-alert'></a>
+            <script> var service = 'datastore' </script>
+            <a class="status-icon" href="#" id='status-alert'></a>
             <div class="alert-container" id="alert-container"></div>
         </div>
         <a href="#0" class="cd-3d-nav-trigger">
@@ -34,7 +35,7 @@
 
         <h1>Create a DataStore</h1>
 
-        <div class="login-form" ng-controller="DataStoreController as datastore">
+        <!-- <div class="login-form" ng-controller="DataStoreController as datastore">
           <form class="form-group" ng-submit="datastore.submit()">
             <input type="text" class="form-control login-field" value="" ng-model="datastore.resourceid" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
             <label class="login-field-icon fui-info-circle" for="login-name"></label>
@@ -45,7 +46,7 @@
           <a class="login-link" href="https://github.com/luiscape/hdx-monitor-datastore">Source code.</a>
 
           <div id="datastore-status-box"></div>
-        </div>
+        </div> -->
 
 
     </main>
@@ -80,9 +81,13 @@
     <script src="js/flat-ui.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/create-ui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
 
+    <!-- angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
+    
+    <!-- controller -->
     <script src="controllers/status_alert.js"></script>
+    <!-- <script src="controllers/datastore.js"></script> -->
 </body>
 </html>
 
