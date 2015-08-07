@@ -31,11 +31,19 @@
         </a>
     </header> <!-- .cd-header -->
 
-    <main>
+    <main ng-controller="DataStoreController as datastore">
 
         <h1>Create a DataStore</h1>
 
-        <div class="login-form" ng-controller="DataStoreController as datastore">
+        <div class="datastore-message" style="text-align: center;">
+          <h3 ng-show="datastore.message">
+            <span style="color:#cccccc;" class="fa fa-check" ng-show="datastore.success"></span>
+            <span style="color:#cccccc;" class="fa fa-warning" ng-show="datastore.failure"></span>
+              {{ datastore.message }}
+          </h3>
+        </div>
+
+        <div class="login-form">
           <form class="form-group" ng-submit="datastore.submit()">
             <input type="text" class="form-control login-field" value="" ng-model="datastore.resourceid" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
             <label class="login-field-icon fui-info-circle" for="login-name"></label>
@@ -83,7 +91,10 @@
     <script src="js/create-ui.js"></script>
 
     <!-- angular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+
+    <!-- progress bar -->
+    <script src="ngprogress/ngprogress.js"></script>
 
     <!-- modules -->
     <script src="modules/app.js"></script>
@@ -91,6 +102,7 @@
     <!-- controller -->
     <script src="controllers/status_alert.js"></script>
     <script src="controllers/datastore.js"></script>
+
 </body>
 </html>
 

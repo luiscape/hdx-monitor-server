@@ -2,33 +2,42 @@ module.exports = function (app, passport) {
   var http = require('http')
   var forEachAsync = require('forEachAsync').forEachAsync
 
+  //
+  // Place holder dataset.
+  //
+  var serviceInfo = {
+    'id': '',
+    'method': '',
+    'parameter': ''
+  }
+
   app.get('/', isLoggedOut, function (req, res) {
     res.render('index.ejs')
   })
 
-  app.get('/api', function (req, res) {
-    var payload = {
-      'datastore': { 'status_url': req.protocol + '://' + req.get('host') + '/api/datastore/status' },
-      'funnel_stats': { 'status_url': req.protocol + '://' + req.get('host') + '/api/funnel_stats/status' }
-    }
 
-    forEachAsync(Object.keys(payload), function (next, service_key) {
-      http.get(payload[service_key].status_url, function (response) {
-        response.on('data', function (data) {
-          payload[service_key].status = JSON.parse(data)
-           next()
-        })
-      }).on('error', function (error) {
-        payload[service_key].status = null
-        console.log(error)
-        next()
-      })
-    }).then(function () {
-      res.send(payload)
-    })
+  //
+  // Collect resource id from parameter.
+  // And route to appropriate service.
+  //
+  app.param('api_service', function (req, res, next, value) {
+    serviceInfo.id = value
+    next()
   })
 
+  app.param('service_method', function (req, res, next, value) {
+    serviceInfo.method = value
+    next()
+  })
 
+  app.param('method_parameter', function (req, res, next, value) {
+    serviceInfo.parameter = value
+    next()
+  })
+  
+  //
+  // TODO: refactor to allow for generic route above.
+  //
   app.get('/api/datastore/status', function (req, res) {
     var datastore = 'http://localhost:' + process.env.DATASTORE_PORT + '/status'
     http.get(datastore, function (response) {
@@ -40,7 +49,6 @@ module.exports = function (app, passport) {
       res.send(payload)
     })
   })
-
 
   app.get('/api/funnel_stats/status', function (req, res) {
     var datastore = 'http://localhost:' + process.env.FUNNEL_STATS_PORT + '/status'
@@ -59,6 +67,47 @@ module.exports = function (app, passport) {
       res.send(payload)
     })
   })
+
+  app.get('/api/:api_service/:service_method/:method_parameter', function (req, res) {
+
+    var services = {
+      'datastore': { 'base_url': req.protocol + '://' + 'localhost' + ':' +  process.env.DATASTORE_PORT + '/' },
+      'funnel_stats': { 'base_url': req.protocol + '://' + 'localhost' + ':' + process.env.FUNNEL_PORT + '/' }
+    }
+
+    var query_service = services[serviceInfo.id].base_url + serviceInfo.method + '/' + serviceInfo.parameter
+    http.get(query_service, function (response) {
+      response.on('data', function (data) {
+        res.send(JSON.parse(data))
+      })
+    }).on('error', function (error) {
+      res.send({ 'sucess': false, 'message': 'Method not found.', 'service': serviceInfo.method })
+    })
+  })
+
+
+  app.get('/api', function (req, res) {
+    var payload = {
+      'datastore': { 'status_url': req.protocol + '://' + req.get('host') + '/api/datastore/status' },
+      'funnel_stats': { 'status_url': req.protocol + '://' + req.get('host') + '/api/funnel_stats/status' }
+    }
+
+    forEachAsync(Object.keys(payload), function (next, service_key) {
+      http.get(payload[service_key].status_url, function (response) {
+        response.on('data', function (data) {
+          payload[service_key].status = JSON.parse(data)
+          next()
+        })
+      }).on('error', function (error) {
+        payload[service_key].status = null
+        console.log(error)
+        next()
+      })
+    }).then(function () {
+      res.send(payload)
+    })
+  })
+
 
   // PROFILE SECTION =========================
   app.get('/profile', isLoggedIn, function (req, res) {
