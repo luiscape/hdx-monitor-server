@@ -6,9 +6,10 @@ angular.module('Monitor', [])
   //
   // Service status.
   //
-  .controller('StatusAlertController', ['$http', function ($http) {
-    self.check = function () {
-      var service_url = '/api/datastore'
+  .controller('StatusAlertController', ['$http', '$window', function ($http, $window) {
+
+    self.check = function (service) {
+      var service_url = '/api/' + service
       $http.get(service_url + '/status')
         .then(
           function (response) {
@@ -27,18 +28,10 @@ angular.module('Monitor', [])
     //
     // Runs on load.
     //
-    self.check()
+    self.check($window.service)
+
   }])
 
-  //
-  // DataStore interaction.
-  //
-  .controller('DataStoreController', ['$http', function ($http) {
-    var self = this
-    self.submit = function () {
-      console.log('Form submitted: ' + this.resourceid)
-    }
-  }])
 
 //
 // Displays the status of a
