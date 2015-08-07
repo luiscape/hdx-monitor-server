@@ -19,11 +19,11 @@
 </head>
 <body>
     <header class="cd-header">
-    <!-- pulsing signal -->
-    <div class="service-status-container" ng-controller="StatusAlertController as status">
-        <a class="status-icon" href="#" ng-init="status.check()" id='status-alert'></a>
-        <div class="alert-container" id="alert-container"></div>
-    </div>
+        <!-- service alert -->
+        <div class="service-status-container" ng-controller="StatusAlertController as status">
+            <a class="status-icon" href="#" ng-init="status.check()" id='status-alert'></a>
+            <div class="alert-container" id="alert-container"></div>
+        </div>
         <a href="#0" class="cd-3d-nav-trigger">
             Menu
             <span></span>
