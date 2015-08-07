@@ -48,24 +48,34 @@ angular.module('Monitor', [])
       $http.get(service_url + '/status')
         .then(
           function (response) {
-            displayAlert(0, '  ONLINE')
+            if (response.data.online) {
+              displayAlert(0, '  ONLINE')
+            } else {
+              displayAlert(2, '  OFFLINE')
+            }
           },
           function (response) {
             displayAlert(2, '  OFFLINE')
           }
       )
     }
+
+    //
+    // Runs on load.
+    //
+    self.check()
   }])
-  .controller('DataStoreController', ['$http', function ($http) {
-    self.submit = function () {
-      $http.get('/api/datastore')
-        .then(
-          function (response) {
-            displayAlert(0, '  ONLINE')
-          },
-          function (response) {
-            displayAlert(2, '  OFFLINE')
-          }
-      )
-    }
-  }])
+  // angular.module('Monitor, [])
+  // .controller('DataStoreController', ['$http', function ($http) {
+  //   self.submit = function () {
+  //     $http.get('/api/datastore')
+  //       .then(
+  //         function (response) {
+  //           displayAlert(0, '  ONLINE')
+  //         },
+  //         function (response) {
+  //           displayAlert(2, '  OFFLINE')
+  //         }
+  //     )
+  //   }
+  // }])
