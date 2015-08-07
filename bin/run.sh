@@ -6,7 +6,7 @@
 export MONGODB_USER_NAME=hdxmonitor
 export MONGODB_USER_PASSWORD=Dp1mhPZNj2
 export MONGODB_DATABASE=hdxmonitor
-export MONGODB_LOCATION_URL=localhost:27017  # relative
+export MONGODB_LOCATION_URL=172.17.0.5:27017  # relative
 export DATASTORE_PORT=5000  # default
 
 #
