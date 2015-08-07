@@ -10,7 +10,11 @@ function displayAlert (alertType, alertMessage) {
   // 1 = mild (yellow)
   // 2 = severe (red)
   //
-  if (alertType && alertMessage) {
+  if (typeof alertMessage === 'undefined') {
+    var alertContainer = '<span style="color:#cccccc;" class="fa fa-warning"></span>' +
+      '<span ' + 'style="color:#cccccc;">' +
+      'UNKNOWN' + '</span>'
+  } else {
     var alertIcon = null
     var colors = ['#cccccc', '#404040', '#404040']
     var alertColor = colors[alertType]
@@ -23,15 +27,11 @@ function displayAlert (alertType, alertMessage) {
       '<span href="#">' + alertMessage + '</span>' + '</span>'
 
     // pulse only for the mild and severe alerts
-    if (alertType === 1 | alertType === 2) {
+    if (alertType === 1 || alertType === 2) {
       var pulse = '<div class="outer"></div>'
       var pulseDoc = document.getElementById('alert-container')
       pulseDoc.innerHTML = pulse
     }
-  } else {
-    var alertContainer = '<span class="fa fa-warning"></span>' +
-      '<span ' + 'style="color:' + 'grey' + '">' +
-      'unavailable' + '</span>'
   }
 
   var doc = document.getElementById('status-alert')
@@ -46,10 +46,10 @@ angular.module('Monitor', []).controller('StatusAlertController', ['$http', func
     $http.get(service_url)
       .then(
         function (response) {
-          displayAlert('0', '  ONLINE')
+          displayAlert(0, '  ONLINE')
         },
         function (response) {
-          displayAlert('2', '  OFFLINE')
+          displayAlert(2, '  OFFLINE')
         }
     )
   }
