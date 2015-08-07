@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/flat-ui.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/vendor/nprogress.js"></script> -->
 
     <!-- FlatUI -->
     <!-- <script src="js/vendor/jquery.min.js"></script> -->
@@ -23,6 +24,11 @@
 </head>
 <body>
     <header class="cd-header">
+    <!-- pulsing signal -->
+    <div class="service-status-container">
+        <a class="status-icon" href="#" id='statusAlert'></a>
+        <div class="alert-container" id="alert-container"></div>
+    </div>
         <a href="#0" class="cd-3d-nav-trigger">
             Menu
             <span></span>
@@ -34,13 +40,14 @@
         <h1>Create a DataStore</h1>
 
         <div class="login-form">
-          <div class="form-group">
-            <input type="text" class="form-control login-field" value="" placeholder="HDX Resource ID" id="resourceid">
+          <form class="form-group" action="/datastore" method="post">
+            <input type="text" class="form-control login-field" value="" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
               <label class="login-field-icon fui-info-circle" for="login-name"></label>
               <br>
-              <button onclick="CallAPICreateDatastore(document.getElementById('resourceid').value)" class="btn btn-primary btn-lg btn-block" id="createDataStoreButton">Create DataStore</button>
-            </div>
-            <a class="login-link" href="https://github.com/luiscape/hdx-monitor">Source code.</a>
+              <button type="submit" class="btn btn-primary btn-lg btn-block" id="create-datastore-button">Create DataStore</button>
+          </form>
+
+          <a class="login-link" href="https://github.com/luiscape/hdx-monitor">Source code.</a>
 
           <div id="datastore-status-box"></div>
         </div>
@@ -78,10 +85,9 @@
     <script src="js/flat-ui.min.js"></script>
     <script src="js/main.js"></script> <!-- Resource jQuery -->
     <script src="js/create-ui.js"></script>
+    <script src="js/service_status.js"></script>
 
 </body>
 </html>
-
-
 
 

@@ -1,8 +1,6 @@
 module.exports = function (app, passport) {
-
   var NProgress = require('nprogress')
   var http = require('http')
-
 
   // show the home page (will also have our login links)
   app.get('/', isLoggedOut, function (req, res) {
@@ -14,7 +12,7 @@ module.exports = function (app, passport) {
     var datastore = 'http://localhost:' + process.env.DATASTORE_PORT + '/show/' + req.body.resourceid
     console.log(datastore)
     http.get(datastore, function (response) {
-      response.on('data', function(data) {
+      response.on('data', function (data) {
         res.send(JSON.parse(data))
       })
     })
@@ -71,23 +69,6 @@ module.exports = function (app, passport) {
     failureRedirect: '/signup', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
   }))
-
-  // =============================================================================
-  // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
-  // =============================================================================
-
-  // locally --------------------------------
-  app.get('/connect/local', isLoggedIn, function (req, res) {
-    res.render('connect-local.ejs', { message: req.flash('loginMessage') })
-  })
-
-  app.post('/connect/local', isLoggedIn,
-    passport.authenticate('local-signup', {
-      successRedirect: '/profile', // redirect to the secure profile section
-      failureRedirect: '/connect/local', // redirect back to the signup page if there is an error
-      failureFlash: true // allow flash messages
-    })
-  )
 
   //
   // Any other routes redirect
