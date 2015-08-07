@@ -1,37 +1,34 @@
 module.exports = function (app, passport) {
   var http = require('http')
 
-  // show the home page (will also have our login links)
   app.get('/', isLoggedOut, function (req, res) {
     res.render('index.ejs')
   })
 
   app.get('/api', isLoggedIn, function (req, res) {
-    var payload = { 'datastore': '/api/datastore/status' }
-    res.send(payload)
+    var payload = {
+      'datastore': { 'status_url': req.protocol + '://' + req.get('host') + '/api/datastore/status' }
+    }
+    http.get(payload.datastore.status_url, function (response) {
+      response.on('data', function (data) {
+        payload.datastore.status = JSON.parse(data)
+        res.send(payload)
+      })
+    }).on('error', function (error) {
+      res.send(payload)
+      console.log(error)
+    })
   })
 
-  //
-  // TODO: Needs refactoring.
-  //
   app.get('/api/datastore/status', function (req, res) {
     var datastore = 'http://localhost:' + process.env.DATASTORE_PORT + '/status'
     http.get(datastore, function (response) {
       response.on('data', function (data) {
         res.send(JSON.parse(data))
       })
-      response.on('error', function (error) {
-        console.log(error)
-      })
-    })
-  })
-
-  app.post('/api/datastore', function (req, res) {
-    var datastore = 'http://localhost:' + process.env.DATASTORE_PORT + '/' + req.body.resourceid
-    http.get(datastore, function (response) {
-      response.on('data', function (data) {
-        res.send(JSON.parse(data))
-      })
+    }).on('error', function (error) {
+      var payload = require('../public/service_data/datastore_offline.json')
+      res.send(payload)
     })
   })
 
@@ -52,7 +49,7 @@ module.exports = function (app, passport) {
     res.render('dashboard.ejs')
   })
 
-  app.get('/datastore', isLoggedIn, function (req, res) {
+  app.get('/datastore', function (req, res) {
     res.render('datastore.ejs')
   })
 
@@ -89,7 +86,7 @@ module.exports = function (app, passport) {
 
   //
   // Any other routes redirect
-  // to /datastore.
+  // to landing page.
   //
   app.use(function (req, res, next) {
     res.status(404).redirect('/')
