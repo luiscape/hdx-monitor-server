@@ -38,19 +38,34 @@ function displayAlert (alertType, alertMessage) {
   doc.innerHTML = alertContainer
 }
 
-angular.module('Monitor', []).controller('StatusAlertController', ['$http', function ($http) {
-  var self = this
-  var service_port = 5000  // datastore
-  var service_url = 'http://localhost:' + service_port + '/status'
-  self.check = function () {
-    $http.get(service_url)
-      .then(
-        function (response) {
-          displayAlert(0, '  ONLINE')
-        },
-        function (response) {
-          displayAlert(2, '  OFFLINE')
-        }
-    )
-  }
-}])
+//
+// Controlllers for the DataStore.
+//
+angular.module('Monitor', [])
+  .controller('StatusAlertController', ['$http', function ($http) {
+    self.check = function () {
+      var service_url = '/api/datastore'
+      $http.get(service_url + '/status')
+        .then(
+          function (response) {
+            displayAlert(0, '  ONLINE')
+          },
+          function (response) {
+            displayAlert(2, '  OFFLINE')
+          }
+      )
+    }
+  }])
+  .controller('DataStoreController', ['$http', function ($http) {
+    self.submit = function () {
+      $http.get('/api/datastore')
+        .then(
+          function (response) {
+            displayAlert(0, '  ONLINE')
+          },
+          function (response) {
+            displayAlert(2, '  OFFLINE')
+          }
+      )
+    }
+  }])
