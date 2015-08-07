@@ -1,24 +1,33 @@
 module.exports = function (app, passport) {
   var http = require('http')
+  var forEachAsync = require('forEachAsync').forEachAsync
 
   app.get('/', isLoggedOut, function (req, res) {
     res.render('index.ejs')
   })
 
-  app.get('/api', isLoggedIn, function (req, res) {
+  app.get('/api', function (req, res) {
     var payload = {
-      'datastore': { 'status_url': req.protocol + '://' + req.get('host') + '/api/datastore/status' }
+      'datastore': { 'status_url': req.protocol + '://' + req.get('host') + '/api/datastore/status' },
+      'funnel_stats': { 'status_url': req.protocol + '://' + req.get('host') + '/api/funnel_stats/status' }
     }
-    http.get(payload.datastore.status_url, function (response) {
-      response.on('data', function (data) {
-        payload.datastore.status = JSON.parse(data)
-        res.send(payload)
+
+    forEachAsync(Object.keys(payload), function (next, service_key) {
+      http.get(payload[service_key].status_url, function (response) {
+        response.on('data', function (data) {
+          payload[service_key].status = JSON.parse(data)
+           next()
+        })
+      }).on('error', function (error) {
+        payload[service_key].status = null
+        console.log(error)
+        next()
       })
-    }).on('error', function (error) {
+    }).then(function () {
       res.send(payload)
-      console.log(error)
     })
   })
+
 
   app.get('/api/datastore/status', function (req, res) {
     var datastore = 'http://localhost:' + process.env.DATASTORE_PORT + '/status'
@@ -28,6 +37,25 @@ module.exports = function (app, passport) {
       })
     }).on('error', function (error) {
       var payload = require('../public/service_data/datastore_offline.json')
+      res.send(payload)
+    })
+  })
+
+
+  app.get('/api/funnel_stats/status', function (req, res) {
+    var datastore = 'http://localhost:' + process.env.FUNNEL_STATS_PORT + '/status'
+    http.get(datastore, function (response) {
+      response.on('data', function (data) {
+        if (data.length > 0) {
+          res.send(JSON.parse(data))
+        }
+        else {
+          var payload = require('../public/service_data/funnel_stats_offline.json')
+          res.send(payload)
+        }
+      })
+    }).on('error', function (error) {
+      var payload = require('../public/service_data/funnel_stats_offline.json')
       res.send(payload)
     })
   })
