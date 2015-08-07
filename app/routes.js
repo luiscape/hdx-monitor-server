@@ -1,5 +1,4 @@
 module.exports = function (app, passport) {
-  var NProgress = require('nprogress')
   var http = require('http')
 
   // show the home page (will also have our login links)
@@ -8,8 +7,7 @@ module.exports = function (app, passport) {
   })
 
   app.post('/datastore', function (req, res) {
-    // NProgress.start()
-    var datastore = 'http://localhost:' + process.env.DATASTORE_PORT + '/show/' + req.body.resourceid
+    var datastore = 'http://localhost:' + process.env.DATASTORE_PORT + '/' + req.body.resourceid
     console.log(datastore)
     http.get(datastore, function (response) {
       response.on('data', function (data) {
