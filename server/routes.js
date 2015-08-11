@@ -39,7 +39,7 @@ module.exports = function (app, passport) {
   // TODO: refactor to allow for generic route above.
   //
   app.get('/api/datastore/status', function (req, res) {
-    var datastore = 'http://localhost:' + process.env.DATASTORE_PORT + '/status'
+    var datastore = 'http://' + DATASTORE_PORT_5000_TCP_ADDR + DATASTORE_PORT_5000_TCP_PORT + '/status'
     http.get(datastore, function (response) {
       response.on('data', function (data) {
         res.send(JSON.parse(data))
@@ -51,7 +51,7 @@ module.exports = function (app, passport) {
   })
 
   app.get('/api/funnel_stats/status', function (req, res) {
-    var datastore = 'http://localhost:' + process.env.FUNNEL_STATS_PORT + '/status'
+    var datastore = 'http://' + DATASTORE_PORT_5000_TCP_ADDR + DATASTORE_PORT_5000_TCP_PORT + '/status'
     http.get(datastore, function (response) {
       response.on('data', function (data) {
         if (data.length > 0) {
@@ -71,8 +71,8 @@ module.exports = function (app, passport) {
   app.get('/api/:api_service/:service_method/:method_parameter', function (req, res) {
 
     var services = {
-      'datastore': { 'base_url': req.protocol + '://' + 'localhost' + ':' +  process.env.DATASTORE_PORT + '/' },
-      'funnel_stats': { 'base_url': req.protocol + '://' + 'localhost' + ':' + process.env.FUNNEL_PORT + '/' }
+      'datastore': { 'base_url': req.protocol + '://' + 'localhost' + ':' +  DATASTORE_PORT_5000_TCP_PORT + '/' },
+      'funnel_stats': { 'base_url': req.protocol + '://' + 'localhost' + ':' + FUNNEL_STATS_PORT_6000_TCP_PORT + '/' }
     }
 
     var query_service = services[serviceInfo.id].base_url + serviceInfo.method + '/' + serviceInfo.parameter
