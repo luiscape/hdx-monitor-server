@@ -14,5 +14,8 @@ RUN \
   cd hdx-monitor-server && \
   npm install
 
+WORKDIR "/hdx-monitor-server"
+
 EXPOSE 6000
-CMD ["pm2", "start", "/hdx-monitor-server/server.js", "--no-daemon"]
+
+CMD ["pm2", "start", "server.js", "--no-daemon"]
