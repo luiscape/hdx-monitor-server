@@ -71,8 +71,8 @@ module.exports = function (app, passport) {
   app.get('/api/:api_service/:service_method/:method_parameter', function (req, res) {
 
     var services = {
-      'datastore': { 'base_url': req.protocol + '://' + 'localhost' + ':' +  DATASTORE_PORT_5000_TCP_PORT + '/' },
-      'funnel_stats': { 'base_url': req.protocol + '://' + 'localhost' + ':' + FUNNEL_STATS_PORT_6000_TCP_PORT + '/' }
+      'datastore': { 'base_url': req.protocol + '://' + 'localhost' + ':' +  process.env.DATASTORE_PORT_5000_TCP_PORT + '/' },
+      'funnel_stats': { 'base_url': req.protocol + '://' + 'localhost' + ':' + process.env.FUNNEL_STATS_PORT_6000_TCP_PORT + '/' }
     }
 
     var query_service = services[serviceInfo.id].base_url + serviceInfo.method + '/' + serviceInfo.parameter
