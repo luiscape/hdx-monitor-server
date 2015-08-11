@@ -39,7 +39,7 @@ module.exports = function (app, passport) {
   // TODO: refactor to allow for generic route above.
   //
   app.get('/api/datastore/status', function (req, res) {
-    var datastore = 'http://' + DATASTORE_PORT_5000_TCP_ADDR + ':' + DATASTORE_PORT_5000_TCP_PORT + '/status'
+    var datastore = 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/status'
     http.get(datastore, function (response) {
       response.on('data', function (data) {
         res.send(JSON.parse(data))
@@ -51,7 +51,7 @@ module.exports = function (app, passport) {
   })
 
   app.get('/api/funnel_stats/status', function (req, res) {
-    var datastore = 'http://' + DATASTORE_PORT_5000_TCP_ADDR + ':' + DATASTORE_PORT_5000_TCP_PORT + '/status'
+    var datastore = 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/status'
     http.get(datastore, function (response) {
       response.on('data', function (data) {
         if (data.length > 0) {
