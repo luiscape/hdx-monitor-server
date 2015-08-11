@@ -3,10 +3,12 @@
 #
 # Export environment variables for development.
 #
-export MONGODB_USER_NAME=hdxmonitor
-export MONGODB_USER_PASSWORD=Dp1mhPZNj2
-export MONGODB_DATABASE=hdxmonitor
-export MONGODB_LOCATION_URL=172.17.0.5:27017  # relative
+export MONGODB_USER_NAME=foo
+export MONGODB_USER_PASSWORD=bar
+export MONGODB_DATABASE=baz
+export MONGO_PORT_27017_TCP_ADDR=127.0.0.1
+export DATASTORE_PORT_5000_TCP_ADDR=127.0.0.1
+export DATASTORE_PORT_5000_TCP_PORT=5000
 export DATASTORE_PORT=5000  # default
 export FUNNEL_STATS_PORT=7000  #default
 
