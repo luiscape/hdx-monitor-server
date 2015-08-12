@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" class="no-js" ng-app="Monitor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/flat-ui.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+    <title>HDX Monitor | Settings</title>
+</head>
+<body>
+    <header class="cd-header">
+        <!-- service alert -->
+        <div class="service-status-container" ng-controller="StatusAlertController as status">
+            <script> var service = 'datastore' </script>
+            <a class="status-icon" href="#" id='status-alert'></a>
+            <div class="alert-container" id="alert-container"></div>
+        </div>
+        <a href="#0" class="cd-3d-nav-trigger">
+            Menu
+            <span></span>
+        </a>
+    </header> <!-- .cd-header -->
+
+    <main ng-controller="DataStoreController as datastore">
+
+        <h1>Service Status</h1>
+
+        <div class="row">
+        <div class="col-xs-1"></div>
+          <div class="col-xs-3">
+              <div class="tile">
+                <h2>Funnel Stats</h2>
+              </div>
+          </div>
+
+          <div class="col-xs-3">
+              <div class="tile">
+                <h2>DataStore</h2>
+              </div>
+          </div>
+        </div>
+
+    </main>
+
+    <nav class="cd-3d-nav-container">
+        <ul class="cd-3d-nav">
+            <li>
+                <a href="/">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="#0">Users</a>
+            </li>
+
+            <li>
+                <a href="#0">Organizations</a>
+            </li>
+
+            <li class="cd-selected">
+                <a href="#0">DataStores</a>
+            </li>
+
+            <li>
+                <a href="#0">Settings</a>
+            </li>
+        </ul> <!-- .cd-3d-nav -->
+
+        <span class="cd-marker color-1"></span>
+    </nav> <!-- .cd-3d-nav-container -->
+
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/flat-ui.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/create-ui.js"></script>
+
+    <!-- angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+
+    <!-- progress bar -->
+    <script src="ngprogress/ngprogress.js"></script>
+
+    <!-- modules -->
+    <script src="modules/app.js"></script>
+
+    <!-- controller -->
+    <script src="controllers/status_alert.js"></script>
+    <script src="controllers/datastore.js"></script>
+
+</body>
+</html>
+
+
