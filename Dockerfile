@@ -16,6 +16,6 @@ RUN \
 
 WORKDIR "/hdx-monitor-server"
 
-EXPOSE 6000
+EXPOSE 8080
 
 CMD ["pm2", "start", "server.js", "--no-daemon"]
