@@ -51,7 +51,7 @@ module.exports = function (app, passport) {
   })
 
   app.get('/api/funnel_stats/status', function (req, res) {
-    var datastore = 'http://' + process.env.FUNNEL_STATS_6000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_6000_TCP_PORT + '/status'
+    var datastore = 'http://' + process.env.FUNNEL_STATS_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_7000_TCP_PORT + '/status'
     http.get(datastore, function (response) {
       response.on('data', function (data) {
         if (data.length > 0) {
@@ -72,7 +72,7 @@ module.exports = function (app, passport) {
 
     var services = {
       'datastore': { 'base_url': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/' },
-      'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_6000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_6000_TCP_PORT + '/' }
+      'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_7000_TCP_PORT + '/' }
     }
 
     var query_service = services[serviceInfo.id].base_url + serviceInfo.method + '/' + serviceInfo.parameter
