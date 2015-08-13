@@ -24,7 +24,7 @@ app.controller('DataStoreController', ['$http', 'ngProgressFactory', function ($
         self.progressbar.complete()
         self.failure = true
         self.success = false
-        self.message = 'Unkown error.'
+        self.message = 'Service not available.'
         console.log(response.data)
       })
   }
