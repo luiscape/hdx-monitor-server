@@ -118,9 +118,9 @@ module.exports = function (app, passport) {
     res.render('datastore.ejs')
   })
 
-  app.get('/settings', function (req, res) {
-    res.render('settings.ejs')
-  })
+  // app.get('/settings', isLoggedIn, function (req, res) {
+  //   res.render('settings.ejs')
+  // })
 
   // =============================================================================
   // AUTHENTICATE (FIRST LOGIN) ==================================================
@@ -157,9 +157,9 @@ module.exports = function (app, passport) {
   // Any other routes redirect
   // to landing page.
   //
-  // app.use(function (req, res, next) {
-  //   res.status(404).redirect('/')
-  // })
+  app.use(function (req, res, next) {
+    res.status(404).redirect('/')
+  })
 
 }
 
