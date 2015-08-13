@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
     <script src="js/modernizr.js"></script> <!-- Modernizr -->
 
-    <title>HDX Monitor | Datastore</title>
+    <title>HDX Monitor | Settings</title>
 </head>
 <body>
     <header class="cd-header">
@@ -34,29 +34,22 @@
 
     <main ng-controller="DataStoreController as datastore">
 
-        <h1>Create a DataStore</h1>
+        <h1>Service Status</h1>
 
-        <div class="datastore-message" style="text-align: center;">
-          <h3 ng-show="datastore.message">
-            <span style="color:#cccccc;" class="fa fa-check" ng-show="datastore.success"></span>
-            <span style="color:#cccccc;" class="fa fa-warning" ng-show="datastore.failure"></span>
-              {{ datastore.message }}
-          </h3>
+        <div class="row">
+        <div class="col-xs-1"></div>
+          <div class="col-xs-3">
+              <div class="tile">
+                <h2>Funnel Stats</h2>
+              </div>
+          </div>
+
+          <div class="col-xs-3">
+              <div class="tile">
+                <h2>DataStore</h2>
+              </div>
+          </div>
         </div>
-
-        <div class="login-form">
-          <form class="form-group" ng-submit="datastore.submit()">
-            <input type="text" class="form-control login-field" value="" ng-model="datastore.resourceid" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
-            <label class="login-field-icon fui-info-circle" for="login-name"></label>
-            <br>
-            <button type="submit" class="btn btn-primary btn-lg btn-block" id="create-datastore-button">Create DataStore</button>
-          </form>
-
-          <a class="login-link" href="https://github.com/luiscape/hdx-monitor-datastore">Source code.</a>
-
-          <div id="datastore-status-box"></div>
-        </div>
-
 
     </main>
 
@@ -79,7 +72,7 @@
             </li>
 
             <li>
-                <a href="/settings">Settings</a>
+                <a href="#0">Settings</a>
             </li>
         </ul> <!-- .cd-3d-nav -->
 

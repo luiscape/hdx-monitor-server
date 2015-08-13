@@ -15,7 +15,6 @@ module.exports = function (app, passport) {
     res.render('index.ejs')
   })
 
-
   //
   // Collect resource id from parameter.
   // And route to appropriate service.
@@ -34,7 +33,7 @@ module.exports = function (app, passport) {
     serviceInfo.parameter = value
     next()
   })
-  
+
   //
   // TODO: refactor to allow for generic route above.
   //
@@ -56,8 +55,7 @@ module.exports = function (app, passport) {
       response.on('data', function (data) {
         if (data.length > 0) {
           res.send(JSON.parse(data))
-        }
-        else {
+        } else {
           var payload = require('../public/service_data/funnel_stats_offline.json')
           res.send(payload)
         }
@@ -69,7 +67,6 @@ module.exports = function (app, passport) {
   })
 
   app.get('/api/:api_service/:service_method/:method_parameter', function (req, res) {
-
     var services = {
       'datastore': { 'base_url': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/' },
       'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_7000_TCP_PORT + '/' }
@@ -84,7 +81,6 @@ module.exports = function (app, passport) {
       res.send({ 'sucess': false, 'message': 'Method not found.', 'service': serviceInfo.method })
     })
   })
-
 
   app.get('/api', function (req, res) {
     var payload = {
@@ -108,7 +104,6 @@ module.exports = function (app, passport) {
     })
   })
 
-
   // PROFILE SECTION =========================
   app.get('/profile', isLoggedIn, function (req, res) {
     res.render('profile.ejs', {
@@ -126,8 +121,12 @@ module.exports = function (app, passport) {
     res.render('dashboard.ejs')
   })
 
-  app.get('/datastore', function (req, res) {
+  app.get('/datastore', isLoggedIn, function (req, res) {
     res.render('datastore.ejs')
+  })
+
+  app.get('/settings', function (req, res) {
+    res.render('settings.ejs')
   })
 
   // =============================================================================

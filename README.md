@@ -12,6 +12,7 @@ $ docker run -d --name server \
   -e DATASTORE_PORT=5000 \
   -e FUNNEL_STATS_PORT=7000 \
   -p 127.0.0.1:8080:8080 \
-  -l mongo \
-  luiscape/hdx-monitor-server:v.0.1.0
+  --link mongo \
+  --link datastore \
+  luiscape/hdx-monitor-server:latest
 ```
