@@ -1,11 +1,15 @@
 {
     "name": "hdx-monitor-server",
-    "version": "v.0.1.0",
+    "version": "v.0.1.2",
     "dependencies": {
         "bootstrap": "latest",
         "font-awesome": "latest",
         "animate.css": "latest",
         "angular": "latest",
-        "angular-route": "latest"
+        "angular-route": "latest",
+        "d3": "latest",
+        "c3": "latest",
+        "ngprogress": "latest",
+        "flat-ui": "latest"
     }
 }
