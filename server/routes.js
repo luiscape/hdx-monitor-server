@@ -29,6 +29,9 @@ module.exports = function (app, passport) {
     next()
   })
 
+  //
+  // TODO: abstract this route.
+  //
   app.get('/api/:api_service/status', function (req, res) {
     var services = {
       'datastore': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/status',
@@ -44,12 +47,12 @@ module.exports = function (app, passport) {
     })
   })
 
-  app.get('/api/:api_service/:service_method', function (req, res) {
+  app.get('/api/:api_service/:service_method/*', function (req, res) {
     //
     // Services available.
     //
     var services = {
-      'datastore': { 'base_url': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/' },
+      'datastore': { 'base_url': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT },
       'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/api' }
     }
 
@@ -59,8 +62,18 @@ module.exports = function (app, passport) {
     //
     var query_service = services[serviceInfo.id].base_url + '/' + serviceInfo.method
     var pass_request = req.originalUrl.replace('/api/' + serviceInfo.id + '/' + serviceInfo.method, '')
+
     http.get(query_service + pass_request, function (response) {
       response.on('close', function (data) {
+        //
+        // TODO: Create error handler for non-JSON objects.
+        //
+        res.send(data)
+      })
+      response.on('data', function (data) {
+        //
+        // TODO: Create error handler for non-JSON objects.
+        //
         res.send(data)
       })
     }).on('error', function (error) {
@@ -136,7 +149,7 @@ module.exports = function (app, passport) {
 
   // process the login form
   app.post('/login', isLoggedOut, passport.authenticate('local-login', {
-    successRedirect: '/dashboard', // redirect to the secure profile section
+    successRedirect: '/datastore', // redirect to the secure profile section
     failureRedirect: '/login', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
   }))
@@ -149,7 +162,7 @@ module.exports = function (app, passport) {
 
   // process the signup form
   app.post('/signup', isLoggedOut, passport.authenticate('local-signup', {
-    successRedirect: '/dashboard', // redirect to the secure profile section
+    successRedirect: '/datastore', // redirect to the secure profile section
     failureRedirect: '/signup', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
   }))
