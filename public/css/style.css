@@ -1022,12 +1022,30 @@ Progress bar effects
 Settings page
 
 -------------------------------- */
+
+.tile-container {
+  padding-right: 4%;
+  padding-left: 16%;
+}
 .tile {
-  background-color: #F7F7F7;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .tile h2 {
   font: "Open Sans", sans-serif !important;
-  font-size: 2.0rem;
-  font-weight: 100;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+/* --------------------------------
+
+Custom charts css
+
+-------------------------------- */
+
+.c3-line {
+  stroke-width: 2px;
 }

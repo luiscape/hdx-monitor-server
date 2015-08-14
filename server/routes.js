@@ -29,65 +29,58 @@ module.exports = function (app, passport) {
     next()
   })
 
-  app.param('method_parameter', function (req, res, next, value) {
-    serviceInfo.parameter = value
-    next()
-  })
-
-  //
-  // TODO: refactor to allow for generic route above.
-  //
-  app.get('/api/datastore/status', function (req, res) {
-    var datastore = 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/status'
-    http.get(datastore, function (response) {
+  app.get('/api/:api_service/status', function (req, res) {
+    var services = {
+      'datastore': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/status',
+      'funnel_stats': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/status'
+    }
+    http.get(services[serviceInfo.id], function (response) {
       response.on('data', function (data) {
         res.send(JSON.parse(data))
       })
     }).on('error', function (error) {
-      var payload = require('../public/service_data/datastore_offline.json')
+      var payload = require('../public/service_data/' + serviceInfo.id + '_offline.json')
       res.send(payload)
     })
   })
 
-  app.get('/api/funnel_stats/status', function (req, res) {
-    var datastore = 'http://' + process.env.FUNNEL_STATS_6000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_6000_TCP_PORT + '/status'
-    http.get(datastore, function (response) {
-      response.on('data', function (data) {
-        if (data.length > 0) {
-          res.send(JSON.parse(data))
-        } else {
-          var payload = require('../public/service_data/funnel_stats_offline.json')
-          res.send(payload)
-        }
-      })
-    }).on('error', function (error) {
-      var payload = require('../public/service_data/funnel_stats_offline.json')
-      res.send(payload)
-    })
-  })
+  app.get('/api/:api_service/:service_method', function (req, res) {
 
-  app.get('/api/:api_service/:service_method/:method_parameter', function (req, res) {
+    //
+    // Services available.
+    //
     var services = {
       'datastore': { 'base_url': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/' },
-      'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_6000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_6000_TCP_PORT + '/' }
+      'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/api' }
     }
-
-    var query_service = services[serviceInfo.id].base_url + serviceInfo.method + '/' + serviceInfo.parameter
-    http.get(query_service, function (response) {
+    
+    //
+    // Getting a query service base url
+    // but also pass extra parameters.
+    //
+    var query_service = services[serviceInfo.id].base_url + '/' + serviceInfo.method
+    var pass_request = req.originalUrl.replace('/api/' + serviceInfo.id + '/' + serviceInfo.method, '')
+    http.get(query_service + pass_request, function (response) {
       response.on('data', function (data) {
-        res.send(JSON.parse(data))
+        res.send(data)
       })
     }).on('error', function (error) {
-      res.send({ 'sucess': false, 'message': 'Method not found.', 'service': serviceInfo.method })
+      http.get(req.protocol + '://' + req.get('host') + '/api/' + serviceInfo.id +  '/status', function (resp) {
+        resp.on('data', function (data) {
+          res.send({ 'sucess': false, 'message': 'Service is not available.', 'service': serviceInfo.id, 'service_status': JSON.parse(data) })
+        }) 
+      })
     })
   })
-
+  
+  //
+  // Get the status of all services.
+  //
   app.get('/api', function (req, res) {
     var payload = {
       'datastore': { 'status_url': req.protocol + '://' + req.get('host') + '/api/datastore/status' },
       'funnel_stats': { 'status_url': req.protocol + '://' + req.get('host') + '/api/funnel_stats/status' }
     }
-
     forEachAsync(Object.keys(payload), function (next, service_key) {
       http.get(payload[service_key].status_url, function (response) {
         response.on('data', function (data) {
@@ -125,9 +118,9 @@ module.exports = function (app, passport) {
     res.render('datastore.ejs')
   })
 
-  app.get('/settings', function (req, res) {
-    res.render('settings.ejs')
-  })
+  // app.get('/settings', isLoggedIn, function (req, res) {
+  //   res.render('settings.ejs')
+  // })
 
   // =============================================================================
   // AUTHENTICATE (FIRST LOGIN) ==================================================
