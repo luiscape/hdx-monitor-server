@@ -20,12 +20,11 @@ RUN \
 # Configure MongoDB.
 #
 RUN \
-  apt-get install mongodb-org-shell \
-  && cd hdx-monitor-server \
-  && make mongo
+  apt-get update \
+  && apt-get install -y mongodb
 
 WORKDIR "/hdx-monitor-server"
 
 EXPOSE 8080
 
-CMD ["pm2", "start", "server.js", "--no-daemon"]
+CMD ["make", "run"]
