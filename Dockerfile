@@ -20,7 +20,8 @@ RUN \
 # Configure MongoDB.
 #
 RUN \
-  cd hdx-monitor-server \
+  apt-get install mongodb-org-shell \
+  && cd hdx-monitor-server \
   && make mongo
 
 WORKDIR "/hdx-monitor-server"
