@@ -7,13 +7,18 @@ FROM node:0.12.7
 
 MAINTAINER Luis Capelo <capelo@un.org>
 
-# Clone app and install dependencies.
+#
+# Clone and install dependencies.
+#
 RUN \
   npm install -g pm2 && \
   git clone https://github.com/luiscape/hdx-monitor-server && \
   cd hdx-monitor-server && \
   npm install
 
+#
+# Configure MongoDB.
+#
 RUN \
   cd hdx-monitor-server \
   && make mongo
