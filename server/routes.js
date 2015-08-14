@@ -45,7 +45,6 @@ module.exports = function (app, passport) {
   })
 
   app.get('/api/:api_service/:service_method', function (req, res) {
-
     //
     // Services available.
     //
@@ -53,7 +52,7 @@ module.exports = function (app, passport) {
       'datastore': { 'base_url': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/' },
       'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/api' }
     }
-    
+
     //
     // Getting a query service base url
     // but also pass extra parameters.
@@ -61,18 +60,20 @@ module.exports = function (app, passport) {
     var query_service = services[serviceInfo.id].base_url + '/' + serviceInfo.method
     var pass_request = req.originalUrl.replace('/api/' + serviceInfo.id + '/' + serviceInfo.method, '')
     http.get(query_service + pass_request, function (response) {
-      response.on('data', function (data) {
+      response.on('close', function (data) {
         res.send(data)
       })
     }).on('error', function (error) {
-      http.get(req.protocol + '://' + req.get('host') + '/api/' + serviceInfo.id +  '/status', function (resp) {
+      http.get(req.protocol + '://' + req.get('host') + '/api/' + serviceInfo.id + '/status', function (resp) {
         resp.on('data', function (data) {
           res.send({ 'sucess': false, 'message': 'Service is not available.', 'service': serviceInfo.id, 'service_status': JSON.parse(data) })
-        }) 
+        }).on('error', function (data) {
+          res.send({ 'sucess': false, 'message': 'Service is not available.', 'service': serviceInfo.id })
+        })
       })
     })
   })
-  
+
   //
   // Get the status of all services.
   //
