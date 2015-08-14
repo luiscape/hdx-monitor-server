@@ -16,13 +16,6 @@ RUN \
   cd hdx-monitor-server && \
   npm install
 
-#
-# Configure MongoDB.
-#
-RUN \
-  apt-get update \
-  && apt-get install -y mongodb
-
 WORKDIR "/hdx-monitor-server"
 
 EXPOSE 8080
