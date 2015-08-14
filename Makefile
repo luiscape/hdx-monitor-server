@@ -3,3 +3,6 @@ run:
 
 standard:
 	bash bin/standard.sh;
+
+mongo:
+	bash bin/configure_mongo.sh;

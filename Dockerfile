@@ -14,6 +14,10 @@ RUN \
   cd hdx-monitor-server && \
   npm install
 
+RUN \
+  cd hdx-monitor-server \
+  && make mongo
+
 WORKDIR "/hdx-monitor-server"
 
 EXPOSE 8080
