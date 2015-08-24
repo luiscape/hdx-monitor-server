@@ -124,7 +124,7 @@ module.exports = function (app, passport) {
     res.redirect('/')
   })
 
-  app.get('/dashboard', isLoggedIn, function (req, res) {
+  app.get('/dashboard', function (req, res) {
     res.render('dashboard.ejs')
   })
 
