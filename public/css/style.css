@@ -19,6 +19,10 @@ body {
 a {
   text-decoration: none; }
 
+b {
+  font-weight: 700;
+}
+
 /* --------------------------------
 
 Title styles
@@ -385,7 +389,7 @@ main {
     font-size: 2.4rem;
     font-weight: 300;
     color: #2B3145;
-    margin: 2em auto;
+    margin: 0em auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   main.nav-is-visible {
@@ -403,7 +407,7 @@ main {
       transform: translateY(170px); }
     main h1 {
       font-size: 3.6rem;
-      margin: 4em auto; } }
+      margin: 0em auto; } }
 
 
 .author-box {
@@ -1049,3 +1053,192 @@ Custom charts css
 .c3-line {
   stroke-width: 2px;
 }
+
+
+/* --------------------------------
+
+Dashboard Pod Styles
+
+-------------------------------- */
+
+
+.pod-container {
+  padding: 50px 20px 0px 40px;
+}
+
+.pod-column {
+    width: 310px;
+    display: inline-block;
+    margin: 0px 10px 10px 0px;
+    vertical-align: top;
+}
+
+.pod {
+    box-sizing: border-box;
+    /*border-top: 2px solid rgb(62, 195, 129);*/
+    color: rgb(44, 62, 80);
+    margin-bottom: 10px;
+    outline-color: rgb(44, 62, 80);
+    position: relative;
+    white-space: nowrap;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+    border-right: 1px solid rgb(240, 243, 245);
+    border-bottom: 2px solid rgb(233, 237, 241);
+    border-left: 1px solid rgb(240, 243, 245);
+    border-width: 2px 1px;
+    border-style: solid;
+    border-radius: 5px 5px 5px 5px;
+    font: normal normal normal normal 15px/21.4285507202148px 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Calibri, Candara, Arial, sans-serif;
+    margin: 0px 0px 10px;
+    outline: rgb(44, 62, 80) none 0px;
+
+    -webkit-column-rule-color: rgb(44, 62, 80);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-emphasis-color: rgb(44, 62, 80);
+    /*-webkit-text-fill-color: rgb(44, 62, 80);*/
+    -webkit-text-stroke-color: rgb(44, 62, 80);
+    -webkit-border-after: 2px solid rgb(233, 237, 241);
+    -webkit-border-end: 1px solid rgb(240, 243, 245);
+    -webkit-border-start: 1px solid rgb(240, 243, 245);
+    -webkit-transform-origin: 155px 116.5px;
+}
+
+
+.pod-header {
+  /*height: 74px;*/
+
+  box-sizing: border-box;
+  background: rgb(248, 249, 250) none repeat scroll 0% 0% / auto padding-box border-box;
+  padding: 0px 0px 10px;
+
+  -webkit-border-after: 1px solid rgb(240, 243, 245);
+}
+
+
+.pod-state {
+  line-height: 15.7px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 90px;
+  padding: 0px 15px 0px 10px;
+  border-radius: 0 0 3px 3px;
+}
+
+/* Classifications */
+
+.bg-uptodate {
+  background-color: rgb(62, 195, 129);
+}
+
+.border-uptodate {
+  border-top: 2px solid rgb(62, 195, 129);
+}
+
+.bg-due {
+  background-color: rgb(151, 195, 62);
+}
+
+.border-due {
+  border-top: 2px solid rgb(151, 195, 62);
+}
+
+.bg-overdue {
+  background-color: rgb(195, 165, 62);
+}
+
+.border-overdue {
+  border-top: 2px solid rgb(195, 165, 62);
+}
+
+.bg-delinquent {
+  background-color: rgb(195, 62, 87);
+}
+
+.border-delinquent {
+  border-top: 2px solid rgb(195, 62, 87);
+}
+
+.pod-state-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  -webkit-text-fill-color: rgb(255, 255, 255);
+}
+
+.pod-name {
+  font-size: 15px;
+  height: 21px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+
+.pod-info {
+  box-sizing: border-box;
+  height: 57px;
+  outline-color: rgb(44, 62, 80);
+  text-align: center;
+  border-width: 0px 0px 1px;
+  border-color: rgb(44, 62, 80) rgb(44, 62, 80) rgb(240, 243, 245);
+  border-style: none none solid;
+  padding: 5px;
+}
+
+.pod-info-dataset-title {
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+  word-wrap: break-word;
+  font-size: 12px;
+  margin: 5px 0px 0px;
+  padding: 0px 5px;
+}
+
+.pod-info-dataset-title a {
+  text-decoration: none;
+}
+
+.pod-info-assets {
+  font-size: 11px;
+  -webkit-columns: 2 200px;
+     -moz-columns: 2 200px;
+          columns: 2 200px;
+  -webkit-column-gap: 4em;
+     -moz-column-gap: 4em;
+          column-gap: 4em;
+  -webkit-column-rule: 1px dotted #ddd;
+     -moz-column-rule: 1px dotted #ddd;
+          column-rule: 1px dotted #ddd;
+}
+
+.pod-info-frequency-category {
+  text-align: left;
+  position: absolute;
+  left: 10px;
+  color: #606060 !important;
+  font-style: italic;
+}
+
+.pod-info-age {
+  color: #606060 !important;
+  text-align: right;
+  position: absolute;
+  right: 20px;
+  /*font-weight: bold;*/
+}
+
+.scraper-icon {
+  border-radius: 50%;
+  position: absolute;
+  right: 17px;
+  bottom: 12px;
+  width: 7px;
+  height: 7px;
+  background: #404040;
+}
+
