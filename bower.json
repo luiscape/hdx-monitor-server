@@ -1,15 +1,17 @@
 {
-    "name": "hdx-monitor-server",
-    "version": "v.0.1.2",
-    "dependencies": {
-        "bootstrap": "latest",
-        "font-awesome": "latest",
-        "animate.css": "latest",
-        "angular": "latest",
-        "angular-route": "latest",
-        "d3": "latest",
-        "c3": "latest",
-        "ngprogress": "latest",
-        "flat-ui": "latest"
-    }
+  "name": "hdx-monitor-server",
+  "version": "v.0.1.2",
+  "dependencies": {
+    "angular": "latest",
+    "angular-bootstrap": "~0.13.3",
+    "angular-moment": "~0.10.2",
+    "angular-route": "latest",
+    "animate.css": "latest",
+    "bootstrap": "latest",
+    "c3": "latest",
+    "d3": "latest",
+    "flat-ui": "latest",
+    "font-awesome": "latest",
+    "ngprogress": "latest"
+  }
 }
