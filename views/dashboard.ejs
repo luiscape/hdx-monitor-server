@@ -77,7 +77,14 @@
                             </div>
                         </div>
 
-                        <div class="pod-info" ng-repeat="dataset in dashboard.delinquent">
+                        <div class="pod-info"
+                          ng-controller="ModalController as modal"
+                          ng-repeat="dataset in dashboard.delinquent"
+                          ng-mouseover="dashboard.hoverIn(dataset)"
+                          ng-mouseleave="dashboard.hoverOut(dataset)"
+                          ng-click="modal.open(dataset.id)"
+                          style="cursor:pointer;">
+
                             <div class="pod-info-dataset-title">
                                 {{ dataset.name }}
                             </div>
@@ -85,6 +92,11 @@
                             <div class="pod-info-assets">
                               <span class="pod-info-frequency-category">
                                 {{ dataset.frequency_label }}
+                              </span>
+
+                              <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
+                                Last edited <span am-time-ago="dataset.last_updated"></span>.
+                                <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
                               </span>
 
                               <span class="pod-info-age">
@@ -112,7 +124,13 @@
                             </div>
                         </div>
 
-                         <div class="pod-info" ng-repeat="dataset in dashboard.overdue">
+                         <div class="pod-info"
+                           ng-repeat="dataset in dashboard.overdue"
+                           ng-mouseover="dashboard.hoverIn(dataset)"
+                           ng-mouseleave="dashboard.hoverOut(dataset)"
+                           ng-click="dashboard.go('https://data.hdx.rwlabs.org/dataset/' + dataset.id)"
+                           style="cursor:pointer;">
+
                             <div class="pod-info-dataset-title">
                                 {{ dataset.name }}
                             </div>
@@ -120,6 +138,11 @@
                             <div class="pod-info-assets">
                               <span class="pod-info-frequency-category">
                                 {{ dataset.frequency_label }}
+                              </span>
+
+                              <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
+                                Last edited <span am-time-ago="dataset.last_updated"></span>.
+                                <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
                               </span>
 
                               <span class="pod-info-age">
@@ -148,7 +171,13 @@
                             </div>
                         </div>
 
-                        <div class="pod-info" ng-repeat="dataset in dashboard.due">
+                        <div class="pod-info"
+                          ng-repeat="dataset in dashboard.due"
+                          ng-mouseover="dashboard.hoverIn(dataset)"
+                          ng-mouseleave="dashboard.hoverOut(dataset)"
+                          ng-click="dashboard.go('https://data.hdx.rwlabs.org/dataset/' + dataset.id)"
+                          style="cursor:pointer;">
+
                            <div class="pod-info-dataset-title">
                                {{ dataset.name }}
                            </div>
@@ -156,6 +185,11 @@
                            <div class="pod-info-assets">
                              <span class="pod-info-frequency-category">
                                {{ dataset.frequency_label }}
+                             </span>
+
+                             <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
+                               Last edited <span am-time-ago="dataset.last_updated"></span>.
+                               <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
                              </span>
 
                              <span class="pod-info-age">
@@ -184,7 +218,13 @@
                             </div>
                         </div>
 
-                         <div class="pod-info" ng-repeat="dataset in dashboard.uptodate">
+                         <div class="pod-info"
+                           ng-repeat="dataset in dashboard.uptodate"
+                           ng-mouseover="dashboard.hoverIn(dataset)"
+                           ng-mouseleave="dashboard.hoverOut(dataset)"
+                           ng-click="dashboard.go('https://data.hdx.rwlabs.org/dataset/' + dataset.id)"
+                           style="cursor:pointer;">
+
                             <div class="pod-info-dataset-title">
                                 {{ dataset.name }}
                             </div>
@@ -192,6 +232,11 @@
                             <div class="pod-info-assets">
                               <span class="pod-info-frequency-category">
                                 {{ dataset.frequency_label }}
+                              </span>
+
+                              <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
+                                Last edited <span am-time-ago="dataset.last_updated"></span>.
+                                <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
                               </span>
 
                               <span class="pod-info-age">
@@ -208,22 +253,89 @@
                 </div>
 
             </div>
+
+            <div class="pod-container">
+
+            <div class="pod-column-archived">
+                <div class="pod border-archived">
+                    <div class="pod-header">
+                        <div class="pod-state bg-archived">
+                            <span class="pod-state-title">Archived</span>
+                        </div>
+                        <div class="pod-name-archived">
+                            <span class="ember-view">
+                              <span ng-show="dashboard.success"> {{ dashboard.archived.length }} </span>
+                              Datasets
+                            </span>
+                            <div class="pod-archive-search-bar">
+                              <input type="text" class="form-control login-field" value="" ng-model="searchText" placeholder="Search">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pod-info"
+                      ng-repeat="dataset in dashboard.archived | filter:searchText"
+                      ng-mouseover="dashboard.hoverIn(dataset)"
+                      ng-mouseleave="dashboard.hoverOut(dataset)"
+                      ng-click="dashboard.go('https://data.hdx.rwlabs.org/dataset/' + dataset.id)"
+                      style="cursor:pointer;">
+
+                        <div class="pod-info-dataset-title">
+
+                            {{ dataset.name }}
+
+                        </div>
+                        <!-- <div class="pod-scraper-icon">test</div> -->
+                        <div class="pod-info-assets">
+                          <span class="pod-info-frequency-category">
+                            {{ dataset.frequency_label }}
+                          </span>
+
+                          <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
+                            Last edited <span am-time-ago="dataset.last_updated"></span>.
+                            <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
+                          </span>
+
+                          <span class="pod-info-age">
+                            <b>{{ dataset.age }}</b> days old
+                          </span>
+
+                          <!-- <span class="scraper-icon"></span> -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            </div>
+
+            <div ng-controller="ModalController as modal">
+              <!-- <button type="button" class="btn btn-default" ng-click="modal.open()">Open me!</button> -->
+              <!-- <button type="button" class="btn btn-default" ng-click="modal.open('lg')">Large modal</button> -->
+              <!-- <button type="button" class="btn btn-default" ng-click="modal.open('sm')">Small modal</button> -->
+              <!-- <div ng-show="selected">Selection from a modal: {{ modal.selected }}</div> -->
+            </div>
+
         </body>
 
     </main>
 
+    <!-- UI dependencies -->
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src="libs/flat-ui/dist/js/flat-ui.min.js"></script>
     <script src="js/main.js"></script> <!-- Resource jQuery -->
     <script src="js/create-ui.js"></script>
 
-
     <!-- angular -->
     <script src="libs/angular/angular.min.js"></script>
 
-    <!-- progress bar and charts -->
+    <!-- Angular dependencies. -->
     <script src="libs/ngprogress/build/ngprogress.min.js"></script>
+    <script src="libs/moment/moment.js"></script>
+    <script src="libs/angular-moment/angular-moment.js"></script>
+    <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
     <!-- modules -->
     <script src="modules/app.js"></script>
@@ -231,6 +343,22 @@
     <!-- controllers -->
     <script src="controllers/status_alert.js"></script>
     <script src="controllers/dashboard.js"></script>
+
+
+    <script type="text/ng-template" id="test.html">
+      <div class="modal-header">
+          <h3 class="modal-title">{{ dataset.title }}</h3>
+      </div>
+      <div class="modal-body">
+          {{ dataset.notes }}
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary" type="button" ng-click="visit()">View Dataset</button>
+          <button class="btn btn-primary" type="button" ng-click="email()">Email Maintainer</button>
+          <button class="btn btn-primary" type="button" ng-click="archive()">Change Frequency</button>
+      </div>
+
+    </script>
 
 
 </body>
