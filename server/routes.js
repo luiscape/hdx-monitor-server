@@ -38,8 +38,12 @@ module.exports = function (app, passport) {
       'funnel_stats': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/status'
     }
     http.get(services[serviceInfo.id], function (response) {
-      response.on('data', function (data) {
-        res.send(JSON.parse(data))
+      var body
+      response.on('data', function (chunk) {
+        body += chunk
+      })
+      response.on('close', function () {
+        res.send(body)
       })
     }).on('error', function (error) {
       var payload = require('../public/service_data/' + serviceInfo.id + '_offline.json')
@@ -64,17 +68,12 @@ module.exports = function (app, passport) {
     var pass_request = req.originalUrl.replace('/api/' + serviceInfo.id + '/' + serviceInfo.method, '')
 
     http.get(query_service + pass_request, function (response) {
-      response.on('close', function (data) {
-        //
-        // TODO: Create error handler for non-JSON objects.
-        //
-        res.send(data)
+      var body
+      response.on('data', function (chunk) {
+        body += chunk
       })
-      response.on('data', function (data) {
-        //
-        // TODO: Create error handler for non-JSON objects.
-        //
-        res.send(data)
+      response.on('close', function () {
+        res.send(body)
       })
     }).on('error', function (error) {
       http.get(req.protocol + '://' + req.get('host') + '/api/' + serviceInfo.id + '/status', function (resp) {
@@ -90,13 +89,17 @@ module.exports = function (app, passport) {
   //
   // Get the status of all services.
   //
+  // TODO: apstract the status fetching.
+  //
   app.get('/api', function (req, res) {
     var payload = {
       'datastore': { 'status_url': req.protocol + '://' + req.get('host') + '/api/datastore/status' },
-      'funnel_stats': { 'status_url': req.protocol + '://' + req.get('host') + '/api/funnel_stats/status' }
+      'funnel_stats': { 'status_url': req.protocol + '://' + req.get('host') + '/api/funnel_stats/status' },
+      'dataset_age': { 'status_url': req.protocol + '://' + req.get('host') + '/api/dataset_age/status' }
     }
     forEachAsync(Object.keys(payload), function (next, service_key) {
       http.get(payload[service_key].status_url, function (response) {
+        var body
         response.on('data', function (data) {
           payload[service_key].status = JSON.parse(data)
           next()
