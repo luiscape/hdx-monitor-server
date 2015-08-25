@@ -1064,12 +1064,20 @@ Dashboard Pod Styles
 
 .pod-container {
   padding: 50px 20px 0px 40px;
+  text-align: center;
 }
 
 .pod-column {
     width: 310px;
     display: inline-block;
     margin: 0px 10px 10px 0px;
+    vertical-align: top;
+}
+
+.pod-column-archived {
+    width: 80%;
+    display: inline-block;
+    /*margin: 0px 10px 10px 0px;*/
     vertical-align: top;
 }
 
@@ -1137,6 +1145,14 @@ Dashboard Pod Styles
   border-top: 2px solid rgb(62, 195, 129);
 }
 
+.bg-archived {
+  background-color: rgb(94, 94, 95);
+}
+
+.border-archived {
+  border-top: 2px solid rgb(94, 94, 95);
+}
+
 .bg-due {
   background-color: rgb(151, 195, 62);
 }
@@ -1174,6 +1190,27 @@ Dashboard Pod Styles
   overflow-y: hidden;
   text-align: center;
   text-overflow: ellipsis;
+}
+
+.pad-info-last-edit {
+  color: #d35400;
+}
+
+.pod-name-archived {
+  font-size: 15px;
+  height: 40px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-align: left;
+  padding: 15px 10px 10px 15px;
+  text-overflow: ellipsis;
+}
+
+.pod-archive-search-bar {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  width: 25%;
 }
 
 
@@ -1242,3 +1279,17 @@ Dashboard Pod Styles
   background: #404040;
 }
 
+/* --------------------------------
+
+Modal Styles
+
+-------------------------------- */
+
+.modal {
+  font-family: 'Raleway'
+}
+
+.modal-title {
+  font-size: 20px !important;
+  font-weight: 600
+}
