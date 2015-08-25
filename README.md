@@ -1,6 +1,8 @@
 ## HDX Monitor Server
 Helps organize the micro-services that make the HDX Monitor.
 
+![Screengrab v.0.1.0](screengrab.png)
+
 ## Running Docker Container
 Adapt the following command to run a Docker container with the HDX Monitor locally:
 
