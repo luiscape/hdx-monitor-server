@@ -131,26 +131,26 @@
         "last_updated" : "2015-01-04T14:34:34"
       },
       {
-        "id" : "ebola-cases",
+        "id" : "number-of-girls-enrolled-in-school",
         "name" : "Number of girls enrolled in school",
         "status" : "Delinquent",
-        "age": 15,
+        "age": 95,
         "frequency" : 30,
         "last_updated" : "2015-01-04T14:34:34"
       },
       {
-        "id" : "ebola-cases",
+        "id" : "latrine-coverage-in-households-by-district-2006-07-2010-11",
         "name" : "Latrine Coverage in households by district, 2006/07- 2010/11",
         "status" : "Delinquent",
         "age": 15,
-        "frequency" : 89,
+        "frequency" : 1,
         "last_updated" : "2015-01-04T14:34:34"
       },
       {
         "id" : "ebola-cases",
         "name" : "Simplified LSIB Polygons, Eurasia and Oceania",
         "status" : "Delinquent",
-        "age": 15,
+        "age": 400,
         "frequency" : 179,
         "last_updated" : "2015-01-04T14:34:34"
       },
@@ -166,7 +166,7 @@
         "id" : "ebola-cases",
         "name" : "Syria Border Crossings",
         "status" : "Due",
-        "age": 15,
+        "age": 62,
         "frequency" : 30,
         "last_updated" : "2015-01-04T14:34:34"
       },
@@ -174,7 +174,7 @@
         "id" : "ebola-cases",
         "name" : "LSIB, Simplified Shoreline",
         "status" : "Due",
-        "age": 15,
+        "age": 24,
         "frequency" : 1,
         "last_updated" : "2015-01-04T14:34:34"
       },
@@ -182,7 +182,7 @@
         "id" : "ebola-cases",
         "name" : "Simplified LSIB Lines, Global",
         "status" : "Due",
-        "age": 15,
+        "age": 76,
         "frequency" : 179,
         "last_updated" : "2015-01-04T14:34:34"
       },
@@ -190,7 +190,7 @@
         "id" : "ebola-cases",
         "name" : "Syria IDP Sites",
         "status" : "Due",
-        "age": 15,
+        "age": 36,
         "frequency" : 30,
         "last_updated" : "2015-01-04T14:34:34"
       },
@@ -198,7 +198,7 @@
         "id" : "ebola-cases",
         "name" : "Syria Refugee Sites",
         "status" : "Due",
-        "age": 15,
+        "age": 44,
         "frequency" : 179,
         "last_updated" : "2015-01-04T14:34:34"
       },
@@ -206,7 +206,7 @@
         "id" : "ebola-cases",
         "name" : "Earthquake analysis for Japan (12 March 2011)",
         "status" : "Due",
-        "age": 15,
+        "age": 35,
         "frequency" : 179,
         "last_updated" : "2015-01-04T14:34:34"
       },
@@ -214,7 +214,7 @@
         "id" : "ebola-cases",
         "name" : "Flood analysis for Somalia (17 November 2006)",
         "status" : "Up-to-date",
-        "age": 15,
+        "age": 1,
         "frequency" : 89,
         "last_updated" : "2015-01-04T14:34:34"
       },
@@ -222,7 +222,71 @@
         "id" : "ebola-cases",
         "name" : "Flood analysis for Somalia (20 November 2006)",
         "status" : "Up-to-date",
-        "age": 15,
+        "age": 14,
+        "frequency" : 179,
+        "last_updated" : "2015-01-04T14:34:34"
+      },
+      {
+        "id" : "ebola-cases",
+        "name" : "Syria Border Crossings",
+        "status" : "Archived",
+        "age": 120,
+        "frequency" : 30,
+        "last_updated" : "2015-01-04T14:34:34"
+      },
+      {
+        "id" : "ebola-cases",
+        "name" : "LSIB, Simplified Shoreline",
+        "status" : "Archived",
+        "age": 299,
+        "frequency" : 1,
+        "last_updated" : "2015-01-04T14:34:34"
+      },
+      {
+        "id" : "ebola-cases",
+        "name" : "Simplified LSIB Lines, Global",
+        "status" : "Archived",
+        "age": 5,
+        "frequency" : 179,
+        "last_updated" : "2015-01-04T14:34:34"
+      },
+      {
+        "id" : "ebola-cases",
+        "name" : "Syria IDP Sites",
+        "status" : "Archived",
+        "age": 300,
+        "frequency" : 30,
+        "last_updated" : "2015-01-04T14:34:34"
+      },
+      {
+        "id" : "ebola-cases",
+        "name" : "Syria Refugee Sites",
+        "status" : "Archived",
+        "age": 34,
+        "frequency" : 179,
+        "last_updated" : "2015-01-04T14:34:34"
+      },
+      {
+        "id" : "ebola-cases",
+        "name" : "Earthquake analysis for Japan (12 March 2011)",
+        "status" : "Archived",
+        "age": 54,
+        "frequency" : 179,
+        "last_updated" : "2015-01-04T14:34:34"
+      },
+      {
+        "id" : "ebola-cases",
+        "name" : "Flood analysis for Somalia (17 November 2006)",
+        "status" : "Archived-to-date",
+        "age": 24,
+        "frequency" : 89,
+        "last_updated" : "2015-01-04T14:34:34"
+      },
+      {
+        "id" : "ebola-cases",
+        "name" : "Flood analysis for Somalia (20 November 2006)",
+        "status" : "Archived-to-date",
+        "age": 100,
         "frequency" : 179,
         "last_updated" : "2015-01-04T14:34:34"
       }
