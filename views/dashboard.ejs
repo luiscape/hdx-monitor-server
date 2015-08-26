@@ -1,37 +1,79 @@
 <!doctype html>
+
 <html lang="en" class="no-js" ng-app='Monitor'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="libs/flat-ui/dist/css/flat-ui.min.css">
-    <link rel="stylesheet" href="libs/c3/c3.min.css">
-    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HDX Monitor</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <!--
 
-    <title>HDX Monitor</title>
+  STYLES: ==============================================
+
+  Here we are loading all of our styles. It includes
+  the Raleway font from Google Fonts, Bootstrap (3+),
+  Font Awesome, and the FlatUI CSS.
+
+  The style.css file includes the main custom styles
+  developed for this application.
+
+  ======================================================
+
+  -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="libs/flat-ui/dist/css/flat-ui.min.css">
+  <link rel="stylesheet" href="libs/c3/c3.min.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
     <header class="cd-header">
-        <!-- service alert -->
+
+        <!--
+
+        SERVICE ALERT: =============================================
+
+        Here we are calling a specific controller that functions
+        only to display information to the user about the current
+        service status. At the moment, it is only capable of checking
+        the online status of a single service. The service id has
+        to be passed as a variable called `service`.
+
+        ============================================================
+
+        -->
         <div class="service-status-container" ng-controller="StatusAlertController as status">
             <script> var service = 'dataset_age' </script>
             <a class="status-icon" href="#" ng-init="status.check('dataset_age')" id='status-alert'></a>
             <div class="alert-container" id="alert-container"></div>
         </div>
-        <!-- menu -->
+
         <a href="#0" class="cd-3d-nav-trigger">
             Menu
             <span></span>
         </a>
-    </header> <!-- .cd-header -->
 
+    </header>
+
+    <!--
+
+    NAVIGATION MENU: ============================================
+
+    TODO: Navigation menu should have a controller. The menu
+    should be dynamically generated and not statically as below.
+    Consider this a placeholder.
+
+    =============================================================
+
+    -->
     <nav class="cd-3d-nav-container">
+
         <ul class="cd-3d-nav">
             <li class="cd-selected">
                 <a href="/">Dashboard</a>
@@ -52,11 +94,27 @@
             <li>
                 <a href="#0">Settings</a>
             </li>
-        </ul> <!-- .cd-3d-nav -->
+        </ul>
 
         <span class="cd-marker color-1"></span>
-    </nav> <!-- .cd-3d-nav-container -->
 
+    </nav>
+
+    <!--
+
+    CATEGORY PODS: =============================================
+
+    The section controlled by the DashboardController creates
+    a series of "pods" that list all the datets categorized by the
+    aging service.
+
+    TODO: Create dynamically `pod-column`. At the moment those
+    are statically created. This is an elegance point and would
+    add little value overall.
+
+    ============================================================
+
+    -->
 
     <main ng-controller="DashboardController as dashboard">
 
@@ -78,34 +136,39 @@
                         </div>
 
                         <div class="pod-info"
-                          ng-controller="ModalController as modal"
-                          ng-repeat="dataset in dashboard.delinquent"
+                          ng-repeat="dataset in dashboard.delinquent | orderBy: '-downloads'"
                           ng-mouseover="dashboard.hoverIn(dataset)"
                           ng-mouseleave="dashboard.hoverOut(dataset)"
-                          ng-click="modal.open(dataset.id)"
+                          ng-controller="ModalController as modal"
+                          ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
                           style="cursor:pointer;">
 
+
                             <div class="pod-info-dataset-title">
-                                {{ dataset.name }}
+                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
                             </div>
-                            <!-- <div class="pod-scraper-icon">test</div> -->
+
+                            <div ng-show="dataset.checked" class="pod-info-user-checked">
+                              <span class="fa fa-check"></span>
+                            </div>
+
                             <div class="pod-info-assets">
-                              <span class="pod-info-frequency-category">
-                                {{ dataset.frequency_label }}
+
+                              <span class="pod-info-downloads">
+                                <b>{{ dataset.downloads }}</b> downloads
                               </span>
 
                               <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
                                 Last edited <span am-time-ago="dataset.last_updated"></span>.
-                                <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
                               </span>
 
                               <span class="pod-info-age">
-                                <b>{{ dataset.age }}</b> days old
+                                <b>{{ dataset.age }}</b> days
+                                <!-- {{ dataset.status }} -->
                               </span>
 
-                              <!-- <span class="scraper-icon"></span> -->
-
                             </div>
+
                         </div>
 
                     </div>
@@ -125,33 +188,38 @@
                         </div>
 
                          <div class="pod-info"
-                           ng-repeat="dataset in dashboard.overdue"
+                           ng-repeat="dataset in dashboard.overdue | orderBy: '-downloads'"
                            ng-mouseover="dashboard.hoverIn(dataset)"
                            ng-mouseleave="dashboard.hoverOut(dataset)"
-                           ng-click="dashboard.go('https://data.hdx.rwlabs.org/dataset/' + dataset.id)"
+                           ng-controller="ModalController as modal"
+                           ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
                            style="cursor:pointer;">
 
                             <div class="pod-info-dataset-title">
-                                {{ dataset.name }}
+                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
                             </div>
-                            <!-- <div class="pod-scraper-icon">test</div> -->
+
+                            <div ng-show="dataset.checked" class="pod-info-user-checked">
+                              <span class="fa fa-check"></span>
+                            </div>
+
                             <div class="pod-info-assets">
-                              <span class="pod-info-frequency-category">
-                                {{ dataset.frequency_label }}
+
+                              <span class="pod-info-downloads">
+                                <b>{{ dataset.downloads }}</b> downloads
                               </span>
 
                               <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
                                 Last edited <span am-time-ago="dataset.last_updated"></span>.
-                                <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
                               </span>
 
                               <span class="pod-info-age">
-                                <b>{{ dataset.age }}</b> days old
+                                <b>{{ dataset.age }}</b> days
+                                <!-- {{ dataset.status }} -->
                               </span>
 
-                              <!-- <span class="scraper-icon"></span> -->
-
                             </div>
+
                         </div>
                     </div>
 
@@ -172,33 +240,38 @@
                         </div>
 
                         <div class="pod-info"
-                          ng-repeat="dataset in dashboard.due"
+                          ng-repeat="dataset in dashboard.due | orderBy: '-downloads'"
                           ng-mouseover="dashboard.hoverIn(dataset)"
                           ng-mouseleave="dashboard.hoverOut(dataset)"
-                          ng-click="dashboard.go('https://data.hdx.rwlabs.org/dataset/' + dataset.id)"
+                          ng-controller="ModalController as modal"
+                          ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
                           style="cursor:pointer;">
 
-                           <div class="pod-info-dataset-title">
-                               {{ dataset.name }}
+                            <div class="pod-info-dataset-title">
+                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
+                            </div>
+
+                           <div ng-show="dataset.checked" class="pod-info-user-checked">
+                             <span class="fa fa-check"></span>
                            </div>
-                           <!-- <div class="pod-scraper-icon">test</div> -->
-                           <div class="pod-info-assets">
-                             <span class="pod-info-frequency-category">
-                               {{ dataset.frequency_label }}
-                             </span>
 
-                             <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
-                               Last edited <span am-time-ago="dataset.last_updated"></span>.
-                               <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
-                             </span>
+                            <div class="pod-info-assets">
 
-                             <span class="pod-info-age">
-                               <b>{{ dataset.age }}</b> days old
-                             </span>
+                              <span class="pod-info-downloads">
+                                <b>{{ dataset.downloads }}</b> downloads
+                              </span>
 
-                             <!-- <span class="scraper-icon"></span> -->
+                              <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
+                                Last edited <span am-time-ago="dataset.last_updated"></span>.
+                              </span>
 
-                           </div>
+                              <span class="pod-info-age">
+                                <b>{{ dataset.age }}</b> days
+                                <!-- {{ dataset.status }} -->
+                              </span>
+
+                            </div>
+
                        </div>
 
                     </div>
@@ -219,31 +292,35 @@
                         </div>
 
                          <div class="pod-info"
-                           ng-repeat="dataset in dashboard.uptodate"
+                           ng-repeat="dataset in dashboard.uptodate | orderBy: '-downloads'"
                            ng-mouseover="dashboard.hoverIn(dataset)"
                            ng-mouseleave="dashboard.hoverOut(dataset)"
-                           ng-click="dashboard.go('https://data.hdx.rwlabs.org/dataset/' + dataset.id)"
+                           ng-controller="ModalController as modal"
+                           ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
                            style="cursor:pointer;">
 
                             <div class="pod-info-dataset-title">
-                                {{ dataset.name }}
+                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
                             </div>
-                            <!-- <div class="pod-scraper-icon">test</div> -->
+
+                            <div ng-show="dataset.checked" class="pod-info-user-checked">
+                              <span class="fa fa-check"></span>
+                            </div>
+
                             <div class="pod-info-assets">
-                              <span class="pod-info-frequency-category">
-                                {{ dataset.frequency_label }}
+
+                              <span class="pod-info-downloads">
+                                <b>{{ dataset.downloads }}</b> downloads
                               </span>
 
                               <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
                                 Last edited <span am-time-ago="dataset.last_updated"></span>.
-                                <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
                               </span>
 
                               <span class="pod-info-age">
-                                <b>{{ dataset.age }}</b> days old
+                                <b>{{ dataset.age }}</b> days
+                                <!-- {{ dataset.status }} -->
                               </span>
-
-                              <!-- <span class="scraper-icon"></span> -->
 
                             </div>
                         </div>
@@ -277,30 +354,32 @@
                       ng-repeat="dataset in dashboard.archived | filter:searchText"
                       ng-mouseover="dashboard.hoverIn(dataset)"
                       ng-mouseleave="dashboard.hoverOut(dataset)"
-                      ng-click="dashboard.go('https://data.hdx.rwlabs.org/dataset/' + dataset.id)"
+                      ng-controller="ModalController as modal"
+                      ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
                       style="cursor:pointer;">
 
                         <div class="pod-info-dataset-title">
-
                             {{ dataset.name }}
-
                         </div>
-                        <!-- <div class="pod-scraper-icon">test</div> -->
+
+                        <div ng-show="dataset.checked" class="pod-info-user-checked">
+                          <span class="fa fa-check"></span>
+                        </div>
+
                         <div class="pod-info-assets">
-                          <span class="pod-info-frequency-category">
-                            {{ dataset.frequency_label }}
+
+                          <span class="pod-info-downloads">
+                            <b>{{ dataset.downloads }}</b> downloads
                           </span>
 
                           <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
                             Last edited <span am-time-ago="dataset.last_updated"></span>.
-                            <!-- Last edited: {{ dataset.last_updated | amDateFormat:'dddd, MMMM Do YYYY, h:mm a' }} -->
                           </span>
 
                           <span class="pod-info-age">
-                            <b>{{ dataset.age }}</b> days old
+                            <b>{{ dataset.age }}</b> days
+                            <!-- {{ dataset.status }} -->
                           </span>
-
-                          <!-- <span class="scraper-icon"></span> -->
 
                         </div>
                     </div>
@@ -310,25 +389,35 @@
 
             </div>
 
-            <div ng-controller="ModalController as modal">
-              <!-- <button type="button" class="btn btn-default" ng-click="modal.open()">Open me!</button> -->
-              <!-- <button type="button" class="btn btn-default" ng-click="modal.open('lg')">Large modal</button> -->
-              <!-- <button type="button" class="btn btn-default" ng-click="modal.open('sm')">Small modal</button> -->
-              <!-- <div ng-show="selected">Selection from a modal: {{ modal.selected }}</div> -->
-            </div>
-
         </body>
 
     </main>
 
-    <!-- UI dependencies -->
+    <!--
+
+    DEPENDENCIES: ==============================================
+
+    Dependencies include the latest version of AngularJS.
+    A number of dependencies necessary for the some elements
+    of the UI (i.e. FlatUI). Finally, it loads the Angular-based
+    modules and controllers that the application needs.
+
+    ============================================================
+
+    -->
+
+    <!-- FlatUI dependencies -->
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src="libs/flat-ui/dist/js/flat-ui.min.js"></script>
     <script src="js/main.js"></script> <!-- Resource jQuery -->
     <script src="js/create-ui.js"></script>
 
-    <!-- angular -->
+    <!-- Charting dependencies. -->
+    <script src="libs/d3/d3.min.js"></script>
+    <script src="libs/c3/c3.min.js"></script>
+
+    <!-- Angular -->
     <script src="libs/angular/angular.min.js"></script>
 
     <!-- Angular dependencies. -->
@@ -336,6 +425,9 @@
     <script src="libs/moment/moment.js"></script>
     <script src="libs/angular-moment/angular-moment.js"></script>
     <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="libs/showdown/compressed/Showdown.min.js"></script>
+    <script src="libs/angular-markdown-directive/markdown.js"></script>
 
     <!-- modules -->
     <script src="modules/app.js"></script>
@@ -344,26 +436,77 @@
     <script src="controllers/status_alert.js"></script>
     <script src="controllers/dashboard.js"></script>
 
+    <!--
+
+    MODAL TEMPLATE: ===========================================
+
+    Here is available the modal template.
+    It displays information about the dataset in question,
+    as well as provides the following options for users
+    to take action:
+
+      - Visit the dataset on HDX.
+      - Email the dataset maintainer (as specified in HDX metadata).
+      - Change the frequency of a dataset.
+
+    Soon a chart will be generated that displays the activity
+    stream of the dataset in question.
+
+    NOTE: If it fails it will show an error message.
+
+    TODO: Load this template from the file system.
+
+    ============================================================
+
+    -->
 
     <script type="text/ng-template" id="test.html">
+
       <div class="modal-header">
-          <h3 class="modal-title">{{ dataset.title }}</h3>
+        <h3 class="modal-title" ng-show="{{ !dataset.success }}">Error!</h3>
+        <h3 class="modal-title" ng-show="{{ dataset.success }}">{{ dataset.result.title }}</h3>
       </div>
-      <div class="modal-body">
-          {{ dataset.notes }}
+
+      <div class="modal-body" ng-show="{{ dataset.success }}">
+
+        <div class="row">
+          <div class="col-xs-8">
+            <p ng-show="{{ dataset.success }} " btf-markdown="dataset.result.notes"></p>
+          </div>
+          <div class="col-xs-4 modal-numbers">
+            <p>
+              PRORITY <span class="modal-priority-number">#{{ dataset.result.priority + 1 }}</span>
+            </p>
+            <br />
+            <p>
+              <span class="modal-stats-number">{{ dataset.result.tracking_summary.total }}</span> DOWNLOADS
+            </p>
+            <p class="modal-stats-number">
+              <br />
+              <span class="label label-danger" ng-show="{{ dataset.success }}"> {{ dataset.result.age }} days {{ dataset.result.age_status }} </span>
+            </p>
+          </div>
+        </div>
+
+        <div ng-show="{{ dataset.success }}">
+          <h4><b>Activity Stream</b></h4>
+          <div id="activity-bar-chart"></div>
+        </div>
+
       </div>
-      <div class="modal-footer">
-          <button class="btn btn-primary" type="button" ng-click="visit()">View Dataset</button>
-          <button class="btn btn-primary" type="button" ng-click="email()">Email Maintainer</button>
-          <button class="btn btn-primary" type="button" ng-click="archive()">Change Frequency</button>
+
+      <div class="modal-body" ng-show="{{ !dataset.success }}">
+        <p>{{ dataset.message }}</p>
+      </div>
+
+      <div ng-show="{{ dataset.success }}" class="modal-footer">
+          <a class="btn btn-primary" target="_blank" ng-href="https://data.hdx.rwlabs.org/dataset/{{dataset.result.id}}" type="button" ng-click="visit()">View Dataset</a>
+          <a class="btn btn-primary disabled" type="button" ng-click="email()">Email Maintainer</a>
+          <a class="btn btn-primary disabled" type="button" ng-click="change_frequency()">Change Frequency</a>
       </div>
 
     </script>
 
+  </body>
 
-</body>
 </html>
-
-
-
-
