@@ -23,6 +23,10 @@ b {
   font-weight: 700;
 }
 
+strong {
+ font-weight: 700;
+}
+
 /* --------------------------------
 
 Title styles
@@ -1261,11 +1265,20 @@ Dashboard Pod Styles
   font-style: italic;
 }
 
+.pod-info-downloads {
+  text-align: left;
+  position: absolute;
+  left: 10px;
+  color: #606060 !important;
+}
+
+
 .pod-info-age {
   color: #606060 !important;
   text-align: right;
   position: absolute;
   right: 20px;
+  text-transform: lowercase;
   /*font-weight: bold;*/
 }
 
@@ -1286,10 +1299,64 @@ Modal Styles
 -------------------------------- */
 
 .modal {
-  font-family: 'Raleway'
+  font-family: 'Open Sans'
 }
 
 .modal-title {
   font-size: 20px !important;
   font-weight: 600
+}
+
+.modal-footer {
+  text-align: center;
+}
+
+.modal-numbers {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: right;
+  line-height: 100%;
+}
+
+.modal-numbers p {
+  padding-bottom: 0px !important;
+}
+
+.modal-footer .btn {
+  font-size: 13px;
+}
+
+.modal-body {
+  font-size: 13px;
+  line-height: 160%;
+  font-weight: 300;
+}
+
+.modal-body p {
+  padding-bottom: 20px;
+}
+
+.modal-priority-number {
+  font-weight: 700;
+}
+
+.modal-stats-number {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.modal-status-label {
+  text-align: right;
+}
+
+.pod-info-user-checked {
+  position: relative;
+  font-size: 10px;
+  bottom: 34px;
+  float: right;
+  color: #27ae60;
+}
+
+.pod-info-dataset-index {
+  font-size: 10px;
+  font-weight: 300;
 }
