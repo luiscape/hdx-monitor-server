@@ -8,7 +8,8 @@
         "status" : "Overdue",
         "age": 15,
         "frequency" : 1,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 4000
       },
       {
         "id" : "nepal-earthquake-landslide-locations-30-june-2015",
@@ -16,7 +17,8 @@
         "status" : "Overdue",
         "age": 30,
         "frequency" : 13,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 23
       },
       {
         "id" : "ebola-cases",
@@ -24,7 +26,8 @@
         "status" : "Overdue",
         "age": 17,
         "frequency" : 1,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 3
       },
       {
         "id" : "ebola-cases",
@@ -32,7 +35,8 @@
         "status" : "Overdue",
         "age": 10,
         "frequency" : 1,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 540
       },
       {
         "id" : "ebola-cases",
@@ -40,7 +44,8 @@
         "status" : "Overdue",
         "age": 3,
         "frequency" : 1,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 45
       },
       {
         "id" : "ebola-cases",
@@ -48,7 +53,8 @@
         "status" : "Up-to-date",
         "age": 2,
         "frequency" : 13,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 35
       },
       {
         "id" : "ebola-cases",
@@ -56,7 +62,8 @@
         "status" : "Up-to-date",
         "age": 1,
         "frequency" : 13,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 3757
       },
       {
         "id" : "ebola-cases",
@@ -64,7 +71,8 @@
         "status" : "Up-to-date",
         "age": 1,
         "frequency" : 1,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 56
       },
       {
         "id" : "ebola-cases",
@@ -72,7 +80,8 @@
         "status" : "Up-to-date",
         "age": 3,
         "frequency" : 13,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 4
       },
       {
         "id" : "ebola-cases",
@@ -80,7 +89,8 @@
         "status" : "Up-to-date",
         "age": 4,
         "frequency" : 13,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 10
       },
       {
         "id" : "ebola-cases",
@@ -88,7 +98,8 @@
         "status" : "Up-to-date",
         "age": 15,
         "frequency" : 13,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 11
       },
       {
         "id" : "ebola-cases",
@@ -96,7 +107,8 @@
         "status" : "Up-to-date",
         "age": 5,
         "frequency" : 13,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 34
       },
       {
         "id" : "ebola-cases",
@@ -104,7 +116,8 @@
         "status" : "Up-to-date",
         "age": 15,
         "frequency" : 13,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 54
       },
       {
         "id" : "ebola-cases",
@@ -112,7 +125,8 @@
         "status" : "Up-to-date",
         "age": 15,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 46
       },
       {
         "id" : "ebola-cases",
@@ -120,7 +134,8 @@
         "status" : "Up-to-date",
         "age": 15,
         "frequency" : 30,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 30
       },
       {
         "id" : "ebola-cases",
@@ -128,15 +143,17 @@
         "status" : "Up-to-date",
         "age": 15,
         "frequency" : 1,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 46
       },
       {
-        "id" : "number-of-girls-enrolled-in-school",
-        "name" : "Number of girls enrolled in school",
+        "id" : "ebola-cases-2014",
+        "name" : "Number of Ebola Cases and Deaths in Affected Countries",
         "status" : "Delinquent",
         "age": 95,
         "frequency" : 30,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 8004
       },
       {
         "id" : "latrine-coverage-in-households-by-district-2006-07-2010-11",
@@ -144,7 +161,8 @@
         "status" : "Delinquent",
         "age": 15,
         "frequency" : 1,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 44
       },
       {
         "id" : "ebola-cases",
@@ -152,7 +170,8 @@
         "status" : "Delinquent",
         "age": 400,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 24
       },
       {
         "id" : "ebola-cases",
@@ -160,7 +179,8 @@
         "status" : "Due",
         "age": 15,
         "frequency" : 89,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 3
       },
       {
         "id" : "ebola-cases",
@@ -168,7 +188,8 @@
         "status" : "Due",
         "age": 62,
         "frequency" : 30,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 4234
       },
       {
         "id" : "ebola-cases",
@@ -176,7 +197,8 @@
         "status" : "Due",
         "age": 24,
         "frequency" : 1,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 34
       },
       {
         "id" : "ebola-cases",
@@ -184,7 +206,8 @@
         "status" : "Due",
         "age": 76,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 50
       },
       {
         "id" : "ebola-cases",
@@ -192,7 +215,8 @@
         "status" : "Due",
         "age": 36,
         "frequency" : 30,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 66
       },
       {
         "id" : "ebola-cases",
@@ -200,7 +224,8 @@
         "status" : "Due",
         "age": 44,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 46
       },
       {
         "id" : "ebola-cases",
@@ -208,7 +233,8 @@
         "status" : "Due",
         "age": 35,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 74
       },
       {
         "id" : "ebola-cases",
@@ -216,7 +242,8 @@
         "status" : "Up-to-date",
         "age": 1,
         "frequency" : 89,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 84
       },
       {
         "id" : "ebola-cases",
@@ -224,7 +251,8 @@
         "status" : "Up-to-date",
         "age": 14,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 66
       },
       {
         "id" : "ebola-cases",
@@ -232,7 +260,8 @@
         "status" : "Archived",
         "age": 120,
         "frequency" : 30,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 45
       },
       {
         "id" : "ebola-cases",
@@ -240,7 +269,8 @@
         "status" : "Archived",
         "age": 299,
         "frequency" : 1,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 463
       },
       {
         "id" : "ebola-cases",
@@ -248,7 +278,8 @@
         "status" : "Archived",
         "age": 5,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 56
       },
       {
         "id" : "ebola-cases",
@@ -256,7 +287,8 @@
         "status" : "Archived",
         "age": 300,
         "frequency" : 30,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 45
       },
       {
         "id" : "ebola-cases",
@@ -264,7 +296,8 @@
         "status" : "Archived",
         "age": 34,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 30
       },
       {
         "id" : "ebola-cases",
@@ -272,7 +305,8 @@
         "status" : "Archived",
         "age": 54,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 30
       },
       {
         "id" : "ebola-cases",
@@ -280,7 +314,8 @@
         "status" : "Archived-to-date",
         "age": 24,
         "frequency" : 89,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 343
       },
       {
         "id" : "ebola-cases",
@@ -288,7 +323,8 @@
         "status" : "Archived-to-date",
         "age": 100,
         "frequency" : 179,
-        "last_updated" : "2015-01-04T14:34:34"
+        "last_updated" : "2015-01-04T14:34:34",
+        "downloads": 30
       }
     ]
 }
