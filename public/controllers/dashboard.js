@@ -4,10 +4,11 @@
 // -- Ageing Service
 // -- Scraper Status Service
 //
-app.controller('DashboardController', ['$http', '$filter', '$location',
-  function ($http, $filter, $location) {
+app.controller('DashboardController', ['$http', '$scope', '$filter', '$location',
+  function ($http, $scope, $filter, $location) {
     var self = this
     var f = $filter('filter')
+    var orderBy = $filter('orderBy')
 
     //
     // Hover functions.
@@ -20,14 +21,6 @@ app.controller('DashboardController', ['$http', '$filter', '$location',
       d.hover_last_updated = false
     }
 
-    //
-    // Function to visit an URL.
-    //
-    self.go = function (url) {
-      console.log(url)
-      $location.path(url)
-    }
-
     $http.get('service_data/dataset_age_mock_data.json')
       .then(
         function (response) {
@@ -37,13 +30,13 @@ app.controller('DashboardController', ['$http', '$filter', '$location',
           // Adding labels
           //
           var frequency_types = {
-            '1': 'Every day',
-            '6': 'Every week',
-            '13': 'Every two weeks',
-            '30': 'Every month',
-            '89': 'Every three months',
-            '179': 'Every six months',
-            '364': 'Every year',
+            '1': 'Day',
+            '6': 'Week',
+            '13': 'Two week',
+            '30': 'Month',
+            '89': 'Three months',
+            '179': 'Six months',
+            '364': 'Year',
           }
           for (var i = 0; i < response.data.results.length; i++) {
             response.data.results[i].frequency_label = frequency_types[response.data.results[i].frequency]
@@ -58,11 +51,6 @@ app.controller('DashboardController', ['$http', '$filter', '$location',
           self.overdue = f(response.data.results, { status: 'Overdue' })
           self.due = f(response.data.results, { status: 'Due' }, true)
 
-          //
-          // Inspecting.
-          //
-          // console.log(self)
-
         },
         function (response) {
           self.fail = {
@@ -74,23 +62,126 @@ app.controller('DashboardController', ['$http', '$filter', '$location',
     )
   }])
 
-app.controller('ModalController', ['$http', '$modal', '$log',
-  function ($http, $modal, $log) {
+app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$modal', '$log',
+  function ($http, $scope, $filter, $window, $modal, $log) {
     var self = this
     self.animationsEnabled = true
 
-    self.open = function (dataset_id) {
-      $http.get('http://data.hdx.rwlabs.org/api/action/package_show?id=' + dataset_id)
+    //
+    // Gets a unique list from array.
+    // From: http://stackoverflow.com/questions/11688692/most-elegant-way-to-create-a-list-of-unique-items-in-javascript
+    //
+    function unique (arr) {
+      var u = {}, a = []
+      for (var i = 0, l = arr.length; i < l; ++i) {
+        if (!u.hasOwnProperty(arr[i])) {
+          a.push(arr[i])
+          u[arr[i]] = 1
+        }
+      }
+      return a
+    }
+
+    //
+    // Count the number of
+    // observations per minute.
+    //
+    var calculateBins = function (response_data, callback) {
+      var out = [], temp = []
+      var timestamp = null
+      var timestamp_array = []
+      var f = $filter('filter')
+
+      for (var i = 0; i < response_data.length; i++) {
+        timestamp = moment(response_data[i].timestamp).format('YYYY-MM-DD')
+        timestamp_array.push(timestamp)
+        temp.push({ 'day': timestamp, 'count': null })
+      }
+
+      var unique_days = unique(timestamp_array)
+
+      for (var i = 0; i < unique_days.length; i++) {
+        var same_day_items = f(temp, { day: unique_days[i] }, true)
+        var t = { 'day': unique_days[i], 'count': same_day_items.length }
+        out.push(t)
+      }
+
+      callback(out)
+    }
+
+    //
+    // Generates a C3 bar chart.
+    //
+    var generateGraph = function (data) {
+      var c3 = $window.c3
+      c3.generate({
+        bindto: '#activity-bar-chart',
+        size: {
+          height: 200
+        },
+        padding: {
+          top: 0,
+          right: 40,
+          bottom: 0,
+          left: 40,
+        },
+        data: {
+          json: data,
+          mimeType: 'json',
+          keys: {
+            x: 'day',
+            value: ['day', 'count']
+          },
+          type: 'bar'
+        },
+        axis: {
+          x: {
+            type: 'timeseries',
+            tick: {
+              format: '%Y-%m-%d',
+              count: 30,
+              culling: {
+                max: 4
+              }
+            }
+          },
+          y: {
+            show: false
+          }
+        },
+        bar: {
+          width: {
+            ratio: 0.6 // this makes bar width 50% of length between ticks
+          }
+        },
+        color: {
+          pattern: ['#34495e']
+        },
+        legend: {
+          show: false
+        }
+      })
+    }
+
+    self.order = function (reverse) {
+      console.log('change order')
+      $scope.dataset = orderBy($scope.dataset, 'downloads', reverse)
+    }
+
+    self.open = function (dataset) {
+      $http.get('http://data.hdx.rwlabs.org/api/action/package_show?id=' + dataset.id)
         .then(
           function (response) {
-            self.success = true
+            response.data.result.age = dataset.age
+            response.data.result.age_status = dataset.status
+            response.data.result.priority = $scope.$parent.$index
 
             var modalInstance = $modal.open({
               templateUrl: 'test.html',
               controller: 'ModalInstanceController',
               resolve: {
                 data: function () {
-                  return response.data.result
+                  return response.data
                 }
               }
             })
@@ -102,12 +193,57 @@ app.controller('ModalController', ['$http', '$modal', '$log',
             })
 
           },
+
+          //
+          // If fail, still loads
+          // the modal with a failure message.
+          //
           function (response) {
-            self.success = false,
-            self.message = 'Could not connect to HDX.'
-            console.log(response.data)
+            var fail_message = {
+              'success': false,
+              'message': 'Could not connect to HDX.'
+            }
+
+            var modalInstance = $modal.open({
+              templateUrl: 'test.html',
+              controller: 'ModalInstanceController',
+              resolve: {
+                data: function () {
+                  return fail_message
+                }
+              }
+            })
+
+            modalInstance.result.then(function (selectedItem) {}, function () {
+              $log.info('Modal dismissed at: ' + new Date())
+            })
           }
       )
+    }
+
+    //
+    // Fetches revision data from HDX.
+    //
+    self.fetch = function (dataset_id) {
+      self.chart = {}
+      $http.get('https://data.hdx.rwlabs.org/api/3/action/package_revision_list?id=' + dataset_id)
+        .then(
+          function (response) {
+            self.chart.success = true
+            calculateBins(response.data.result, generateGraph)
+          },
+          function (response) {
+            self.chart.success = false
+            console.log('Failed to collect revision ids.')
+          }
+      )
+    }
+
+    //
+    // Adds checked icon to dataset.
+    //
+    self.checked = function (dataset) {
+      $scope.dataset.checked = true
     }
 
   }])
@@ -120,17 +256,15 @@ app.controller('ModalInstanceController',
     var self = $scope
     self.dataset = data
 
-    console.log('my title is: ' + data.title)
-
     self.visit = function () {
-      console.log('Visiting: https://data.hdx.rwlabs.org/dataset/' + data.id)
+      console.log('Visiting: https://data.hdx.rwlabs.org/dataset/' + self.dataset.result.id)
     }
 
     self.email = function () {
       console.log('Emailing maintainer.')
     }
 
-    self.archive = function () {
-      console.log('Archiving dataset.')
+    self.change_frequency = function () {
+      console.log('Changing frequency of dataset dataset.')
     }
   })
