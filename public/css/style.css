@@ -1217,6 +1217,11 @@ Dashboard Pod Styles
   width: 25%;
 }
 
+.pod-body {
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 700px;
+}
 
 .pod-info {
   box-sizing: border-box;
@@ -1246,15 +1251,6 @@ Dashboard Pod Styles
 
 .pod-info-assets {
   font-size: 11px;
-  -webkit-columns: 2 200px;
-     -moz-columns: 2 200px;
-          columns: 2 200px;
-  -webkit-column-gap: 4em;
-     -moz-column-gap: 4em;
-          column-gap: 4em;
-  -webkit-column-rule: 1px dotted #ddd;
-     -moz-column-rule: 1px dotted #ddd;
-          column-rule: 1px dotted #ddd;
 }
 
 .pod-info-frequency-category {
@@ -1267,19 +1263,20 @@ Dashboard Pod Styles
 
 .pod-info-downloads {
   text-align: left;
-  position: absolute;
-  left: 10px;
+  position: relative;
+  float: left;
   color: #606060 !important;
+  padding: 0 0 0 5px;
 }
 
 
 .pod-info-age {
   color: #606060 !important;
   text-align: right;
-  position: absolute;
-  right: 20px;
+  float: right;
+  position: relative;
   text-transform: lowercase;
-  /*font-weight: bold;*/
+  padding: 0 5px 0 0;
 }
 
 .scraper-icon {
@@ -1359,4 +1356,61 @@ Modal Styles
 .pod-info-dataset-index {
   font-size: 10px;
   font-weight: 300;
+}
+
+
+/* --------------------------------
+
+Pod scroll bar.
+
+-------------------------------- */
+
+.listings {
+  height:100%;
+  overflow:auto;
+  /*padding-bottom:20px;*/
+}
+.listings .item {
+  display:block;
+  border-bottom:1px solid #eee;
+  padding:10px;
+  text-decoration:none;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+.listings .item:last-child { border-bottom:none; }
+.listings .item .store-title {
+  display:block;
+  color:#2980b9;
+  font-weight:700;
+}
+.listings .item .store-title small { font-weight:400; }
+.listings .item.active .store-title,
+.listings .item .store-title:hover { color:#2980b9; }
+.listings .item.active {
+  background-color:#f8f8f8;
+}
+
+
+::-webkit-scrollbar {
+  width:3px;
+  height:3px;
+  border-left:0;
+  background:rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-track {
+  background:none;
+}
+::-webkit-scrollbar-thumb {
+  background:#cccccc;
+  border-radius:0;
+}
+
+.clearfix { display:block; }
+.clearfix:after {
+  content:'.';
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
 }

@@ -135,41 +135,45 @@
                             </div>
                         </div>
 
-                        <div class="pod-info"
-                          ng-repeat="dataset in dashboard.delinquent | orderBy: '-downloads'"
-                          ng-mouseover="dashboard.hoverIn(dataset)"
-                          ng-mouseleave="dashboard.hoverOut(dataset)"
-                          ng-controller="ModalController as modal"
-                          ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
-                          style="cursor:pointer;">
+                        <div class="pod-body">
+
+                          <div class="pod-info"
+                            ng-repeat="dataset in dashboard.delinquent | orderBy: '-downloads'"
+                            ng-mouseover="dashboard.hoverIn(dataset)"
+                            ng-mouseleave="dashboard.hoverOut(dataset)"
+                            ng-controller="ModalController as modal"
+                            ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
+                            style="cursor:pointer;">
 
 
-                            <div class="pod-info-dataset-title">
-                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
-                            </div>
+                              <div class="pod-info-dataset-title">
+                                  <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
+                              </div>
 
-                            <div ng-show="dataset.checked" class="pod-info-user-checked">
-                              <span class="fa fa-check"></span>
-                            </div>
+                              <div ng-show="dataset.checked" class="pod-info-user-checked">
+                                <span class="fa fa-check"></span>
+                              </div>
 
-                            <div class="pod-info-assets">
+                              <div class="pod-info-assets">
 
-                              <span class="pod-info-downloads">
-                                <b>{{ dataset.downloads }}</b> downloads
-                              </span>
+                                <span class="pod-info-downloads">
+                                  <b>{{ dataset.downloads }}</b> downloads
+                                </span>
 
-                              <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
-                                Last edited <span am-time-ago="dataset.last_updated"></span>.
-                              </span>
+                                <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
+                                  Last edited <span am-time-ago="dataset.last_updated"></span>.
+                                </span>
 
-                              <span class="pod-info-age">
-                                <b>{{ dataset.age }}</b> days
-                                <!-- {{ dataset.status }} -->
-                              </span>
+                                <span class="pod-info-age">
+                                  <b>{{ dataset.age }}</b> days
+                                  <!-- {{ dataset.status }} -->
+                                </span>
 
-                            </div>
+                              </div>
 
-                        </div>
+                          </div>
+
+                         </div>
 
                     </div>
                 </div>
@@ -186,6 +190,8 @@
                                 </span>
                             </div>
                         </div>
+
+                        <div class="pod-body">
 
                          <div class="pod-info"
                            ng-repeat="dataset in dashboard.overdue | orderBy: '-downloads'"
@@ -221,6 +227,8 @@
                             </div>
 
                         </div>
+
+                      </div>
                     </div>
 
                 </div>
@@ -239,38 +247,42 @@
                             </div>
                         </div>
 
-                        <div class="pod-info"
-                          ng-repeat="dataset in dashboard.due | orderBy: '-downloads'"
-                          ng-mouseover="dashboard.hoverIn(dataset)"
-                          ng-mouseleave="dashboard.hoverOut(dataset)"
-                          ng-controller="ModalController as modal"
-                          ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
-                          style="cursor:pointer;">
+                        <div class="pod-body">
 
-                            <div class="pod-info-dataset-title">
-                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
-                            </div>
+                          <div class="pod-info"
+                            ng-repeat="dataset in dashboard.due | orderBy: '-downloads'"
+                            ng-mouseover="dashboard.hoverIn(dataset)"
+                            ng-mouseleave="dashboard.hoverOut(dataset)"
+                            ng-controller="ModalController as modal"
+                            ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
+                            style="cursor:pointer;">
 
-                           <div ng-show="dataset.checked" class="pod-info-user-checked">
-                             <span class="fa fa-check"></span>
-                           </div>
+                              <div class="pod-info-dataset-title">
+                                  <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
+                              </div>
 
-                            <div class="pod-info-assets">
+                             <div ng-show="dataset.checked" class="pod-info-user-checked">
+                               <span class="fa fa-check"></span>
+                             </div>
 
-                              <span class="pod-info-downloads">
-                                <b>{{ dataset.downloads }}</b> downloads
-                              </span>
+                              <div class="pod-info-assets">
 
-                              <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
-                                Last edited <span am-time-ago="dataset.last_updated"></span>.
-                              </span>
+                                <span class="pod-info-downloads">
+                                  <b>{{ dataset.downloads }}</b> downloads
+                                </span>
 
-                              <span class="pod-info-age">
-                                <b>{{ dataset.age }}</b> days
-                                <!-- {{ dataset.status }} -->
-                              </span>
+                                <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
+                                  Last edited <span am-time-ago="dataset.last_updated"></span>.
+                                </span>
 
-                            </div>
+                                <span class="pod-info-age">
+                                  <b>{{ dataset.age }}</b> days
+                                  <!-- {{ dataset.status }} -->
+                                </span>
+
+                              </div>
+
+                         </div>
 
                        </div>
 
@@ -290,6 +302,8 @@
                                   Datasets</span>
                             </div>
                         </div>
+
+                        <div class="pod-body">
 
                          <div class="pod-info"
                            ng-repeat="dataset in dashboard.uptodate | orderBy: '-downloads'"
@@ -325,6 +339,8 @@
                             </div>
                         </div>
 
+                      </div>
+
 
                     </div>
                 </div>
@@ -350,38 +366,42 @@
                         </div>
                     </div>
 
-                    <div class="pod-info"
-                      ng-repeat="dataset in dashboard.archived | filter:searchText"
-                      ng-mouseover="dashboard.hoverIn(dataset)"
-                      ng-mouseleave="dashboard.hoverOut(dataset)"
-                      ng-controller="ModalController as modal"
-                      ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
-                      style="cursor:pointer;">
+                    <div class="pod-body">
 
-                        <div class="pod-info-dataset-title">
-                            {{ dataset.name }}
-                        </div>
+                      <div class="pod-info"
+                        ng-repeat="dataset in dashboard.archived | filter:searchText"
+                        ng-mouseover="dashboard.hoverIn(dataset)"
+                        ng-mouseleave="dashboard.hoverOut(dataset)"
+                        ng-controller="ModalController as modal"
+                        ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
+                        style="cursor:pointer;">
 
-                        <div ng-show="dataset.checked" class="pod-info-user-checked">
-                          <span class="fa fa-check"></span>
-                        </div>
+                          <div class="pod-info-dataset-title">
+                              {{ dataset.name }}
+                          </div>
 
-                        <div class="pod-info-assets">
+                          <div ng-show="dataset.checked" class="pod-info-user-checked">
+                            <span class="fa fa-check"></span>
+                          </div>
 
-                          <span class="pod-info-downloads">
-                            <b>{{ dataset.downloads }}</b> downloads
-                          </span>
+                          <div class="pod-info-assets">
 
-                          <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
-                            Last edited <span am-time-ago="dataset.last_updated"></span>.
-                          </span>
+                            <span class="pod-info-downloads">
+                              <b>{{ dataset.downloads }}</b> downloads
+                            </span>
 
-                          <span class="pod-info-age">
-                            <b>{{ dataset.age }}</b> days
-                            <!-- {{ dataset.status }} -->
-                          </span>
+                            <span class="pad-info-last-edit" ng-show="dataset.hover_last_updated">
+                              Last edited <span am-time-ago="dataset.last_updated"></span>.
+                            </span>
 
-                        </div>
+                            <span class="pod-info-age">
+                              <b>{{ dataset.age }}</b> days
+                              <!-- {{ dataset.status }} -->
+                            </span>
+
+                          </div>
+                      </div>
+
                     </div>
 
                 </div>
