@@ -1414,3 +1414,9 @@ Pod scroll bar.
   clear:both;
   visibility:hidden;
 }
+
+.label-frequency {
+  background-color: rgba(73, 180, 218, 0.6);
+  font-weight: 900 !important;
+  text-transform: uppercase;
+}
