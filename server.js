@@ -18,6 +18,8 @@ var session = require('express-session')
 
 var configDB = require('./config/database.js')
 
+var _vesion = 'v.0.1.3'
+
 // configuration ===============================================================
 mongoose.connect(configDB.url) // connect to our database
 
@@ -43,4 +45,4 @@ require('./server/routes.js')(app, passport) // load our routes and pass in our 
 
 // launch ======================================================================
 app.listen(port)
-console.log('HDX Monitor Server running on port ' + port)
+console.log('HDX Monitor Server (' + _version + ') running on port ' + port)
