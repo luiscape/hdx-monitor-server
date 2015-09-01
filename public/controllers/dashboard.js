@@ -21,35 +21,36 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
       d.hover_last_updated = false
     }
 
-    $http.get('service_data/dataset_age_mock_data.json')
+    $http.get('/api/dataset_age/age?results_per_page=1000')
       .then(
         function (response) {
           self.success = true
 
-          //
-          // Adding labels
-          //
-          var frequency_types = {
-            '1': 'Day',
-            '6': 'Week',
-            '13': 'Two week',
-            '30': 'Month',
-            '89': 'Three months',
-            '179': 'Six months',
-            '364': 'Year',
+          var frequency_labels = {
+            '0': 'A',
+            '7': 'W',
+            '14': 'B',
+            '30': 'M',
+            '45': 'Q',
+            '60': 'S',
+            '365': 'Y'
           }
-          for (var i = 0; i < response.data.results.length; i++) {
-            response.data.results[i].frequency_label = frequency_types[response.data.results[i].frequency]
+
+          //
+          // Adding labels to each dataset.
+          //
+          for (i = 0; i < response.data.objects.length; i++) {
+            response.data.objects[i].frequency_label = frequency_labels[response.data.objects[i].frequency]
           }
 
           //
           // Organizing results.
           //
-          self.delinquent = f(response.data.results, { status: 'Delinquent' })
-          self.uptodate = f(response.data.results, { status: 'Up-to-date' })
-          self.archived = f(response.data.results, { status: 'Archived' })
-          self.overdue = f(response.data.results, { status: 'Overdue' })
-          self.due = f(response.data.results, { status: 'Due' }, true)
+          self.delinquent = f(response.data.objects, { status: 'Delinquent', frequency_category: '!Archived' }, true)
+          self.uptodate = f(response.data.objects, { status: 'Up-to-date', frequency_category: '!Archived' }, true)
+          self.archived = f(response.data.objects, { frequency_category: 'Archived' }, true)
+          self.overdue = f(response.data.objects, { status: 'Overdue', frequency_category: '!Archived' }, true)
+          self.due = f(response.data.objects, { status: 'Due for update', frequency_category: '!Archived' }, true)
 
         },
         function (response) {
@@ -169,7 +170,7 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
     }
 
     self.open = function (dataset) {
-      $http.get('http://data.hdx.rwlabs.org/api/action/package_show?id=' + dataset.id)
+      $http.get('http://data.hdx.rwlabs.org/api/action/package_show?id=' + dataset.dataset_id)
         .then(
           function (response) {
             response.data.result.age = dataset.age

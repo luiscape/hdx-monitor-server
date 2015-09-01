@@ -142,12 +142,12 @@
                             ng-mouseover="dashboard.hoverIn(dataset)"
                             ng-mouseleave="dashboard.hoverOut(dataset)"
                             ng-controller="ModalController as modal"
-                            ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
+                            ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
                             style="cursor:pointer;">
 
 
                               <div class="pod-info-dataset-title">
-                                  <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
+                                  <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.dataset_title }}
                               </div>
 
                               <div ng-show="dataset.checked" class="pod-info-user-checked">
@@ -166,7 +166,7 @@
 
                                 <span class="pod-info-age">
                                   <b>{{ dataset.age }}</b> days
-                                  <!-- {{ dataset.status }} -->
+                                  <span class="label label-frequency" style="text-fransform:uppercase;">{{ dataset.frequency_label }}</span>
                                 </span>
 
                               </div>
@@ -198,11 +198,11 @@
                            ng-mouseover="dashboard.hoverIn(dataset)"
                            ng-mouseleave="dashboard.hoverOut(dataset)"
                            ng-controller="ModalController as modal"
-                           ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
+                           ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
                            style="cursor:pointer;">
 
                             <div class="pod-info-dataset-title">
-                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
+                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.dataset_title }}
                             </div>
 
                             <div ng-show="dataset.checked" class="pod-info-user-checked">
@@ -221,7 +221,7 @@
 
                               <span class="pod-info-age">
                                 <b>{{ dataset.age }}</b> days
-                                <!-- {{ dataset.status }} -->
+                                <span class="label label-frequency" style="text-fransform:uppercase;">{{ dataset.frequency_label }}</span>
                               </span>
 
                             </div>
@@ -254,11 +254,11 @@
                             ng-mouseover="dashboard.hoverIn(dataset)"
                             ng-mouseleave="dashboard.hoverOut(dataset)"
                             ng-controller="ModalController as modal"
-                            ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
+                            ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
                             style="cursor:pointer;">
 
                               <div class="pod-info-dataset-title">
-                                  <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
+                                  <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.dataset_title }}
                               </div>
 
                              <div ng-show="dataset.checked" class="pod-info-user-checked">
@@ -277,7 +277,7 @@
 
                                 <span class="pod-info-age">
                                   <b>{{ dataset.age }}</b> days
-                                  <!-- {{ dataset.status }} -->
+                                  <span class="label label-frequency" style="text-fransform:uppercase;">{{ dataset.frequency_label }}</span>
                                 </span>
 
                               </div>
@@ -310,11 +310,11 @@
                            ng-mouseover="dashboard.hoverIn(dataset)"
                            ng-mouseleave="dashboard.hoverOut(dataset)"
                            ng-controller="ModalController as modal"
-                           ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
+                           ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
                            style="cursor:pointer;">
 
                             <div class="pod-info-dataset-title">
-                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.name }}
+                                <span class="pod-info-dataset-index">#{{ $index + 1 }}</span> {{ dataset.dataset_title }}
                             </div>
 
                             <div ng-show="dataset.checked" class="pod-info-user-checked">
@@ -333,7 +333,7 @@
 
                               <span class="pod-info-age">
                                 <b>{{ dataset.age }}</b> days
-                                <!-- {{ dataset.status }} -->
+                                <span class="label label-frequency" style="text-fransform:uppercase;">{{ dataset.frequency_label }}</span>
                               </span>
 
                             </div>
@@ -373,11 +373,11 @@
                         ng-mouseover="dashboard.hoverIn(dataset)"
                         ng-mouseleave="dashboard.hoverOut(dataset)"
                         ng-controller="ModalController as modal"
-                        ng-click="modal.open(dataset); modal.fetch(dataset.id); modal.checked(dataset)"
+                        ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
                         style="cursor:pointer;">
 
                           <div class="pod-info-dataset-title">
-                              {{ dataset.name }}
+                              {{ dataset.dataset_title }}
                           </div>
 
                           <div ng-show="dataset.checked" class="pod-info-user-checked">
@@ -396,7 +396,7 @@
 
                             <span class="pod-info-age">
                               <b>{{ dataset.age }}</b> days
-                              <!-- {{ dataset.status }} -->
+                              <span class="label label-frequency" style="text-fransform:uppercase;">{{ dataset.frequency_label }}</span>
                             </span>
 
                           </div>
