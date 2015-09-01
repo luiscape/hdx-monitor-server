@@ -56,7 +56,7 @@ module.exports = function (app, passport) {
     })
   })
 
-  app.get('/api/:api_service/:service_method/*', function (req, res) {
+  app.get('/api/:api_service/:service_method*', function (req, res) {
     //
     // Services available.
     //
@@ -81,8 +81,11 @@ module.exports = function (app, passport) {
       response.on('close', function () {
         res.send(body)
       })
+      response.on('end', function () {
+        res.send(body)
+      })
     }).on('error', function (error) {
-      http.get(req.protocol + '://' + req.get('host') + '/api/' + serviceInfo.id + '/status', function (resp) {
+      http.get('http://' + req.get('host') + '/api/' + serviceInfo.id + '/status', function (resp) {
         resp.on('data', function (data) {
           res.send({ 'sucess': false, 'message': 'Service is not available.', 'service': serviceInfo.id, 'service_status': JSON.parse(data) })
         }).on('error', function (data) {
