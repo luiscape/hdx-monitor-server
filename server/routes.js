@@ -35,14 +35,19 @@ module.exports = function (app, passport) {
   app.get('/api/:api_service/status', function (req, res) {
     var services = {
       'datastore': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/status',
-      'funnel_stats': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/status'
+      'funnel_stats': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/status',
+      'dataset_age': 'http://' + process.env.AGE_PORT_7000_TCP_ADDR + ':' + process.env.AGE_PORT_3000_TCP_PORT + '/v1/status/'
     }
     http.get(services[serviceInfo.id], function (response) {
-      var body
+      var body = ''
       response.on('data', function (chunk) {
         body += chunk
       })
       response.on('close', function () {
+        res.send(body)
+      })
+      response.on('end', function () {
+        // console.log(body)
         res.send(body)
       })
     }).on('error', function (error) {
@@ -57,7 +62,8 @@ module.exports = function (app, passport) {
     //
     var services = {
       'datastore': { 'base_url': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT },
-      'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/api' }
+      'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/api' },
+      'dataset_age': { 'base_url': 'http://' + process.env.AGE_PORT_3000_TCP_ADDR + ':' + process.env.AGE_PORT_3000_TCP_PORT + '/v1' }
     }
 
     //
@@ -68,7 +74,7 @@ module.exports = function (app, passport) {
     var pass_request = req.originalUrl.replace('/api/' + serviceInfo.id + '/' + serviceInfo.method, '')
 
     http.get(query_service + pass_request, function (response) {
-      var body
+      var body = ''
       response.on('data', function (chunk) {
         body += chunk
       })
@@ -93,13 +99,13 @@ module.exports = function (app, passport) {
   //
   app.get('/api', function (req, res) {
     var payload = {
-      'datastore': { 'status_url': req.protocol + '://' + req.get('host') + '/api/datastore/status' },
-      'funnel_stats': { 'status_url': req.protocol + '://' + req.get('host') + '/api/funnel_stats/status' },
-      'dataset_age': { 'status_url': req.protocol + '://' + req.get('host') + '/api/dataset_age/status' }
+      'datastore': { 'status_url': 'http://' + req.get('host') + '/api/datastore/status' },
+      'funnel_stats': { 'status_url': 'http://' + req.get('host') + '/api/funnel_stats/status' },
+      'dataset_age': { 'status_url': 'http://' + req.get('host') + '/api/dataset_age/status' }
     }
     forEachAsync(Object.keys(payload), function (next, service_key) {
       http.get(payload[service_key].status_url, function (response) {
-        var body
+        var body = ''
         response.on('data', function (data) {
           payload[service_key].status = JSON.parse(data)
           next()
