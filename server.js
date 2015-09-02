@@ -18,7 +18,7 @@ var session = require('express-session')
 
 var configDB = require('./config/database.js')
 
-var _version = 'v.0.1.3'
+var _version = 'v.0.1.4'
 
 // configuration ===============================================================
 mongoose.connect(configDB.url) // connect to our database
