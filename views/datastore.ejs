@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="css/flat-ui.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!--
 
+    STYLES: ==============================================
+
+    Here we are loading all of our styles. It includes
+    the Raleway font from Google Fonts, Bootstrap (3+),
+    Font Awesome, and the FlatUI CSS.
+
+    The style.css file includes the main custom styles
+    developed for this application.
+
+    ======================================================
+
+    -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <link rel="stylesheet" href="libs/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="libs/flat-ui/dist/css/flat-ui.min.css">
+    <link rel="stylesheet" href="libs/c3/c3.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>HDX Monitor | Datastore</title>
 </head>
@@ -36,7 +47,7 @@
 
         <h1>Create a DataStore</h1>
 
-        <div class="datastore-message" style="text-align: center;">
+        <div class="datastore-message">
           <h3 ng-show="datastore.message">
             <span style="color:#cccccc;" class="fa fa-check" ng-show="datastore.success"></span>
             <span style="color:#cccccc;" class="fa fa-warning" ng-show="datastore.failure"></span>
@@ -49,7 +60,30 @@
             <input type="text" class="form-control login-field" value="" ng-model="datastore.resourceid" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
             <label class="login-field-icon fui-info-circle" for="login-name"></label>
             <br>
-            <button type="submit" class="btn btn-primary btn-lg btn-block" id="create-datastore-button">Create DataStore</button>
+            <div class="row schema-header">
+              <h2 class="schema-title">Define Schema</h2>
+              <div class="schema-add-field"> <a href="" ng-click="datastore.add_schema_field();$('.selectpicker').selectpicker('render');" ng-init="datastore.create_schema()"><span class="fa fa-plus"> Add field</span></a></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <h2 class="schema-field-title">field</h2>
+              </div>
+              <div class="col-xs-6">
+                <h2 class="schema-field-title">type</h2>
+              </div>
+            </div>
+
+            <div class="row schema-fields" ng-bind-html="schema_fields"></div>
+            <div class="row">
+                <div class="col-xs-6">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" id="create-datastore-button">Create DataStore</button>
+                </div>
+                <div class="col-xs-6">
+                  <button class="btn btn-inverse btn-lg btn-block">
+                  Define Schema
+                  </button>
+                </div>
+            </div>
           </form>
 
           <a class="login-link" href="https://github.com/luiscape/hdx-monitor-datastore">Source code.</a>
@@ -108,6 +142,8 @@
     <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="libs/showdown/compressed/Showdown.min.js"></script>
     <script src="libs/angular-markdown-directive/markdown.js"></script>
+    <script src="libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
 
     <!-- modules -->
     <script src="modules/app.js"></script>

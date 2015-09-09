@@ -140,7 +140,7 @@ module.exports = function (app, passport) {
     res.render('dashboard.ejs')
   })
 
-  app.get('/datastore', isLoggedIn, function (req, res) {
+  app.get('/datastore', function (req, res) {
     res.render('datastore.ejs')
   })
 
