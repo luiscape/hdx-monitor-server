@@ -11,11 +11,45 @@ app.controller('DataStoreController', ['$http', '$scope', '$sce', 'ngProgressFac
     self.submit = function () {
       self.progressbar = ngProgressFactory.createInstance()
       self.progressbar.start()
-      $http.get('/api/datastore/create/' + this.resourceid)
+
+      //
+      // Parsing payload from from.
+      //
+      var payload = {
+        'id': [],
+        'type': []
+      }
+      for (var i = 0; i < this.fields.length; i++) {
+        payload.id.push(this.fields[i].field_name)
+        payload.type.push(this.fields[i].type)
+      }
+
+      //
+      // Cleaning payload in case
+      // the datastore application
+      // notices there is an empty object.
+      //
+      if (payload.id.length === 0) {
+        payload = null
+      }
+      var options = {
+        method: 'POST',
+        url: '/api/datastore/create/' + this.resourceid,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: payload
+      }
+      console.log('Sending payload: ' + JSON.stringify(payload))
+      $http(options)
         .then(
           function (response) {
             self.progressbar.complete()
             self.message = response.data.message
+
+            //
+            // Please fix this redundance.
+            //
             if (response.data.success) {
               self.success = true
               self.failure = false
@@ -34,37 +68,23 @@ app.controller('DataStoreController', ['$http', '$scope', '$sce', 'ngProgressFac
           })
     }
 
-    var field_id_html = '<div class="col-xs-6">' +
-      '<input type="text" class="form-control login-field schema-field-id">' +
-      '</div>'
-    var field_types_html = '<div class="col-xs-6">' +
-      '<select class="selectpicker">' +
-      '<option>text</option>' +
-      '<option>json</option>' +
-      '<option>date</option>' +
-      '<option>time</option>' +
-      '<option>timestamp</option>' +
-      '<option>int</option>' +
-      '<option>float</option>' +
-      '<option>bool</option>' +
-      '</select>' +
-      '</div>'
-
-    var fields_html = field_id_html + field_types_html
-
-    //
-    // Creates the schema fields.
-    //
-    self.create_schema = function () {
-      console.log('Creating schema.')
-      $scope.schema_fields = $sce.trustAsHtml(fields_html)
-    }
-
     //
     // Add a field to the schema.
     //
+    this.fields = []
+    this.field_index = false
     self.add_schema_field = function () {
-      console.log('Adding field to schema.')
-      $scope.schema_fields = $sce.trustAsHtml($scope.schema_fields += fields_html)
+      //
+      // Fields HTML.
+      //
+      this.field_index += 1
+      console.log('Adding field to schema. Field index: ' + this.field_index)
+      var newItemNo = this.fields.length + 1
+      this.fields.push({'id': 'choice' + newItemNo})
+    }
+
+    self.remove_schema_field = function (schema_field) {
+      var lastItem = this.fields.length - 1
+      this.fields.splice(lastItem)
     }
   }])

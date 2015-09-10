@@ -19,7 +19,6 @@
 
     -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="libs/bootstrap-select/dist/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="libs/flat-ui/dist/css/flat-ui.min.css">
@@ -56,30 +55,62 @@
         </div>
 
         <div class="login-form">
-          <form class="form-group" ng-submit="datastore.submit()">
+          <form class="form-group">
             <input type="text" class="form-control login-field" value="" ng-model="datastore.resourceid" placeholder="HDX Resource ID" name="resourceid" id="resourceid">
             <label class="login-field-icon fui-info-circle" for="login-name"></label>
             <br>
-            <div class="row schema-header">
-              <h2 class="schema-title">Define Schema</h2>
-              <div class="schema-add-field"> <a href="" ng-click="datastore.add_schema_field();$('.selectpicker').selectpicker('render');" ng-init="datastore.create_schema()"><span class="fa fa-plus"> Add field</span></a></div>
-            </div>
-            <div class="row">
-              <div class="col-xs-6">
-                <h2 class="schema-field-title">field</h2>
+
+            <div ng-show="datastore.field_index">
+              <div class="row schema-header">
+                <h2 class="schema-title">Define Schema</h2>
+                <div class="schema-add-field"> <a href="" ng-click="datastore.add_schema_field()"><span class="fa fa-plus"> Add field</span></a></div>
               </div>
-              <div class="col-xs-6">
-                <h2 class="schema-field-title">type</h2>
+              <div class="row">
+                <div class="col-xs-6">
+                  <h2 class="schema-field-title">field</h2>
+                </div>
+                <div class="col-xs-6">
+                  <h2 class="schema-field-title">type</h2>
+                </div>
+              </div>
+
+              <div class="row schema-fields">
+                <fieldset  data-ng-repeat="field in datastore.fields">
+
+                    <div class="row">
+                      <div class="col-xs-6">
+                      <input type="text" ng-model="field.field_name" class="form-control login-field schema-field-id">
+                    </div>
+
+                   <div class="col-xs-5">
+                     <select class="select-type form-control select select-primary" ng-model="field.type">
+                       <option>text</option>
+                       <option>json</option>
+                       <option>date</option>
+                       <option>time</option>
+                       <option>timestamp</option>
+                       <option>int</option>
+                       <option>float</option>
+                       <option>bool</option>
+                     </select>
+                   </div>
+
+                   <div class="col-xs-1">
+                     <button class="remove-fields" ng-show="$last" ng-click="datastore.remove_schema_field()">-</button>
+                   </div>
+                   </div>
+
+
+                </fieldset>
               </div>
             </div>
 
-            <div class="row schema-fields" ng-bind-html="schema_fields"></div>
             <div class="row">
                 <div class="col-xs-6">
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" id="create-datastore-button">Create DataStore</button>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" id="create-datastore-button" ng-click="datastore.submit()">Create DataStore</button>
                 </div>
                 <div class="col-xs-6">
-                  <button class="btn btn-inverse btn-lg btn-block">
+                  <button class="btn btn-inverse btn-lg btn-block" ng-click="datastore.add_schema_field()">
                   Define Schema
                   </button>
                 </div>
@@ -124,7 +155,7 @@
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src="libs/flat-ui/dist/js/flat-ui.min.js"></script>
-    <script src="js/main.js"></script> <!-- Resource jQuery -->
+    <script src="js/main.js"></script>
     <script src="js/create-ui.js"></script>
 
     <!-- Charting dependencies. -->
@@ -135,14 +166,13 @@
     <script src="libs/angular/angular.min.js"></script>
 
     <!-- Angular dependencies. -->
-    <script src="libs/ngprogress/build/ngprogress.min.js"></script>
     <script src="libs/moment/moment.js"></script>
     <script src="libs/angular-moment/angular-moment.js"></script>
-    <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="libs/ngprogress/build/ngprogress.min.js"></script>
     <script src="libs/showdown/compressed/Showdown.min.js"></script>
     <script src="libs/angular-markdown-directive/markdown.js"></script>
-    <script src="libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
 
     <!-- modules -->
