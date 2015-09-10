@@ -19,7 +19,7 @@ var configDB = require('./config/database.js')
 //
 // App variables.
 //
-var _version = 'v.0.1.5'
+var _version = 'v.0.1.6'
 var port = process.env.PORT || 8080
 
 //
