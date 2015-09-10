@@ -1,4 +1,9 @@
 //
 // Module for the whole application.
 //
-var app = angular.module('Monitor', ['ui.bootstrap', 'ngProgress', 'angularMoment', 'btford.markdown'])
+var app = angular.module('Monitor', [
+  'ui.bootstrap',
+  'ngProgress',
+  'angularMoment',
+  'btford.markdown'
+])

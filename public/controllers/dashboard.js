@@ -21,7 +21,7 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
       d.hover_last_updated = false
     }
 
-    $http.get('/api/dataset_age/age?results_per_page=1000')
+    $http.get('/api/dataset_age/age?results_per_page=3000')
       .then(
         function (response) {
           self.success = true

@@ -1,5 +1,6 @@
 module.exports = function (app, passport) {
   var http = require('http')
+  var querystring = require('querystring')
   var forEachAsync = require('forEachAsync').forEachAsync
 
   //
@@ -56,12 +57,15 @@ module.exports = function (app, passport) {
     })
   })
 
-  app.get('/api/:api_service/:service_method*', function (req, res) {
+  app.all('/api/:api_service/:service_method*', function (req, res) {
     //
     // Services available.
     //
     var services = {
-      'datastore': { 'base_url': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT },
+      'datastore': {
+        'host': process.env.DATASTORE_PORT_5000_TCP_ADDR,
+        'port': process.env.DATASTORE_PORT_5000_TCP_PORT
+      },
       'funnel_stats': { 'base_url': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/api' },
       'dataset_age': { 'base_url': 'http://' + process.env.AGE_PORT_3000_TCP_ADDR + ':' + process.env.AGE_PORT_3000_TCP_PORT + '/v1' }
     }
@@ -70,10 +74,29 @@ module.exports = function (app, passport) {
     // Getting a query service base url
     // but also pass extra parameters.
     //
-    var query_service = services[serviceInfo.id].base_url + '/' + serviceInfo.method
-    var pass_request = req.originalUrl.replace('/api/' + serviceInfo.id + '/' + serviceInfo.method, '')
+    // var query_service = services[serviceInfo.id].host
+    var pass_request = req.originalUrl.replace('/api/' + serviceInfo.id, '')
+    var keepAliveAgent = new http.Agent({ keepAlive: true })
+    var options = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      // 'Content-Length': req.body.length || null,
+      // Authorization: req.headers.Authorization || null
+      },
+      host: services[serviceInfo.id].host,
+      port: services[serviceInfo.id].port,
+      path: pass_request,
+      method: req.method,
+      agent: keepAliveAgent
+    }
 
-    http.get(query_service + pass_request, function (response) {
+    //
+    // Make request to service using
+    // the options that came via the UI.
+    //
+    console.log(options)
+    var request = http.request(options, function (response) {
+      response.setEncoding('utf8')
       var body = ''
       response.on('data', function (chunk) {
         body += chunk
@@ -84,7 +107,16 @@ module.exports = function (app, passport) {
       response.on('end', function () {
         res.send(body)
       })
-    }).on('error', function (error) {
+    })
+
+    //
+    // If the request to a service
+    // fails, query that service status
+    // and inform that user that the
+    // service is not available.
+    //
+    request.on('error', function (error) {
+      console.log('Request failed.')
       http.get('http://' + req.get('host') + '/api/' + serviceInfo.id + '/status', function (resp) {
         resp.on('data', function (data) {
           res.send({ 'sucess': false, 'message': 'Service is not available.', 'service': serviceInfo.id, 'service_status': JSON.parse(data) })
@@ -93,6 +125,9 @@ module.exports = function (app, passport) {
         })
       })
     })
+
+    request.write(querystring.stringify(req.body))
+    request.end()
   })
 
   //
@@ -140,7 +175,7 @@ module.exports = function (app, passport) {
     res.render('dashboard.ejs')
   })
 
-  app.get('/datastore', isLoggedIn, function (req, res) {
+  app.get('/datastore', function (req, res) {
     res.render('datastore.ejs')
   })
 
