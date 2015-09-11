@@ -171,11 +171,11 @@ module.exports = function (app, passport) {
     res.redirect('/')
   })
 
-  app.get('/dashboard', function (req, res) {
+  app.get('/dashboard', isLoggedIn, function (req, res) {
     res.render('dashboard.ejs')
   })
 
-  app.get('/datastore', function (req, res) {
+  app.get('/datastore', isLoggedIn, function (req, res) {
     res.render('datastore.ejs')
   })
 
