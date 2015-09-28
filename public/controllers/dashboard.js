@@ -72,7 +72,7 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
     // Gets a unique list from array.
     // From: http://stackoverflow.com/questions/11688692/most-elegant-way-to-create-a-list-of-unique-items-in-javascript
     //
-    function unique (arr) {
+    function _unique (arr) {
       var u = {}, a = []
       for (var i = 0, l = arr.length; i < l; ++i) {
         if (!u.hasOwnProperty(arr[i])) {
@@ -99,7 +99,7 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
         temp.push({ 'day': timestamp, 'count': null })
       }
 
-      var unique_days = unique(timestamp_array)
+      var unique_days = _unique(timestamp_array)
 
       for (var i = 0; i < unique_days.length; i++) {
         var same_day_items = f(temp, { day: unique_days[i] }, true)
