@@ -7,7 +7,4 @@ db/**
 coverage/*
 coverage/**
 
-config/*
-config/**
-
 .DS_Store
