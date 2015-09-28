@@ -6,7 +6,6 @@ var flash = require('connect-flash')
 var bodyParser = require('body-parser')
 var session = require('express-session')
 var cookieParser = require('cookie-parser')
-var methodOverride = require('method-override')
 
 //
 // Change configuration files here.
