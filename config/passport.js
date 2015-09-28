@@ -2,7 +2,7 @@
 // Loading the authentication strategy
 // and the user database model.
 //
-var User = require('../server/db/user')
+var User = require('../app/models/user')
 var LocalStrategy = require('passport-local').Strategy
 
 module.exports = function (passport) {
