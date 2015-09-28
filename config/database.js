@@ -1,4 +1,8 @@
-// config/database.js
+//
+// Database configuration file.
+// This file only build the connection
+// string to the database.
+//
 module.exports = {
   'url': 'mongodb://' +
     process.env.MONGODB_USER_NAME + ':' +

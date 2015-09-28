@@ -1,3 +1,7 @@
+//
+// Loading the authentication strategy
+// and the user database model.
+//
 var User = require('../server/db/user')
 var LocalStrategy = require('passport-local').Strategy
 
@@ -33,12 +37,19 @@ module.exports = function (passport) {
             return done(err)
           }
 
+          //
+          // If no user is found, return the message.
+          //
           if (!user) {
             return done(null, false, req.flash('loginMessage', 'No user found.'))
           }
 
           if (!user.validPassword(password)) {
-            return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'))
+            return done(null, false, req.flash('loginMessage', 'Wrong password.'))
+
+          //
+          // If no errors, return user.
+          //
           } else {
             return done(null, user)
           }
@@ -62,6 +73,9 @@ module.exports = function (passport) {
             return done(err)
           }
 
+          //
+          // Check if the email has been already taken.
+          //
           if (existingUser) {
             return done(null, false, req.flash('signupMessage', 'That email is already taken.'))
           }

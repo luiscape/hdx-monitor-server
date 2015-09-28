@@ -1,10 +1,11 @@
 module.exports = function (app, passport) {
   var http = require('http')
+  var services = require('../config/services')
   var querystring = require('querystring')
   var forEachAsync = require('forEachAsync').forEachAsync
 
   //
-  // Place holder dataset.
+  // Memory object for services.
   //
   var serviceInfo = {
     'id': '',
@@ -159,7 +160,7 @@ module.exports = function (app, passport) {
   })
 
   // PROFILE SECTION =========================
-  app.get('/profile', isLoggedIn, function (req, res) {
+  app.get('/profile', function (req, res) {
     res.render('profile.ejs', {
       user: req.user
     })
