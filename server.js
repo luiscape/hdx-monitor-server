@@ -1,9 +1,4 @@
-//
-// Setup ======================================================================
-//
-
 var express = require('express')
-var app = express()
 var mongoose = require('mongoose')
 var passport = require('passport')
 var flash = require('connect-flash')
@@ -17,21 +12,22 @@ var cookieParser = require('cookie-parser')
 var configDB = require('./config/database.js')
 
 //
-// App variables.
+// Change configuration file here.
 //
-var _version = 'v.0.1.6'
-var port = process.env.PORT || 8080
+var config = require('./config/dev.js')
 
 //
-// Configuration ===============================================================
+// App variables.
 //
+var app = express()
+
 mongoose.connect(configDB.url)
 
 require('./config/passport')(passport)  // Pass passport for configuration.
-app.use(morgan('dev'))  // Log every request to the console.
-app.use(cookieParser())  // Read cookies (needed for auth).
-app.use(bodyParser())  // Get information from html forms.
-app.use(express.static('public'))  // Serving static files.
+app.use(morgan('dev'))
+app.use(cookieParser())
+app.use(bodyParser())
+app.use(express.static('public'))
 
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
@@ -44,13 +40,7 @@ app.use(passport.initialize())
 app.use(passport.session())  // Persistent login sessions.
 app.use(flash())
 
-//
-// Routes ======================================================================
-//
-require('./server/routes.js')(app, passport) // load our routes and pass in our app and fully configured passport
+require('./server/routes.js')(app, passport)
 
-//
-// launch ======================================================================
-//
-app.listen(port)
-console.log('HDX Monitor Server (' + _version + ') running on port ' + port)
+app.listen(config.port)
+console.log('HDX Monitor Server (' + config.version + ') running on port ' + config.port)
