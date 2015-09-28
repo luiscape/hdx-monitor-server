@@ -23,21 +23,26 @@ var app = express()
 //
 app.use(morgan('dev'))
 app.use(cookieParser())
-app.use(bodyParser())
+app.use(bodyParser.json())
+app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.set('views', __dirname + '/views')
-app.set('view engine', 'ejs')
+app.use(bodyParser.urlencoded({ extended: false }))
 
 //
 // Load passport and routes.
 //
 require('./config/passport')(passport)
-require('./server/routes.js')(app, passport)
+require('./app/routes.js')(app, passport)
 
 //
 // Configure passport.
 //
-app.use(session({ secret: process.env.SESSION_PASSWORD || 'devpassword' }))
+app.use(session({
+  secret: process.env.SESSION_KEY || 'hdxmonitor',
+  saveUninitialized: false,
+  resave: true
+}))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
