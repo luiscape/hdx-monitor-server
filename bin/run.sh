@@ -3,7 +3,7 @@
 #
 # Configuring MongoDB.
 #
-make mongo
+make configure
 
 #
 # Running application in development environment.

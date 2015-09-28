@@ -170,7 +170,7 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
     }
 
     self.open = function (dataset) {
-      $http.get('http://data.hdx.rwlabs.org/api/action/package_show?id=' + dataset.dataset_id)
+      $http.get('https://data.hdx.rwlabs.org/api/action/package_show?id=' + dataset.dataset_id)
         .then(
           function (response) {
             response.data.result.age = dataset.age
