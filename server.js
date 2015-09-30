@@ -22,22 +22,17 @@ var app = express()
 // Application configuration.
 //
 app.use(morgan('dev'))
-app.use(cookieParser())
 app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+app.use(cookieParser('hdxmonitor'))
 app.set('views', __dirname + '/views')
 app.use(bodyParser.urlencoded({ extended: false }))
 
 //
-// Load passport and routes.
+// Load passport.
 //
 require('./config/passport')(passport)
-require('./app/routes.js')(app, passport)
-
-//
-// Configure passport.
-//
 app.use(session({
   secret: process.env.SESSION_KEY || 'hdxmonitor',
   saveUninitialized: false,
@@ -46,6 +41,11 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
+
+//
+// Load routes.
+//
+require('./app/routes.js')(app, passport)
 
 //
 // Connect to database and start application.
