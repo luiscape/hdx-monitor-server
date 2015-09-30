@@ -45,7 +45,7 @@ app.use(flash())
 //
 // Load routes.
 //
-require('./app/routes.js')(app, passport)
+require('./app/routes.js')(app, passport, config)
 
 //
 // Connect to database and start application.
