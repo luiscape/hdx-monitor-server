@@ -268,6 +268,8 @@ app.controller('ModalInstanceController', ['$http', '$modalInstance', '$location
 
     self.visit = function () {
       console.log('Visiting: https://data.hdx.rwlabs.org/dataset/' + self.dataset.result.id)
+      var e = 'https://data.hdx.rwlabs.org/dataset/' + self.dataset.result.id
+      $window.open(e, '_blank')
     }
 
     self.email = function () {
@@ -297,8 +299,33 @@ app.controller('ModalInstanceController', ['$http', '$modalInstance', '$location
       $window.open(e, '_blank')
     }
 
-    self.change_frequency = function () {
-      console.log('Changing frequency of dataset dataset.')
+    self.change_frequency = function (frequency) {
+      console.log('Changing frequency of dataset dataset to ' + frequency + '.')
+      var options = {
+        method: 'POST',
+        url: 'https://data.hdx.rwlabs.org/api/action/hdx_package_update_metadata',
+        headers: {
+          'Authorization': 'a6863277-f35e-4f50-af85-78a2d9ebcdd3',
+          'Content-Type': 'application/json'
+        },
+        data: {
+          id: 'absolute-test-dataset-as-it-may-sound-indeed',
+          data_update_frequency: frequency
+        }
+      }
+
+      $http(options)
+        .then(
+          function (response) {
+            console.log(response.data)
+          },
+          function (response) {
+            console.log('Request failed.')
+            console.log(response)
+          }
+      )
+
     }
+
   }]
 )

@@ -522,9 +522,27 @@
       </div>
 
       <div ng-show="{{ dataset.success }}" class="modal-footer">
-          <a class="btn btn-primary" target="_blank" ng-href="https://data.hdx.rwlabs.org/dataset/{{dataset.result.id}}" type="button" ng-click="visit()">View Dataset</a>
+          <a class="btn btn-primary" type="button" ng-click="visit()">View Dataset</a>
           <a class="btn btn-primary" type="button" ng-click="email()">Email Maintainer</a>
-          <a class="btn btn-primary disabled" type="button" ng-click="change_frequency()">Change Frequency</a>
+          <div class="btn-group">
+            <button class="btn btn-default btn-sm dropdown-toggle"
+              type="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false">
+              Change Frequency <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(0)">0</a></li>
+              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(7)">7</a></li>
+              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(14)">14</a></li>
+              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(30)">30</a></li>
+              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(45)">45</a></li>
+              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(60)">60</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(365)">365</a></li>
+            </ul>
+          </div>
       </div>
 
     </script>
