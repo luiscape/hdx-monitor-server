@@ -5,7 +5,7 @@
 // -- Scraper Status Service
 //
 app.controller('DashboardController', ['$http', '$scope', '$filter', '$location',
-  function ($http, $scope, $window, $filter, $location) {
+  function ($http, $scope, $filter, $location) {
     var self = this
     var f = $filter('filter')
     var orderBy = $filter('orderBy')
