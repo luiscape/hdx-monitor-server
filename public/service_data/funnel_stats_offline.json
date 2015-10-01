@@ -1,6 +1,0 @@
-{
-    "online": false,
-    "message": "Service for collecting statistics about HDX.",
-    "version": "v.0.1.2",
-    "repository": "https://github.com/luiscape/hdx-monitor-funnel-stats"
-}
