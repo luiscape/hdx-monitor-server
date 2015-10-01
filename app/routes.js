@@ -9,8 +9,7 @@ module.exports = function (app, passport, config) {
   //
   var services = config.services
   var serviceInfo = {
-    'id': '',
-    'method': ''
+    'id': ''
   }
 
   //
@@ -26,33 +25,6 @@ module.exports = function (app, passport, config) {
     serviceInfo.method = value
     next()
   })
-
-  //
-  // TODO: abstract this route.
-  //
-  // app.get('/api/:api_service/status', function (req, res) {
-  //   var services = {
-  //     'datastore': 'http://' + process.env.DATASTORE_PORT_5000_TCP_ADDR + ':' + process.env.DATASTORE_PORT_5000_TCP_PORT + '/status',
-  //     'funnel_stats': 'http://' + process.env.FUNNEL_STATS_PORT_7000_TCP_ADDR + ':' + process.env.FUNNEL_STATS_PORT_7000_TCP_PORT + '/status',
-  //     'dataset_age': 'http://' + process.env.AGE_PORT_7000_TCP_ADDR + ':' + process.env.AGE_PORT_3000_TCP_PORT + '/v1/status/'
-  //   }
-  //   http.get(services[serviceInfo.id], function (response) {
-  //     var body = ''
-  //     response.on('data', function (chunk) {
-  //       body += chunk
-  //     })
-  //     response.on('close', function () {
-  //       res.send(body)
-  //     })
-  //     response.on('end', function () {
-  //       // console.log(body)
-  //       res.send(body)
-  //     })
-  //   }).on('error', function (error) {
-  //     var payload = require('../public/service_data/' + serviceInfo.id + '_offline.json')
-  //     res.send(payload)
-  //   })
-  // })
 
   //
   // Internal function to generate
@@ -144,57 +116,58 @@ module.exports = function (app, passport, config) {
     })
   })
 
-  // app.all('/api/:api_service*', function (req, res) {
-  //   //
-  //   // Services available.
-  //   //
-  //   var services = config.services
+  app.all('/api/:api_service*', function (req, res) {
+    //
+    // Services available.
+    //
+    var services = config.services
 
-  //   //
-  //   // Getting a query service base url
-  //   // but also pass extra parameters.
-  //   //
-  //   // var query_service = services[serviceInfo.id].host
-  //   var pass_request = req.originalUrl.replace('/api/' + serviceInfo.id, '')
-  //   var options = _options(serviceInfo.id)
+    //
+    // Getting a query service base url
+    // but also pass extra parameters.
+    //
+    var pass = req.originalUrl.replace('/api/' + serviceInfo.id, '')
+    var options = _options(serviceInfo.id)
 
-  //   //
-  //   // Make request to service using
-  //   // the options that came via the UI.
-  //   //
-  //   console.log(options)
-  //   var request = http.request(options, function (response) {
-  //     response.setEncoding('utf8')
-  //     var body = ''
-  //     response.on('data', function (chunk) {
-  //       body += chunk
-  //     })
-  //     response.on('close', function () {
-  //       res.send(body)
-  //     })
-  //     response.on('end', function () {
-  //       res.send(body)
-  //     })
-  //   })
+    //
+    // Make request to service using
+    // the options that came via the UI.
+    //
+    options.path = pass
+    options.method = req.method
+    var request = http.request(options, function (response) {
+      response.setEncoding('utf8')
+      var body = ''
+      response.on('data', function (chunk) {
+        body += chunk
+      })
+      response.on('close', function () {
+        res.send(body)
+      })
+      response.on('end', function () {
+        res.send(body)
+      })
+    })
 
-  //   //
-  //   // If the request to a service
-  //   // fails, query that service status
-  //   // and inform that user that the
-  //   // service is not available.
-  //   //
-  //   request.on('error', function (error) {
-  //     var payload = {
-  //       'success': false,
-  //       'message': 'Service not available.',
-  //       'service': serviceInfo.id
-  //     }
-  //     res.send(payload)
-  //   })
+    //
+    // If request fails,
+    // set response object to null.
+    //
+    request.on('error', function (error) {
+      var payload = {
+        'success': false,
+        'message': 'Querying service failed.',
+        'service': serviceInfo.id,
+        'error': error
+      }
+      res.send(payload)
+    })
 
-  //   request.write(querystring.stringify(req.body))
-  //   request.end()
-  // })
+    //
+    // Closing request.
+    //
+    request.end()
+  })
 
   //
   // UI ROUTES ==================================
