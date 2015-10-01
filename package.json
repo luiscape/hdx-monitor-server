@@ -1,6 +1,6 @@
 {
   "name": "node-authentication",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "latest",
