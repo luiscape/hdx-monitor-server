@@ -5,7 +5,7 @@
 // -- Scraper Status Service
 //
 app.controller('DashboardController', ['$http', '$scope', '$filter', '$location',
-  function ($http, $scope, $filter, $location) {
+  function ($http, $scope, $window, $filter, $location) {
     var self = this
     var f = $filter('filter')
     var orderBy = $filter('orderBy')
@@ -67,7 +67,8 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
           console.log(response.data)
         }
     )
-  }])
+  }]
+)
 
 app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$modal', '$log',
   function ($http, $scope, $filter, $window, $modal, $log) {
@@ -253,13 +254,15 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
       $scope.dataset.checked = true
     }
 
-  }])
+  }]
+)
 
-// Please note that $modalInstance represents a modal window (instance) dependency.
-  // It is not the same as the $modal service used above.
-
-app.controller('ModalInstanceController', ['$http', '$modalInstance', '$window',
-  function ($scope, $modalInstance, $window, data) {
+//
+// Controller for the modal
+// with details about datasets.
+//
+app.controller('ModalInstanceController', ['$http', '$modalInstance', '$location', '$window',
+  function ($scope, $modalInstance, $location, $window, data) {
     var self = $scope
     self.dataset = data
 
@@ -268,10 +271,34 @@ app.controller('ModalInstanceController', ['$http', '$modalInstance', '$window',
     }
 
     self.email = function () {
+      //
+      // Building emailing string.
+      //
       console.log('Emailing maintainer.')
+      var line_break = '%0D%0A%0D%0A'
+      var s = 'Test Subject'
+      var b = 'Dear user,' + line_break +
+        'We woud like to tell you that your dataset is not being updated as set by the dataset frequency.' + line_break +
+        'Would you have time for a quick coversation some time next week?' + line_break +
+        'Best,' + line_break +
+        '// Luis Capelo'
+
+      //
+      // Assembling email string.
+      //
+      var e = 'mailto:' + self.dataset.result.maintainer_email +
+        '?subject=' + s +
+        '&body=' + b
+
+      //
+      // Open new window with
+      // email.
+      //
+      $window.open(e, '_blank')
     }
 
     self.change_frequency = function () {
       console.log('Changing frequency of dataset dataset.')
     }
-  }])
+  }]
+)

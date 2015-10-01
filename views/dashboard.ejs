@@ -50,8 +50,8 @@
 
         -->
         <div class="service-status-container" ng-controller="StatusAlertController as status">
-            <script> var service = 'dataset_age' </script>
-            <a class="status-icon" href="#" ng-init="status.check('dataset_age')" id='status-alert'></a>
+            <script> var service = 'ageservice' </script>
+            <a class="status-icon" href="#" ng-init="status.check('ageservice')" id='status-alert'></a>
             <div class="alert-container" id="alert-container"></div>
         </div>
 
@@ -523,7 +523,7 @@
 
       <div ng-show="{{ dataset.success }}" class="modal-footer">
           <a class="btn btn-primary" target="_blank" ng-href="https://data.hdx.rwlabs.org/dataset/{{dataset.result.id}}" type="button" ng-click="visit()">View Dataset</a>
-          <a class="btn btn-primary disabled" type="button" ng-click="email()">Email Maintainer</a>
+          <a class="btn btn-primary" type="button" ng-click="email()">Email Maintainer</a>
           <a class="btn btn-primary disabled" type="button" ng-click="change_frequency()">Change Frequency</a>
       </div>
 
