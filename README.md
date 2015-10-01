@@ -14,6 +14,7 @@ The `hdx-monitor-server` depends on a number of services. The following table co
 | `funnelstats`  | 7000 | Calculates usage statistics for HDX.        |
 
 The following diagram illustrates the architecture:
+
 ![Architecture Sketch](architecture.png)
 
 ## Docker
