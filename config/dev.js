@@ -9,9 +9,17 @@ module.exports = {
       'host': 'localhost',
       'port': 2000
     },
+    'ageservice': {
+      'host': 'localhost',
+      'port': 3000
+    },
     'datastore': {
       'host': 'localhost',
-      'port': 4000
+      'port': 5000
+    },
+    'funnelstats': {
+      'host': 'localhost',
+      'port': 7000
     }
   }
 }
