@@ -13,6 +13,9 @@ The `hdx-monitor-server` depends on a number of services. The following table co
 | `datastore`    | 5000 | Creates DataStores for resources.           |
 | `funnelstats`  | 7000 | Calculates usage statistics for HDX.        |
 
+The following diagram illustrates the architecture:
+![Architecture Sketch](architecture.png)
+
 ## Docker
 [![](https://badge.imagelayers.io/luiscape/hdx-monitor-server:latest.svg)](https://imagelayers.io/?images=luiscape/hdx-monitor-server:latest 'Get your own badge on imagelayers.io')
 
