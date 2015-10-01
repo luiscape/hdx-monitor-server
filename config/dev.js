@@ -6,19 +6,19 @@ module.exports = {
   'port': process.env.PORT || 8080,
   'services': {
     'orgstats': {
-      'host': 'localhost',
+      'host': 'orgstats',
       'port': 2000
     },
     'ageservice': {
-      'host': 'localhost',
+      'host': 'ageservice',
       'port': 3000
     },
     'datastore': {
-      'host': 'localhost',
+      'host': 'datastore',
       'port': 5000
     },
     'funnelstats': {
-      'host': 'localhost',
+      'host': 'funnelstats',
       'port': 7000
     }
   }
