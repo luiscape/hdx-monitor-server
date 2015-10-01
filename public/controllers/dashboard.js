@@ -21,37 +21,43 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
       d.hover_last_updated = false
     }
 
-    $http.get('/api/dataset_age/age?results_per_page=3000')
+    $http.get('/api/ageservice/age?results_per_page=3000')
       .then(
         function (response) {
-          self.success = true
+          if (response.data.success) {
+            self.success = true
 
-          var frequency_labels = {
-            '0': 'A',
-            '7': 'W',
-            '14': 'B',
-            '30': 'M',
-            '45': 'Q',
-            '60': 'S',
-            '365': 'Y'
+            var frequency_labels = {
+              '0': 'A',
+              '7': 'W',
+              '14': 'B',
+              '30': 'M',
+              '45': 'Q',
+              '60': 'S',
+              '365': 'Y'
+            }
+
+            //
+            // Adding labels to each dataset.
+            //
+            for (i = 0; i < response.data.objects.length; i++) {
+              response.data.objects[i].frequency_label = frequency_labels[response.data.objects[i].frequency]
+            }
+
+            //
+            // Organizing results.
+            //
+            self.delinquent = f(response.data.objects, { status: 'Delinquent', frequency_category: '!Archived' }, true)
+            self.uptodate = f(response.data.objects, { status: 'Up-to-date', frequency_category: '!Archived' }, true)
+            self.archived = f(response.data.objects, { frequency_category: 'Archived' }, true)
+            self.overdue = f(response.data.objects, { status: 'Overdue', frequency_category: '!Archived' }, true)
+            self.due = f(response.data.objects, { status: 'Due for update', frequency_category: '!Archived' }, true)
+          } else {
+            self.fail = {
+              failure: true,
+              message: 'Service not available.'
+            }
           }
-
-          //
-          // Adding labels to each dataset.
-          //
-          for (i = 0; i < response.data.objects.length; i++) {
-            response.data.objects[i].frequency_label = frequency_labels[response.data.objects[i].frequency]
-          }
-
-          //
-          // Organizing results.
-          //
-          self.delinquent = f(response.data.objects, { status: 'Delinquent', frequency_category: '!Archived' }, true)
-          self.uptodate = f(response.data.objects, { status: 'Up-to-date', frequency_category: '!Archived' }, true)
-          self.archived = f(response.data.objects, { frequency_category: 'Archived' }, true)
-          self.overdue = f(response.data.objects, { status: 'Overdue', frequency_category: '!Archived' }, true)
-          self.due = f(response.data.objects, { status: 'Due for update', frequency_category: '!Archived' }, true)
-
         },
         function (response) {
           self.fail = {
@@ -252,8 +258,8 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
 // Please note that $modalInstance represents a modal window (instance) dependency.
   // It is not the same as the $modal service used above.
 
-app.controller('ModalInstanceController',
-  function ($scope, $modalInstance, data) {
+app.controller('ModalInstanceController', ['$http', '$modalInstance', '$window',
+  function ($scope, $modalInstance, $window, data) {
     var self = $scope
     self.dataset = data
 
@@ -268,4 +274,4 @@ app.controller('ModalInstanceController',
     self.change_frequency = function () {
       console.log('Changing frequency of dataset dataset.')
     }
-  })
+  }])
