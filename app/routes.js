@@ -84,10 +84,12 @@ module.exports = function (app, passport, config) {
         })
         response.on('close', function () {
           payload.services[key] = JSON.parse(body)
+          payload.services[key].self = 'http://' + req.hostname + '/api/' + key
           next()
         })
         response.on('end', function () {
           payload.services[key] = JSON.parse(body)
+          payload.services[key].self = 'http://' + req.hostname + '/api/' + key
           next()
         })
       })
