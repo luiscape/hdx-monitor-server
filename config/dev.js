@@ -11,7 +11,7 @@ module.exports = {
     },
     'ageservice': {
       'host': 'ageservice',
-      'port': 2000,
+      'port': 3000,
       'base': 'v1'
     },
     'orgstats': {
