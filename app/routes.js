@@ -1,7 +1,7 @@
 module.exports = function (app, passport, config) {
   var http = require('http')
-  var services = require('../config/services')
   var querystring = require('querystring')
+  var services = require('../config/services')
   var forEachAsync = require('forEachAsync').forEachAsync
 
   //
@@ -69,7 +69,11 @@ module.exports = function (app, passport, config) {
       // status.
       //
       var options = _options(key)
-      options.path = '/status'
+      if (services[key].base) {
+        options.path = '/' + services[key].base + '/status/'
+      } else {
+        options.path = '/status/'
+      }
       options.method = 'GET'
 
       //
@@ -128,6 +132,10 @@ module.exports = function (app, passport, config) {
     // Getting a query service base url
     // but also pass extra parameters.
     //
+    var parameters = null
+    if (req.body) {
+      parameters = '?' + querystring.stringify(req.body)
+    }
     var pass = req.originalUrl.replace('/api/' + serviceInfo.id, '')
     var options = _options(serviceInfo.id)
 
@@ -135,8 +143,14 @@ module.exports = function (app, passport, config) {
     // Make request to service using
     // the options that came via the UI.
     //
-    options.path = pass
+    if (services[serviceInfo.id].base) {
+      options.path = '/' + services[serviceInfo.id].base + pass + parameters
+    } else {
+      options.path = pass + parameters
+    }
     options.method = req.method
+    console.log(options)
+
     var request = http.request(options, function (response) {
       response.setEncoding('utf8')
       var body = ''
