@@ -6,7 +6,7 @@ module.exports = {
   'port': process.env.PORT || 8080,
   'services': {
     'orgstats': {
-      'host': 'orgstats',
+      'host': 'localhost',
       'port': 2000
     },
     'ageservice': {
