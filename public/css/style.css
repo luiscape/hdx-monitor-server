@@ -1484,3 +1484,36 @@ Pod scroll bar.
   color: white;
   background-color: #e74c3c;
 }
+
+/* --------------------------------
+
+Organization page styles.
+
+-------------------------------- */
+
+
+.organization-container {
+  padding: 0px 20px 0px 40px;
+  text-align: center;
+}
+
+.organization-title {
+  padding-bottom: 50px;
+}
+
+.organization-name {
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0px 0px 0px 10px;
+}
+
+.organization-info {
+  position: relative;
+  z-index: 2;
+}
+
+.historic-chart {
+  z-index: 2;
+  position: absolute !important;
+  cursor: pointer;
+}
