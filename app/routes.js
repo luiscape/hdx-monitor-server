@@ -211,6 +211,14 @@ module.exports = function (app, passport, config) {
     res.render('dashboard.ejs')
   })
 
+  // app.get('/users', isLoggedIn, function (req, res) {
+  //   res.render('users.ejs')
+  // })
+
+  app.get('/organizations', function (req, res) {
+    res.render('organizations.ejs')
+  })
+
   app.get('/datastore', isLoggedIn, function (req, res) {
     res.render('datastore.ejs')
   })
