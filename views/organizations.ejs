@@ -111,74 +111,78 @@
           </div>
 
           <div class="col-md-4"></div>
-
         </div>
 
-        <div class="row fader" ng-show="organization.organization">
-        <div class="col-md-2"></div>
+        <div class="row fader" ng-show="organization.organization.details">
+
+          <div class="col-md-2"></div>
 
           <div class="row">
             <div class="col-md-8">
+
               <div class="col-md-6" style="padding-left: 10px;">
                 <h1 class="fadeInLeft">{{ organization.organization.details.display_name }}</h1>
                 <p>
                   {{ organization.organization.details.description }}
                 </p>
+
                 <div class="col-md-7 pull-left" style="padding-left: 0px;">
                   <br/>
                   <button type="submit" class="btn btn-primary btn-lg btn-block">
                     Download Details <span class="fa fa-arrow-down"></span>
                   </button>
                 </div>
+
               </div>
 
               <div class="col-md-6">
-              <div class="row">
-                <h1 class="fadeInLeft">Statistics</h1>
-                <div class="col-md-4">
-                  <h2>{{ organization.organization.stats.result.datasets.total }}</h2>
-                  <p>datasets</p>
+                <div class="row">
+                  <h1 class="fadeInLeft">Statistics</h1>
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.datasets.total }}</h2>
+                    <p>datasets</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.datasets.views.total }}</h2>
+                    <p>views</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.datasets.downloads.total }}</h2>
+                    <p>downloads</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.users.total }}</h2>
+                    <p>total members</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.users.admins }}</h2>
+                    <p>administrators</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.users.editors }}</h2>
+                    <p>editors</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.users.members }}</h2>
+                    <p>members</p>
+                  </div>
+
                 </div>
 
-                <div class="col-md-4">
-                  <h2>{{ organization.organization.stats.result.datasets.views.total }}</h2>
-                  <p>views</p>
-                </div>
-
-                <div class="col-md-4">
-                  <h2>{{ organization.organization.stats.result.datasets.downloads.total }}</h2>
-                  <p>downloads</p>
-                </div>
-
-                <div class="col-md-4">
-                  <h2>{{ organization.organization.stats.result.users.total }}</h2>
-                  <p>total members</p>
-                </div>
-
-                <div class="col-md-4">
-                  <h2>{{ organization.organization.stats.result.users.admins }}</h2>
-                  <p>administrators</p>
-                </div>
-
-                <div class="col-md-4">
-                  <h2>{{ organization.organization.stats.result.users.editors }}</h2>
-                  <p>editors</p>
-                </div>
-
-                <div class="col-md-4">
-                  <h2>{{ organization.organization.stats.result.users.members }}</h2>
-                  <p>members</p>
-                </div>
-
+                <div id="{{ 'chart-' + organization.organization.organization }}"></div>
               </div>
 
-
-              <div id="{{ 'chart-' + organization.organization.organization }}"></div>
-            </div>
           </div>
 
           <div class="col-md-2"></div>
 
+          </div>
         </div>
 
     </main>
