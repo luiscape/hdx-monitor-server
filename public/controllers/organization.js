@@ -17,41 +17,33 @@ app.controller('OrganizationController', ['$http', '$scope', 'ngProgressFactory'
       $http.get('https://data.hdx.rwlabs.org/api/3/action/organization_list')
         .then(
           function (response) {
-            // for (i = 0; i < response.data.result.length; i++) {
-            //   out.list.push({
-            //     'id': response.data.result[i],
-            //     'data': null
-            //   })
-            // }
-
             //
             // For development.
             //
-
             var org = {
               'id': 'ocha-fts',
               'data': null
             }
             self.historic('ocha-fts', function (err, data) {
               if (err) {
-                self.organizations.list.push(org)
+                self.organizations.push(org)
               } else {
                 org.data = data
-                self.organizations.list.push(org)
+                self.organizations.push(org)
               }
             })
             console.log(self.organizations)
           },
           function (response) {
-            self.organizations.list.push(org)
+            self.organizations.push(org)
           }
       )
 
       //
       // Generating bar charts.
       //
-      for (var i = 0; i < self.organizations.list.length; i++) {
-        self.chart(self.organizations.list[i].data)
+      for (var i = 0; i < self.organizations.length; i++) {
+        self.chart(self.organizations[i].data)
       }
     }
 
