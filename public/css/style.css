@@ -1,3 +1,12 @@
+@charset "UTF-8";
+
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+
+Copyright (c) 2015 Daniel Eden
+*/
+
 /* --------------------------------
 
 Primary style
@@ -25,6 +34,16 @@ b {
 
 strong {
  font-weight: 700;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
 }
 
 /* --------------------------------
@@ -1491,6 +1510,9 @@ Organization page styles.
 
 -------------------------------- */
 
+.btn-lg, .btn-group-lg>.btn {
+  font-weight: 100 !important;
+}
 
 .organization-container {
   padding: 0px 20px 0px 40px;
@@ -1502,7 +1524,7 @@ Organization page styles.
 }
 
 .organization-name {
-  text-transform: uppercase;
+  overflow: hidden;
   text-align: left;
   padding: 0px 0px 0px 10px;
 }
@@ -1516,4 +1538,33 @@ Organization page styles.
   z-index: 2;
   position: absolute !important;
   cursor: pointer;
+}
+
+.organization-chart-generate {
+  float: right;
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.fader h1 {
+  text-align: left;
+  font-size: 23px;
+  padding-bottom: 20px;
+}
+
+.fader h2 {
+  text-align: left;
+  font-size: 23px;
+}
+
+.fader p {
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 160%;
+}
+
+.fader.ng-enter {
+  animation: fadeInLeft 1s;
 }
