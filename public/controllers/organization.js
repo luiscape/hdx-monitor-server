@@ -8,88 +8,14 @@
 app.controller('OrganizationController', ['$http', '$scope', 'ngProgressFactory',
   function ($http, $scope, ngProgressFactory) {
     var self = this
+    self.organization = {}
 
     //
-    // Fetches an organization list from HDX.
+    // Internal wrapper function for
+    // generating the bar charts.
     //
-    self.list = function (callback) {
-      self.organizations = []
-      $http.get('https://data.hdx.rwlabs.org/api/3/action/organization_list')
-        .then(
-          function (response) {
-            //
-            // For development.
-            //
-            var org = {
-              'id': 'ocha-fts',
-              'data': null
-            }
-            self.historic('ocha-fts', function (err, data) {
-              if (err) {
-                self.organizations.push(org)
-              } else {
-                org.data = data
-                self.organizations.push(org)
-              }
-            })
-            console.log(self.organizations)
-          },
-          function (response) {
-            self.organizations.push(org)
-          }
-      )
-
-      //
-      // Generating bar charts.
-      //
-      for (var i = 0; i < self.organizations.length; i++) {
-        self.chart(self.organizations[i].data)
-      }
-    }
-
-    //
-    // Fetches a historic time-series from orgstats.
-    //
-    self.historic = function (_id, callback) {
-      console.log('Querying:' + '/api/orgstats/historic/' + _id)
-      $http.get('/api/orgstats/historic/' + _id)
-        .then(
-          function (response) {
-            //
-            // Adds the historic API
-            // data to the organizations
-            // object.
-            //
-            callback(null, response.data)
-          },
-          function (response) {
-            var out = {
-              'success': false,
-              'message': 'Could not fetch historic data from orgstats.',
-              'organization': _id,
-              'error': response
-            }
-            callback(out)
-            console.log(out)
-          }
-      )
-    }
-
-    //
-    // Fetches the details from orgstats.
-    //
-    self.details = function () {}
-
-    //
-    // Generates a bar chart with the
-    // historic data from an organization.
-    //
-    self.chart = function (data) {
-      var divid = '#chart-' + data.organization
-
-      console.log('Generating graph.')
+    var _bar = function (divid, data) {
       console.log(data)
-
       c3.generate({
         bindto: divid,
         data: {
@@ -127,9 +53,9 @@ app.controller('OrganizationController', ['$http', '$scope', 'ngProgressFactory'
           right: 5,
           left: 5
         },
-        color: { pattern: [ '#ecf0f1', '#bdc3c7' ] },
+        color: { pattern: [ '#f1c40f', '#f39c12' ] },
         size: {
-          height: 57
+          height: 220
         },
         tooltip: {
           show: false
@@ -153,13 +79,106 @@ app.controller('OrganizationController', ['$http', '$scope', 'ngProgressFactory'
           }
         }
       })
-
     }
 
     //
-    // Runs on load.
+    // Fetches a historic time-series from orgstats.
     //
-    self.list(self.fetch)
+    var _historic = function (_id, callback) {
+      console.log('Querying:' + '/api/orgstats/historic/' + _id)
+      $http.get('/api/orgstats/historic/' + _id)
+        .then(
+          function (response) {
+            //
+            // Adds the historic API
+            // data to the organizations
+            // object.
+            //
+            callback(null, response.data)
+          },
+          function (response) {
+            var out = {
+              'success': false,
+              'message': 'Could not fetch historic data from orgstats.',
+              'organization': _id,
+              'error': response.data
+            }
+            callback(out)
+          }
+      )
+    }
+
+    self.hdx = function (_id) {
+      var u = 'https://data.hdx.rwlabs.org/api/3/action/organization_show?id=' + _id
+      $http.get(u)
+        .then(
+          function (response) {
+            self.organization.details = response.data.result
+          },
+          function (response) {
+            self.organization.details = response.data
+          }
+      )
+    }
+
+    //
+    // Fetches an organization list from HDX.
+    //
+    self.list = function (callback) {
+      var u = 'https://data.hdx.rwlabs.org/api/3/action/organization_list'
+      self.organizations = []
+      $http.get(u)
+        .then(
+          function (response) {
+            //
+            // For development.
+            //
+            var org
+            for (i = 0; i < response.data.result.length; i++) {
+              org = {
+                'id': response.data.result[i],
+                'data': null
+              }
+              self.organizations.push(org)
+            }
+          },
+          function (response) {
+            self.organizations.push(org)
+          }
+      )
+    }
+
+    //
+    // Fetches the details from orgstats.
+    //
+    self.details = function (_id, callback) {
+      $http.get('/api/orgstats/' + _id)
+        .then(
+          function (response) {
+            self.organization.stats = response.data
+          },
+          function (response) {
+            console.log(response.data)
+          }
+      )
+    }
+
+    //
+    // Generates a bar chart with the
+    // historic data from an organization.
+    //
+    self.chart = function (_id) {
+      _historic(_id, function (err, data) {
+        if (err) {
+          console.log('Failed to make chart ' + _id)
+          console.log(data)
+        } else {
+          var divid = '#chart-' + _id
+          console.log('Making chart on ' + divid)
+          _bar(divid, data)
+        }
+      })
+    }
 
   }]
 )
