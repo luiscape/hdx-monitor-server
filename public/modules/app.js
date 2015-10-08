@@ -5,5 +5,6 @@ var app = angular.module('Monitor', [
   'ui.bootstrap',
   'ngProgress',
   'angularMoment',
-  'btford.markdown'
+  'btford.markdown',
+  'ngAnimate'
 ])
