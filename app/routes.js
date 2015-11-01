@@ -257,8 +257,6 @@ module.exports = function (app, passport, config) {
   // Any other routes redirect
   // to landing page.
   //
-  // TODO: Create 404 page.
-  //
   app.use(function (req, res, next) {
     res.status(404)
     res.render('404.ejs')
