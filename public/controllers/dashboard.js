@@ -2,7 +2,7 @@
 // Controller for the dashboard
 // page. It loads data from 2 services:
 // -- Ageing Service
-// -- Scraper Status Service
+// -- Scraper Status Service (future)
 //
 app.controller('DashboardController', ['$http', '$scope', '$filter', '$location',
   function ($http, $scope, $filter, $location) {
