@@ -2,10 +2,9 @@
 // Service status.
 //
 app.controller('StatusAlertController', ['$http', '$window', function ($http, $window) {
-
   self.check = function (service) {
     var service_url = '/api/' + service
-    $http.get(service_url + '/status')
+    $http.get(service_url + '/status/')
       .then(
         function (response) {
           if (response.data.online) {
@@ -26,7 +25,6 @@ app.controller('StatusAlertController', ['$http', '$window', function ($http, $w
   self.check($window.service)
 
 }])
-
 
 //
 // Displays the status of a
