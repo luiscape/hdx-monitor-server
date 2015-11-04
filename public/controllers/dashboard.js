@@ -11,6 +11,13 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
     var orderBy = $filter('orderBy')
 
     //
+    // Exctract CSV header.
+    //
+    self.csvHeader = function (data) {
+      return Object.keys(data[0])
+    }
+
+    //
     // Hover functions.
     //
     self.hoverIn = function (d) {
@@ -190,6 +197,8 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
             response.data.result.priority = $scope.$parent.$index
             $scope.dataset = response.data
 
+            console.log($scope.dataset)
+
             var modalInstance = $modal.open({
               templateUrl: 'test.html',
               controller: 'ModalInstanceController',
@@ -267,8 +276,8 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
 // Controller for the modal
 // with details about datasets.
 //
-app.controller('ModalInstanceController', ['$http', '$modalInstance', '$location', '$window',
-  function ($scope, $modalInstance, $location, $window, data) {
+app.controller('ModalInstanceController', ['$http', '$location', '$window',
+  function ($scope, $location, $window, data) {
     var self = $scope
     self.dataset = data
 
@@ -289,7 +298,7 @@ app.controller('ModalInstanceController', ['$http', '$modalInstance', '$location
         'We woud like to tell you that your dataset is not being updated as set by the dataset frequency.' + line_break +
         'Would you have time for a quick coversation some time next week?' + line_break +
         'Best,' + line_break +
-        '// Luis Capelo'
+        '// HDX Data Team'
 
       //
       // Assembling email string.
@@ -326,7 +335,7 @@ app.controller('ModalInstanceController', ['$http', '$modalInstance', '$location
             console.log(response.data)
           },
           function (response) {
-            console.log('Request failed.')
+            console.log('Failed to change frequency.')
             console.log(response)
           }
       )
