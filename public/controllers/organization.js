@@ -108,6 +108,30 @@ app.controller('OrganizationController', ['$http', '$scope', 'ngProgressFactory'
       )
     }
 
+    //
+    // Creating headers to a CSV.
+    //
+    self.header = function (data) {
+      return Object.keys(data[0])
+    }
+
+    //
+    // Combine views and downloads.
+    //
+    self.csv = function (_id) {
+      console.log('Downloading details for ' + _id)
+      self.details(_id, function (err, data) {
+        if (err) {
+          console.log('Failed to download details for ' + _id)
+          console.log(data)
+        } else {
+          console.log('Downloading details for ' + _id)
+          console.log(data.result.datasets)
+          return data.result.datasets
+        }
+      })
+    }
+
     self.hdx = function (_id) {
       var u = 'https://data.hdx.rwlabs.org/api/3/action/organization_show?id=' + _id
       $http.get(u)
@@ -152,12 +176,20 @@ app.controller('OrganizationController', ['$http', '$scope', 'ngProgressFactory'
     // Fetches the details from orgstats.
     //
     self.details = function (_id, callback) {
+      //
+      // Starting progress bar.
+      //
+      self.progressbar = ngProgressFactory.createInstance()
+      self.progressbar.start()
+
       $http.get('/api/orgstats/' + _id)
         .then(
           function (response) {
+            self.progressbar.complete()
             self.organization.stats = response.data
           },
           function (response) {
+            self.progressbar.complete()
             console.log(response.data)
           }
       )
