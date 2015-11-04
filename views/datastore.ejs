@@ -30,12 +30,25 @@
 </head>
 <body>
     <header class="cd-header">
-        <!-- service alert -->
+        <!--
+
+        SERVICE ALERT: =============================================
+
+        Here we are calling a specific controller that functions
+        only to display information to the user about the current
+        service status. At the moment, it is only capable of checking
+        the online status of a single service. The service id has
+        to be passed as a variable called `service`.
+
+        ============================================================
+
+        -->
         <div class="service-status-container" ng-controller="StatusAlertController as status">
             <script> var service = 'datastore' </script>
-            <a class="status-icon" href="#" id='status-alert'></a>
+            <a class="status-icon" href="#" ng-init="status.check('orgstats')" id='status-alert'></a>
             <div class="alert-container" id="alert-container"></div>
         </div>
+
         <a href="#0" class="cd-3d-nav-trigger">
             Menu
             <span></span>
@@ -167,13 +180,14 @@
 
     <!-- Angular dependencies. -->
     <script src="libs/moment/moment.js"></script>
+    <script src="libs/ng-csv/build/ng-csv.min.js"></script>
     <script src="libs/angular-moment/angular-moment.js"></script>
     <script src="libs/ngprogress/build/ngprogress.min.js"></script>
     <script src="libs/showdown/compressed/Showdown.min.js"></script>
     <script src="libs/angular-markdown-directive/markdown.js"></script>
+    <script src="libs/angular-animate/angular-animate.min.js"></script>
     <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
 
     <!-- modules -->
     <script src="modules/app.js"></script>
