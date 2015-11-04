@@ -1084,6 +1084,9 @@ Dashboard Pod Styles
 
 -------------------------------- */
 
+.freshness-title-area {
+  text-align: left;
+}
 
 .pod-container {
   padding: 50px 20px 0px 40px;
