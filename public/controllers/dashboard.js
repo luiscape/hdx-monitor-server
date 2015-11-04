@@ -24,9 +24,12 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
     $http.get('/api/ageservice/age?results_per_page=3000')
       .then(
         function (response) {
-          if (response.data.success) {
+          if (response.data) {
             self.success = true
 
+            //
+            // Manually add labels to each dataset.
+            //
             var frequency_labels = {
               '0': 'A',
               '7': 'W',
@@ -37,9 +40,6 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
               '365': 'Y'
             }
 
-            //
-            // Adding labels to each dataset.
-            //
             for (i = 0; i < response.data.objects.length; i++) {
               response.data.objects[i].frequency_label = frequency_labels[response.data.objects[i].frequency]
             }
@@ -52,6 +52,7 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
             self.archived = f(response.data.objects, { frequency_category: 'Archived' }, true)
             self.overdue = f(response.data.objects, { status: 'Overdue', frequency_category: '!Archived' }, true)
             self.due = f(response.data.objects, { status: 'Due for update', frequency_category: '!Archived' }, true)
+
           } else {
             self.fail = {
               failure: true,
@@ -179,10 +180,15 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
     self.open = function (dataset) {
       $http.get('https://data.hdx.rwlabs.org/api/action/package_show?id=' + dataset.dataset_id)
         .then(
+          //
+          // If request is successful, process the
+          // results and pass them to the modal.
+          //
           function (response) {
             response.data.result.age = dataset.age
             response.data.result.age_status = dataset.status
             response.data.result.priority = $scope.$parent.$index
+            $scope.dataset = response.data
 
             var modalInstance = $modal.open({
               templateUrl: 'test.html',
@@ -209,7 +215,7 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
           function (response) {
             var fail_message = {
               'success': false,
-              'message': 'Could not connect to HDX.'
+              'message': 'Failed to retrieve data from HDX.'
             }
 
             var modalInstance = $modal.open({
