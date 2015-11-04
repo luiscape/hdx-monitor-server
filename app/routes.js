@@ -132,8 +132,12 @@ module.exports = function (app, passport, config) {
     // Getting a query service base url
     // but also pass extra parameters.
     //
-    var parameters = null
-    if (req.body) {
+    var parameters = ''
+
+    //
+    // TODO: This test isn't working.
+    //
+    if (typeof req.body === typeof Object) {
       parameters = '?' + querystring.stringify(req.body)
     }
     var pass = req.originalUrl.replace('/api/' + serviceInfo.id, '')
@@ -207,7 +211,7 @@ module.exports = function (app, passport, config) {
     res.redirect('/')
   })
 
-  app.get('/dashboard', isLoggedIn, function (req, res) {
+  app.get('/dashboard', function (req, res) {
     res.render('dashboard.ejs')
   })
 
@@ -215,7 +219,7 @@ module.exports = function (app, passport, config) {
   //   res.render('users.ejs')
   // })
 
-  app.get('/organizations', function (req, res) {
+  app.get('/organizations', isLoggedIn, function (req, res) {
     res.render('organizations.ejs')
   })
 
