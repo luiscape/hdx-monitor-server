@@ -235,7 +235,7 @@ module.exports = function (app, passport, config) {
   })
 
   app.post('/login', isLoggedOut, passport.authenticate('local-login', {
-    successRedirect: '/datastore',
+    successRedirect: '/dashboard',
     failureRedirect: '/login',
     failureFlash: true
   }))
