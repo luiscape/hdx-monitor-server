@@ -320,7 +320,7 @@ app.controller('ModalInstanceController', ['$http', '$location', '$window',
         method: 'POST',
         url: 'https://data.hdx.rwlabs.org/api/action/hdx_package_update_metadata',
         headers: {
-          'Authorization': 'a6863277-f35e-4f50-af85-78a2d9ebcdd3',
+          'Authorization': 'foo',
           'Content-Type': 'application/json'
         },
         data: {
