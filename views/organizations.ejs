@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" class="no-js" ng-app="Monitor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--
+
+    STYLES: ==============================================
+
+    Here we are loading all of our styles. It includes
+    the Raleway font from Google Fonts, Bootstrap (3+),
+    Font Awesome, and the FlatUI CSS.
+
+    The style.css file includes the main custom styles
+    developed for this application.
+
+    ======================================================
+
+    -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="libs/flat-ui/dist/css/flat-ui.min.css">
+    <link rel="stylesheet" href="libs/animate.css/animate.css">
+    <link rel="stylesheet" href="libs/c3/c3.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>HDX Monitor | Organizations</title>
+</head>
+<body>
+    <header class="cd-header">
+        <!--
+
+        SERVICE ALERT: =============================================
+
+        Here we are calling a specific controller that functions
+        only to display information to the user about the current
+        service status. At the moment, it is only capable of checking
+        the online status of a single service. The service id has
+        to be passed as a variable called `service`.
+
+        ============================================================
+
+        -->
+        <div class="service-status-container" ng-controller="StatusAlertController as status">
+            <script> var service = 'orgstats' </script>
+            <a class="status-icon" href="#" ng-init="status.check('orgstats')" id='status-alert'></a>
+            <div class="alert-container" id="alert-container"></div>
+        </div>
+
+        <a href="#0" class="cd-3d-nav-trigger">
+            Menu
+            <span></span>
+        </a>
+    </header>
+
+    <!--
+
+    ORGANIZATION TILES: ===============================================
+
+    The section controlled by the OrganizationController. It
+    renders into tiles all data provided by the `orgstats` service.
+
+    Tiles contain two major features:
+
+     - An overview of the organization aggregated statistics.
+     - A simple time-series of those statistics.
+
+    In order to generate the tiles quickly, the OrganizationController
+    queries the HDX API for a list of organization ids. Then, it
+    uses those ids to get detailed data from the `orgstats` service.
+
+    ===================================================================
+
+    -->
+
+    <main ng-controller="OrganizationController as organization">
+
+        <div class="header-title organization-title">
+          <h1>Oganizations</h1>
+        </div>
+
+        <div class="row organization-container">
+
+          <div class="col-md-4"></div>
+
+          <div class="col-md-4">
+            <form class="form-group">
+
+             <input type="text" class="form-control login-field" value="" ng-model="organization.id" placeholder="HDX Organization ID" name="organizationid" id="organizationid">
+             <label class="login-field-icon" for="login-name"></label>
+             <br>
+
+
+             <div class="row">
+              <div class="col-md-12">
+               <button type="submit"
+                       class="btn btn-primary btn-lg btn-block"
+                       id="create-datastore-button"
+                       ng-click="
+                         organization.details(organization.id);
+                         organization.hdx(organization.id);
+                         ">
+                       Get Organization Details
+               </button>
+              </div>
+             </div>
+
+            </form>
+          </div>
+
+          <div class="col-md-4"></div>
+        </div>
+
+        <div class="row fader" ng-show="organization.organization.details">
+
+          <div class="col-md-2"></div>
+
+          <div class="row">
+            <div class="col-md-8">
+
+              <div class="col-md-6">
+                <h1 class="fadeInLeft">{{ organization.organization.details.display_name }}</h1>
+                <p>
+                  {{ organization.organization.details.description }}
+                </p>
+
+                <div class="col-md-3 pull-left" style="padding-left: 0px;">
+                  <br/>
+                  <button type="submit"
+                          ng-csv="organization.organization.stats.result.datasets.views.details"
+                          csv-header="organization.header(organization.organization.stats.result.datasets.views.details)"
+                          filename="{{'details-'+organization.id}}.csv"
+                          class="btn btn-primary btn-lg btn-info">
+                    Views <span class="fa fa-arrow-down"></span>
+                  </button>
+                </div>
+
+                <div class="col-md-6 pull-left" style="padding-left: 0px;">
+                  <br/>
+                  <button type="submit"
+                          ng-csv="organization.organization.stats.result.datasets.downloads.details"
+                          csv-header="organization.header(organization.organization.stats.result.datasets.downloads.details)"
+                          filename="{{'details-'+organization.id}}.csv"
+                          class="btn btn-primary btn-lg btn-info">
+                    Downloads <span class="fa fa-arrow-down"></span>
+                  </button>
+                </div>
+
+              </div>
+
+              <div class="col-md-6">
+                <div class="row">
+                  <h3 class="fadeInLeft" style="padding-left: 15px;">Datasets</h1>
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.datasets.total }}</h2>
+                    <p>datasets</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.datasets.views.total }}</h2>
+                    <p>views</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.datasets.downloads.total }}</h2>
+                    <p>downloads</p>
+                  </div>
+
+                  <h3 class="fadeInLeft" style="padding-left: 15px; padding-top: 60px;">Members</h1>
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.users.total }}</h2>
+                    <p>total members</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.users.admins }}</h2>
+                    <p>administrators</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.users.editors }}</h2>
+                    <p>editors</p>
+                  </div>
+
+                  <div class="col-md-4">
+                    <h2>{{ organization.organization.stats.result.users.members }}</h2>
+                    <p>members</p>
+                  </div>
+
+                </div>
+
+                <div id="{{ 'chart-' + organization.organization.organization }}"></div>
+              </div>
+
+          </div>
+
+          <div class="col-md-2"></div>
+
+          </div>
+        </div>
+
+    </main>
+
+    <nav class="cd-3d-nav-container">
+        <ul class="cd-3d-nav">
+            <li>
+                <a href="/dashboard">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="#0">Users</a>
+            </li>
+
+            <li class="cd-selected">
+                <a href="#0">Organizations</a>
+            </li>
+
+            <li>
+                <a href="/datastore">DataStores</a>
+            </li>
+
+            <li>
+                <a href="/settings">Settings</a>
+            </li>
+        </ul>
+
+        <span class="cd-marker color-1"></span>
+    </nav>
+
+    <!--
+
+    DEPENDENCIES: ====================================================
+
+    Dependencies are, in the most part, Angular dependencies. They
+    include moment, ng-progress, animate, ng-csv, and more. There are
+    also dependencies for charting: d3.js and c3.js.
+
+    ===================================================================
+
+    -->
+
+    <!-- FlatUI dependencies -->
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="libs/flat-ui/dist/js/flat-ui.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/create-ui.js"></script>
+
+    <!-- Charting dependencies. -->
+    <script src="libs/d3/d3.min.js"></script>
+    <script src="libs/c3/c3.min.js"></script>
+
+    <!-- Angular -->
+    <script src="libs/angular/angular.js"></script>
+
+    <!-- Angular dependencies. -->
+    <script src="libs/moment/moment.js"></script>
+    <script src="libs/ng-csv/build/ng-csv.min.js"></script>
+    <script src="libs/angular-moment/angular-moment.js"></script>
+    <script src="libs/ngprogress/build/ngprogress.min.js"></script>
+    <script src="libs/showdown/compressed/Showdown.min.js"></script>
+    <script src="libs/angular-markdown-directive/markdown.js"></script>
+    <script src="libs/angular-animate/angular-animate.min.js"></script>
+    <script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <!-- modules -->
+    <script src="modules/app.js"></script>
+
+    <!-- controllers -->
+    <script src="controllers/status_alert.js"></script>
+    <script src="controllers/organization.js"></script>
+
+
+</body>
+</html>
+
+

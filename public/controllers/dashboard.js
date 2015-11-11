@@ -2,13 +2,20 @@
 // Controller for the dashboard
 // page. It loads data from 2 services:
 // -- Ageing Service
-// -- Scraper Status Service
+// -- Scraper Status Service (future)
 //
 app.controller('DashboardController', ['$http', '$scope', '$filter', '$location',
   function ($http, $scope, $filter, $location) {
     var self = this
     var f = $filter('filter')
     var orderBy = $filter('orderBy')
+
+    //
+    // Exctract CSV header.
+    //
+    self.csvHeader = function (data) {
+      return Object.keys(data[0])
+    }
 
     //
     // Hover functions.
@@ -24,9 +31,12 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
     $http.get('/api/ageservice/age?results_per_page=3000')
       .then(
         function (response) {
-          if (response.data.success) {
+          if (response.data) {
             self.success = true
 
+            //
+            // Manually add labels to each dataset.
+            //
             var frequency_labels = {
               '0': 'A',
               '7': 'W',
@@ -37,9 +47,6 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
               '365': 'Y'
             }
 
-            //
-            // Adding labels to each dataset.
-            //
             for (i = 0; i < response.data.objects.length; i++) {
               response.data.objects[i].frequency_label = frequency_labels[response.data.objects[i].frequency]
             }
@@ -52,6 +59,7 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
             self.archived = f(response.data.objects, { frequency_category: 'Archived' }, true)
             self.overdue = f(response.data.objects, { status: 'Overdue', frequency_category: '!Archived' }, true)
             self.due = f(response.data.objects, { status: 'Due for update', frequency_category: '!Archived' }, true)
+
           } else {
             self.fail = {
               failure: true,
@@ -70,8 +78,17 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
   }]
 )
 
-app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$modal', '$log',
-  function ($http, $scope, $filter, $window, $modal, $log) {
+//
+// Service for allowing controllers
+// to share data.
+//
+app.service('modalData', function Data () {
+  var data = this
+  data.details = null
+})
+
+app.controller('ModalController',
+  function ($http, $scope, $filter, $window, $uibModal, $log, modalData) {
     var self = this
     self.animationsEnabled = true
 
@@ -179,17 +196,23 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
     self.open = function (dataset) {
       $http.get('https://data.hdx.rwlabs.org/api/action/package_show?id=' + dataset.dataset_id)
         .then(
+          //
+          // If request is successful, process the
+          // results and pass them to the modal.
+          //
           function (response) {
             response.data.result.age = dataset.age
             response.data.result.age_status = dataset.status
             response.data.result.priority = $scope.$parent.$index
 
-            var modalInstance = $modal.open({
-              templateUrl: 'test.html',
+            var modalInstance = $uibModal.open({
+              templateUrl: 'modal.html',
               controller: 'ModalInstanceController',
+              controllerAs: 'instance',
               resolve: {
-                data: function () {
-                  return response.data
+                dataset: function () {
+                  modalData.details = response.data
+                  return modalData
                 }
               }
             })
@@ -209,14 +232,15 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
           function (response) {
             var fail_message = {
               'success': false,
-              'message': 'Could not connect to HDX.'
+              'message': 'Failed to retrieve data from HDX.'
             }
 
-            var modalInstance = $modal.open({
-              templateUrl: 'test.html',
+            var modalInstance = $uibModal.open({
+              templateUrl: 'modal.html',
               controller: 'ModalInstanceController',
+              controllerAs: 'instance',
               resolve: {
-                data: function () {
+                dataset: function () {
                   return fail_message
                 }
               }
@@ -254,17 +278,20 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
       $scope.dataset.checked = true
     }
 
-  }]
+  }
 )
 
 //
 // Controller for the modal
 // with details about datasets.
 //
-app.controller('ModalInstanceController', ['$http', '$modalInstance', '$location', '$window',
-  function ($scope, $modalInstance, $location, $window, data) {
+app.controller('ModalInstanceController', ['$scope', '$window', 'modalData',
+  function ($scope, $window, modalData) {
     var self = $scope
-    self.dataset = data
+    self.dataset = modalData.details
+    $scope.dataset = modalData.details
+
+    console.log($scope.dataset)
 
     self.visit = function () {
       console.log('Visiting: https://data.hdx.rwlabs.org/dataset/' + self.dataset.result.id)
@@ -276,14 +303,17 @@ app.controller('ModalInstanceController', ['$http', '$modalInstance', '$location
       //
       // Building emailing string.
       //
-      console.log('Emailing maintainer.')
-      var line_break = '%0D%0A%0D%0A'
+      console.log('Emailing maintainer: ' + self.dataset.result.maintainer_email)
+      // var line_break = '%0D%0A%0D%0A'
+      var line_break = '\n\n'
+      var dataset_link = ' (https://data.hdx.rwlabs.org/dataset/' + self.dataset.result.id + ') '
       var s = 'Test Subject'
-      var b = 'Dear user,' + line_break +
-        'We woud like to tell you that your dataset is not being updated as set by the dataset frequency.' + line_break +
-        'Would you have time for a quick coversation some time next week?' + line_break +
-        'Best,' + line_break +
-        '// Luis Capelo'
+      var b = 'Dear ' + self.dataset.result.maintainer + ',' + line_break +
+        'We have noticed that your dataset ' + self.dataset.result.title + dataset_link +
+        'has not been upated in ' + self.dataset.result.age + ' days.' + line_break +
+        'Would you have time for a quick conversation some time next week regarding the update of that dataset?' + line_break +
+        'Best regards,' + line_break +
+        'HDX Data Team'
 
       //
       // Assembling email string.
@@ -299,33 +329,33 @@ app.controller('ModalInstanceController', ['$http', '$modalInstance', '$location
       $window.open(e, '_blank')
     }
 
-    self.change_frequency = function (frequency) {
-      console.log('Changing frequency of dataset dataset to ' + frequency + '.')
-      var options = {
-        method: 'POST',
-        url: 'https://data.hdx.rwlabs.org/api/action/hdx_package_update_metadata',
-        headers: {
-          'Authorization': 'a6863277-f35e-4f50-af85-78a2d9ebcdd3',
-          'Content-Type': 'application/json'
-        },
-        data: {
-          id: 'absolute-test-dataset-as-it-may-sound-indeed',
-          data_update_frequency: frequency
-        }
-      }
+    // self.change_frequency = function (frequency) {
+    //   console.log('Changing frequency of dataset dataset to ' + frequency + '.')
+    //   var options = {
+    //     method: 'POST',
+    //     url: 'https://data.hdx.rwlabs.org/api/action/hdx_package_update_metadata',
+    //     headers: {
+    //       'Authorization': 'foo',
+    //       'Content-Type': 'application/json'
+    //     },
+    //     data: {
+    //       id: 'absolute-test-dataset-as-it-may-sound-indeed',
+    //       data_update_frequency: frequency
+    //     }
+    //   }
 
-      $http(options)
-        .then(
-          function (response) {
-            console.log(response.data)
-          },
-          function (response) {
-            console.log('Request failed.')
-            console.log(response)
-          }
-      )
+    //   $http(options)
+    //     .then(
+    //       function (response) {
+    //         console.log(response.data)
+    //       },
+    //       function (response) {
+    //         console.log('Failed to change frequency.')
+    //         console.log(response)
+    //       }
+    //   )
 
-    }
+    // }
 
   }]
 )

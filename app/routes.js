@@ -132,8 +132,12 @@ module.exports = function (app, passport, config) {
     // Getting a query service base url
     // but also pass extra parameters.
     //
-    var parameters = null
-    if (req.body) {
+    var parameters = ''
+
+    //
+    // TODO: This test isn't working.
+    //
+    if (typeof req.body === typeof Object) {
       parameters = '?' + querystring.stringify(req.body)
     }
     var pass = req.originalUrl.replace('/api/' + serviceInfo.id, '')
@@ -149,7 +153,6 @@ module.exports = function (app, passport, config) {
       options.path = pass + parameters
     }
     options.method = req.method
-    console.log(options)
 
     var request = http.request(options, function (response) {
       response.setEncoding('utf8')
@@ -207,8 +210,16 @@ module.exports = function (app, passport, config) {
     res.redirect('/')
   })
 
-  app.get('/dashboard', isLoggedIn, function (req, res) {
+  app.get('/dashboard', function (req, res) {
     res.render('dashboard.ejs')
+  })
+
+  // app.get('/users', isLoggedIn, function (req, res) {
+  //   res.render('users.ejs')
+  // })
+
+  app.get('/organizations', isLoggedIn, function (req, res) {
+    res.render('organizations.ejs')
   })
 
   app.get('/datastore', isLoggedIn, function (req, res) {
@@ -227,7 +238,7 @@ module.exports = function (app, passport, config) {
   })
 
   app.post('/login', isLoggedOut, passport.authenticate('local-login', {
-    successRedirect: '/datastore',
+    successRedirect: '/dashboard',
     failureRedirect: '/login',
     failureFlash: true
   }))
@@ -248,8 +259,6 @@ module.exports = function (app, passport, config) {
   //
   // Any other routes redirect
   // to landing page.
-  //
-  // TODO: Create 404 page.
   //
   app.use(function (req, res, next) {
     res.status(404)
