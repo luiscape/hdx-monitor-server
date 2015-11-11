@@ -3,7 +3,7 @@
 # Based on Node. Receives links from a MongoDB container.
 ############################################################
 
-FROM node:0.12.7
+FROM node:latest
 
 MAINTAINER Luis Capelo <capelo@un.org>
 
@@ -11,10 +11,11 @@ MAINTAINER Luis Capelo <capelo@un.org>
 # Clone and install dependencies.
 #
 RUN \
-  npm install -g pm2 && \
-  git clone https://github.com/luiscape/hdx-monitor-server && \
-  cd hdx-monitor-server && \
-  npm install
+  npm install -g pm2 \
+  && git clone https://github.com/luiscape/hdx-monitor-server \
+  && cd hdx-monitor-server \
+  && git checkout feature-organization-search \
+  && npm install
 
 #
 # Install the MongoDB shell
