@@ -153,7 +153,6 @@ module.exports = function (app, passport, config) {
       options.path = pass + parameters
     }
     options.method = req.method
-    console.log(options)
 
     var request = http.request(options, function (response) {
       response.setEncoding('utf8')
