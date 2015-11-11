@@ -299,32 +299,35 @@ app.controller('ModalInstanceController', ['$scope', '$window', 'modalData',
       $window.open(e, '_blank')
     }
 
-    // self.email = function () {
-    //   //
-    //   // Building emailing string.
-    //   //
-    //   console.log('Emailing maintainer.')
-    //   var line_break = '%0D%0A%0D%0A'
-    //   var s = 'Test Subject'
-    //   var b = 'Dear user,' + line_break +
-    //     'We woud like to tell you that your dataset is not being updated as set by the dataset frequency.' + line_break +
-    //     'Would you have time for a quick coversation some time next week?' + line_break +
-    //     'Best,' + line_break +
-    //     '// HDX Data Team'
+    self.email = function () {
+      //
+      // Building emailing string.
+      //
+      console.log('Emailing maintainer: ' + self.dataset.result.maintainer_email)
+      // var line_break = '%0D%0A%0D%0A'
+      var line_break = '\n\n'
+      var dataset_link = ' (https://data.hdx.rwlabs.org/dataset/' + self.dataset.result.id + ') '
+      var s = 'Test Subject'
+      var b = 'Dear ' + self.dataset.result.maintainer + ',' + line_break +
+        'We have noticed that your dataset ' + self.dataset.result.title + dataset_link +
+        'has not been upated in ' + self.dataset.result.age + ' days.' + line_break +
+        'Would you have time for a quick conversation some time next week regarding the update of that dataset?' + line_break +
+        'Best regards,' + line_break +
+        'HDX Data Team'
 
-    //   //
-    //   // Assembling email string.
-    //   //
-    //   var e = 'mailto:' + self.dataset.result.maintainer_email +
-    //     '?subject=' + s +
-    //     '&body=' + b
+      //
+      // Assembling email string.
+      //
+      var e = 'mailto:' + self.dataset.result.maintainer_email +
+        '?subject=' + s +
+        '&body=' + b
 
-    //   //
-    //   // Open new window with
-    //   // email.
-    //   //
-    //   $window.open(e, '_blank')
-    // }
+      //
+      // Open new window with
+      // email.
+      //
+      $window.open(e, '_blank')
+    }
 
     // self.change_frequency = function (frequency) {
     //   console.log('Changing frequency of dataset dataset to ' + frequency + '.')
