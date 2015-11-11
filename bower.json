@@ -3,7 +3,7 @@
   "version": "v.0.1.2",
   "dependencies": {
     "angular": "latest",
-    "angular-bootstrap": "~0.13.3",
+    "angular-bootstrap": "~0.14.3",
     "angular-markdown-directive": "~0.3.1",
     "angular-moment": "~0.10.2",
     "angular-route": "latest",
