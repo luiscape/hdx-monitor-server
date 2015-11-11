@@ -1,7 +1,7 @@
 module.exports = {
   'CkanInstance': 'https://data.hdx.rwlabs.org/',
   'DefaultApiKey': process.env.DEFAULT_API_KEY || null,
-  'version': 'v.0.1.13',
+  'version': 'v.0.1.15',
   'repository': 'https://github.com/luiscape/hdx-monitor-server',
   'port': process.env.PORT || 8080,
   'services': {
@@ -10,7 +10,7 @@ module.exports = {
       'port': 2000
     },
     'ageservice': {
-      'host': 'ageservice',
+      'host': '192.168.99.100',
       'port': 3000,
       'base': 'v1'
     },
