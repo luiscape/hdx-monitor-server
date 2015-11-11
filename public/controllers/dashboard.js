@@ -195,12 +195,9 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
             response.data.result.age = dataset.age
             response.data.result.age_status = dataset.status
             response.data.result.priority = $scope.$parent.$index
-            $scope.dataset = response.data
-
-            console.log($scope.dataset)
 
             var modalInstance = $modal.open({
-              templateUrl: 'test.html',
+              templateUrl: 'modal.html',
               controller: 'ModalInstanceController',
               resolve: {
                 data: function () {
@@ -228,7 +225,7 @@ app.controller('ModalController', ['$http', '$scope', '$filter', '$window', '$mo
             }
 
             var modalInstance = $modal.open({
-              templateUrl: 'test.html',
+              templateUrl: 'modal.html',
               controller: 'ModalInstanceController',
               resolve: {
                 data: function () {
