@@ -594,16 +594,23 @@
 
     -->
 
-    <script type="text/ng-template" id="test.html">
+    <script type="text/ng-template" id="modal.html">
 
-    <div ng-controller="ModalInstanceController as modal">
+    <div ng-controller="ModalInstanceController">
 
-      <div class="modal-header">
-        <h3 class="modal-title" ng-show="{{ !dataset.success }}">Error!</h3>
-        <h3 class="modal-title" ng-show="{{ dataset.success }}">{{ dataset.result.title }}</h3>
+      <div class="modal-header" ng-show="{{ !dataset.success }}">
+        <h3 class="modal-title">Error!</h3>
       </div>
 
-      <div class="modal-body" ng-show="{{ dataset.esuccess }}">
+      <div class="modal-body" ng-show="{{ !dataset.success }}">
+        <p>Data failed to be rendered.</p>
+      </div>
+
+      <div class="modal-header" ng-show="{{ dataset.success }}">
+        <h3 class="modal-title">{{ dataset.result.title }}</h3>
+      </div>
+
+      <div class="modal-body" ng-show="{{ dataset.success }}">
 
         <div class="row">
           <div class="col-xs-8">
@@ -640,7 +647,7 @@
           <a class="btn btn-primary" type="button" ng-click="visit()">View Dataset</a>
           <a class="btn btn-primary" type="button" ng-click="email()">Email Maintainer</a>
           <div class="btn-group">
-            <button class="btn btn-primary dropdown-toggle"
+            <button class="btn btn-disabled dropdown-toggle"
               type="button"
               data-toggle="dropdown"
               aria-haspopup="true"
@@ -648,14 +655,14 @@
               Change Frequency <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(0)">0</a></li>
-              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(7)">7</a></li>
-              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(14)">14</a></li>
-              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(30)">30</a></li>
-              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(45)">45</a></li>
-              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(60)">60</a></li>
+              <li><a style="cursor:pointer;" ng-click="change_frequency(0)">0</a></li>
+              <li><a style="cursor:pointer;" ng-click="change_frequency(7)">7</a></li>
+              <li><a style="cursor:pointer;" ng-click="change_frequency(14)">14</a></li>
+              <li><a style="cursor:pointer;" ng-click="change_frequency(30)">30</a></li>
+              <li><a style="cursor:pointer;" ng-click="change_frequency(45)">45</a></li>
+              <li><a style="cursor:pointer;" ng-click="change_frequency(60)">60</a></li>
               <li role="separator" class="divider"></li>
-              <li><a style="cursor:pointer;" ng-click="dashboard.change_frequency(365)">365</a></li>
+              <li><a style="cursor:pointer;" ng-click="change_frequency(365)">365</a></li>
             </ul>
           </div>
 
