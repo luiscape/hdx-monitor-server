@@ -10,7 +10,7 @@ module.exports = {
       'port': 2000
     },
     'ageservice': {
-      'host': '192.168.99.100',
+      'host': 'ageservice',
       'port': 3000,
       'base': 'v1'
     },
