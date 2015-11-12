@@ -13,6 +13,7 @@
     "d3": "latest",
     "flat-ui": "latest",
     "font-awesome": "latest",
-    "ngprogress": "latest"
+    "ngprogress": "latest",
+    "bootstrap-select": "~1.7.5"
   }
 }
