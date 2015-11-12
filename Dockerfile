@@ -14,7 +14,6 @@ RUN \
   npm install -g pm2 \
   && git clone https://github.com/luiscape/hdx-monitor-server \
   && cd hdx-monitor-server \
-  && git checkout feature-organization-search \
   && npm install
 
 #
