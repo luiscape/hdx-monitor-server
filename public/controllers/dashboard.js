@@ -300,27 +300,32 @@ app.controller('ModalInstanceController', ['$scope', '$window', 'modalData',
     }
 
     self.email = function () {
+      console.log('Emailing maintainer: ' + self.dataset.result.maintainer_email)
+
       //
       // Building emailing string.
       //
-      console.log('Emailing maintainer: ' + self.dataset.result.maintainer_email)
-      // var line_break = '%0D%0A%0D%0A'
-      var line_break = '\n\n'
-      var dataset_link = ' (https://data.hdx.rwlabs.org/dataset/' + self.dataset.result.id + ') '
-      var s = 'Test Subject'
-      var b = 'Dear ' + self.dataset.result.maintainer + ',' + line_break +
-        'We have noticed that your dataset ' + self.dataset.result.title + dataset_link +
-        'has not been upated in ' + self.dataset.result.age + ' days.' + line_break +
-        'Would you have time for a quick conversation some time next week regarding the update of that dataset?' + line_break +
-        'Best regards,' + line_break +
-        'HDX Data Team'
+      var line_break = '%0A'
+      var dataset_link = 'https://data.hdx.rwlabs.org/dataset/' + self.dataset.result.id
+      var s = 'Please Update Your Dataset on HDX'
+      var b = 'Dear ' + self.dataset.result.maintainer + ',' + line_break + line_break +
+        'I am writing to you regarding the dataset "' + self.dataset.result.title + '" that you shared on HDX. ' +
+        'We noticed that the dataset has not been updated in ' + self.dataset.result.age + ' days. ' + line_break + line_break +
+        'We believe that the dataset is very important for the humanitarian community and we ' +
+        'wonder if you could take a look at the dataset and update the data. Below is the link to the dataset: ' + line_break +
+        line_break +
+        dataset_link +
+        line_break +
+        line_break +
+        'Thank you for sharing and please do not hesitate to get in touch with me if you have any questions.' + line_break + line_break +
+        'Best regards,'
 
       //
       // Assembling email string.
       //
       var e = 'mailto:' + self.dataset.result.maintainer_email +
-        '?subject=' + s +
-        '&body=' + b
+        '?body=' + b +
+        '&subject=' + s
 
       //
       // Open new window with
