@@ -214,6 +214,7 @@ app.controller('ModalController',
               templateUrl: 'modal.html',
               controller: 'ModalInstanceController',
               controllerAs: 'instance',
+              size: 'lg',
               resolve: {
                 dataset: function () {
                   modalData.details = response.data
