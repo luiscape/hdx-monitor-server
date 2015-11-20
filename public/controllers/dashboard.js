@@ -1,9 +1,14 @@
-//
-// Controller for the dashboard
-// page. It loads data from 2 services:
-// -- Ageing Service
-// -- Scraper Status Service (future)
-//
+/*
+
+    DASHBOARD CONTROLLER: -------
+
+    Controller for most functions available in the
+    dashboard page. This controller connects to
+    the Ageing Service through the relay API, generating
+    UI elements that organize datasets based on their
+    "freshness" status.
+
+*/
 app.controller('DashboardController', ['$http', '$scope', '$filter', '$location',
   function ($http, $scope, $filter, $location) {
     var self = this
