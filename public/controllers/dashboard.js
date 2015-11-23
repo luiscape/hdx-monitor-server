@@ -8,6 +8,15 @@
     UI elements that organize datasets based on their
     "freshness" status.
 
+    COMMENTS: --------
+
+    Logged-in users are able to make comments to
+    specific datasets from the Freshness Dashboard page.
+    Those comments are stored in the database with both
+    the dataset ID and the user information. Comments
+    are then fetched when any user clicks on a dataset by
+    querying the dataset for comments attached to it.
+
 */
 app.controller('DashboardController', ['$http', '$scope', '$filter', '$location',
   function ($http, $scope, $filter, $location) {
@@ -33,7 +42,14 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
       d.hover_last_updated = false
     }
 
-    $http.get('/api/ageservice/age?results_per_page=3000')
+    var options = {
+      method: 'GET',
+      url: '/api/ageservice/age?results_per_page=3000',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }
+    $http(options)
       .then(
         function (response) {
           if (response.data) {
@@ -278,6 +294,48 @@ app.controller('ModalController',
     }
 
     //
+    // Makes comment using the comment API.
+    // It requires a dataset id.
+    //
+    self.fetchComments = function (dataset_id) {
+      $http.get('/api/comments/' + dataset_id)
+        .then(
+          function (response) {
+            if (response.data.success) {
+              self.comments = response.data
+              modalData.comments = response.data
+              console.log(modalData.comments)
+            } else if (response.data.count === 0) {
+              self.comments = {
+                'success': false,
+                'message': 'No comments made yet.',
+                'details': response.data
+              }
+              modalData.comments = self.comments
+              console.log(modalData.comments)
+            } else {
+              self.comments = {
+                'success': false,
+                'message': 'Failed to load comments.',
+                'details': response.data
+              }
+              modalData.comments = self.comments
+              console.log(modalData.comments)
+            }
+          },
+          function (response) {
+            self.comments = {
+              'success': false,
+              'message': 'Failed to load comments.',
+              'details': response.data
+            }
+            modalData.comments = rself.comments
+            console.log(modalData.comments)
+          }
+      )
+    }
+
+    //
     // Adds checked icon to dataset.
     //
     self.checked = function (dataset) {
@@ -291,11 +349,12 @@ app.controller('ModalController',
 // Controller for the modal
 // with details about datasets.
 //
-app.controller('ModalInstanceController', ['$scope', '$window', 'modalData',
-  function ($scope, $window, modalData) {
+app.controller('ModalInstanceController', ['$scope', '$window', '$http', 'modalData',
+  function ($scope, $window, $http, modalData) {
     var self = $scope
     self.dataset = modalData.details
     $scope.dataset = modalData.details
+    $scope.comments = modalData.comments
 
     console.log($scope.dataset)
 
@@ -338,6 +397,47 @@ app.controller('ModalInstanceController', ['$scope', '$window', 'modalData',
       // email.
       //
       $window.open(e, '_blank')
+    }
+
+    //
+    // Makes comment through the
+    // comment API.
+    //
+    self.comment = function (comment, dataset_id, dataset_age, dataset_status) {
+      var payload = {
+        'author': 'luis',
+        'comment': comment,
+        'dataset': {
+          'id': dataset_id,
+          'age': dataset_age,
+          'status': dataset_status
+        }
+      }
+      var options = {
+        method: 'POST',
+        url: '/api/comments/',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: payload
+      }
+      console.log('Making comment: ' + JSON.stringify(options))
+      $http(options)
+        .then(
+          function (response) {
+            if (response.data.success) {
+              console.log('Made comment!')
+            } else {
+              console.log('Comment failed!')
+              console.log(response.data)
+            }
+          },
+          function (response) {
+            console.log('Comment failed!')
+            console.log(response.data)
+          }
+      )
+
     }
 
     // self.change_frequency = function (frequency) {

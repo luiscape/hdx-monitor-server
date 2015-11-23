@@ -165,7 +165,7 @@
                             ng-mouseover="dashboard.hoverIn(dataset)"
                             ng-mouseleave="dashboard.hoverOut(dataset)"
                             ng-controller="ModalController as modal"
-                            ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
+                            ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset); modal.fetchComments(dataset.dataset_id)"
                             style="cursor:pointer;">
 
 
@@ -243,7 +243,7 @@
                            ng-mouseover="dashboard.hoverIn(dataset)"
                            ng-mouseleave="dashboard.hoverOut(dataset)"
                            ng-controller="ModalController as modal"
-                           ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
+                           ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset); modal.fetchComments(dataset.dataset_id)"
                            style="cursor:pointer;">
 
                             <div class="pod-info-dataset-title">
@@ -321,7 +321,7 @@
                             ng-mouseover="dashboard.hoverIn(dataset)"
                             ng-mouseleave="dashboard.hoverOut(dataset)"
                             ng-controller="ModalController as modal"
-                            ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
+                            ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset); modal.fetchComments(dataset.dataset_id)"
                             style="cursor:pointer;">
 
                               <div class="pod-info-dataset-title">
@@ -400,7 +400,7 @@
                            ng-mouseover="dashboard.hoverIn(dataset)"
                            ng-mouseleave="dashboard.hoverOut(dataset)"
                            ng-controller="ModalController as modal"
-                           ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
+                           ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset); modal.fetchComments(dataset.dataset_id)"
                            style="cursor:pointer;">
 
                             <div class="pod-info-dataset-title">
@@ -485,7 +485,7 @@
                         ng-mouseover="dashboard.hoverIn(dataset)"
                         ng-mouseleave="dashboard.hoverOut(dataset)"
                         ng-controller="ModalController as modal"
-                        ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset)"
+                        ng-click="modal.open(dataset); modal.fetch(dataset.dataset_id); modal.checked(dataset); modal.fetchComments(dataset.dataset_id)"
                         style="cursor:pointer;">
 
                           <div class="pod-info-dataset-title">
@@ -613,10 +613,10 @@
       <div class="modal-body" ng-show="{{ dataset.success }}">
 
         <div class="row">
-          <div class="col-xs-8">
+          <div class="col-xs-6">
             <p ng-show="{{ dataset.success }} " btf-markdown="dataset.result.notes"></p>
           </div>
-          <div class="col-xs-4 modal-numbers">
+          <div class="col-xs-3 modal-numbers">
             <p>
               PRIORITY <span class="modal-priority-number">#{{ dataset.result.priority + 1 }}</span>
             </p>
@@ -628,6 +628,39 @@
               <br />
               <span class="label label-danger" ng-show="{{ dataset.success }}"> {{ dataset.result.age }} days {{ dataset.result.age_status }} </span>
             </p>
+          </div>
+          <div class="col-xs-3 modal-numbers">
+          <p>
+            <b>COMMENTS</b>
+          </p>
+          <br/>
+            <h2 ng-show="{{ !comments.success }}">
+              {{ comments.message }}
+            </h2>
+            <div ng-show="{{ comments.success }}" ng-repeat="comment in comments.records" class="col-xs-12">
+              <div class="col-xs-9 text-left">
+                <p>
+                  {{ comment.comment }}
+                </p>
+                <br/>
+              </div>
+              <div class="col-xs-3">
+                <span class="label label-frequency">
+                  {{ comment.author }}
+                </span>
+              </div>
+            </div>
+           <div class="input-group">
+               <input type="text" class="form-control" ng-model="commentText" placeholder="Comment ...">
+               <span class="input-group-btn">
+                 <button
+                   class="btn btn-default"
+                   ng-click="comment(commentText, dataset.result.id, dataset.result.age, dataset.result.age_status)"
+                   type="button">
+                   <span class="fa fa-paper-plane"></span>
+                 </button>
+               </span>
+            </div>
           </div>
 
         </div>
