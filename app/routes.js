@@ -1,5 +1,6 @@
 module.exports = function (app, passport, config) {
   var http = require('http')
+  var request = require('request')
   var querystring = require('querystring')
   var services = require('../config/services')
   var forEachAsync = require('forEachAsync').forEachAsync
@@ -31,17 +32,19 @@ module.exports = function (app, passport, config) {
   // an options object for HTTP
   // requests.
   //
-  var _options = function (service) {
+  var _options = function (service, request_data) {
     var keepAliveAgent = new http.Agent({ keepAlive: true })
     var options = {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json'
       },
       host: services[service].host,
       port: services[service].port,
+      url: 'http://' + services[service].host + ':' + services[service].port,
       path: null,  // filled later by route.
       method: null,  // filled later by route.
-      agent: keepAliveAgent
+      agent: keepAliveAgent,
+      json: request_data.body || null
     }
     return options
   }
@@ -68,7 +71,7 @@ module.exports = function (app, passport, config) {
       // requests to each of their
       // status.
       //
-      var options = _options(key)
+      var options = _options(key, req)
       if (services[key].base) {
         options.path = '/' + services[key].base + '/status/'
       } else {
@@ -80,7 +83,7 @@ module.exports = function (app, passport, config) {
       // Make request for each
       // available service.
       //
-      var request = http.request(options, function (response) {
+      var instance = http.request(options, function (response) {
         response.setEncoding('utf8')
         var body = ''
         response.on('data', function (chunk) {
@@ -102,7 +105,7 @@ module.exports = function (app, passport, config) {
       // If request fails,
       // set response object to null.
       //
-      request.on('error', function (error) {
+      instance.on('error', function (error) {
         var out = {
           'success': false,
           'message': 'Service not available.',
@@ -115,7 +118,7 @@ module.exports = function (app, passport, config) {
       //
       // Closing request.
       //
-      request.end()
+      instance.end()
 
     }).then(function () {
       res.send(payload)
@@ -141,20 +144,33 @@ module.exports = function (app, passport, config) {
       parameters = '?' + querystring.stringify(req.body)
     }
     var pass = req.originalUrl.replace('/api/' + serviceInfo.id, '')
-    var options = _options(serviceInfo.id)
+    var options = _options(serviceInfo.id, req)
 
     //
     // Make request to service using
     // the options that came via the UI.
     //
     if (services[serviceInfo.id].base) {
-      options.path = '/' + services[serviceInfo.id].base + pass + parameters
+      options.url += '/' + services[serviceInfo.id].base + pass + parameters
     } else {
-      options.path = pass + parameters
+      options.url += pass + parameters
     }
     options.method = req.method
 
-    var request = http.request(options, function (response) {
+    console.log('Making request to service: ' + serviceInfo.id)
+    console.log(options)
+    request(options, function (error, response, body) {
+      if (error) {
+        var payload = {
+          'success': false,
+          'message': 'Querying service failed.',
+          'service': serviceInfo.id,
+          'error': error,
+          'details': body
+        }
+        res.send(payload)
+      }
+    }).on('response', function (response) {
       response.setEncoding('utf8')
       var body = ''
       response.on('data', function (chunk) {
@@ -167,25 +183,6 @@ module.exports = function (app, passport, config) {
         res.send(body)
       })
     })
-
-    //
-    // If request fails,
-    // set response object to null.
-    //
-    request.on('error', function (error) {
-      var payload = {
-        'success': false,
-        'message': 'Querying service failed.',
-        'service': serviceInfo.id,
-        'error': error
-      }
-      res.send(payload)
-    })
-
-    //
-    // Closing request.
-    //
-    request.end()
   })
 
   //

@@ -17,6 +17,7 @@
     "morgan": "latest",
     "nprogress": "latest",
     "passport": "latest",
-    "passport-local": "latest"
+    "passport-local": "latest",
+    "request": "2.67.0"
   }
 }
