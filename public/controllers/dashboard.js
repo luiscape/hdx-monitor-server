@@ -4,11 +4,12 @@
 // -- Ageing Service
 // -- Scraper Status Service (future)
 //
-app.controller('DashboardController', ['$http', '$scope', '$filter', '$location',
-  function ($http, $scope, $filter, $location) {
+app.controller('DashboardController', ['$http', '$scope', '$filter', '$location', 'ngProgressFactory',
+  function ($http, $scope, $filter, $location, ngProgressFactory) {
     var self = this
     var f = $filter('filter')
     var orderBy = $filter('orderBy')
+    self.pb = ngProgressFactory.createInstance()
 
     //
     // Exctract CSV header.
@@ -28,53 +29,72 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
       d.hover_last_updated = false
     }
 
-    $http.get('/api/ageservice/age?results_per_page=3000')
-      .then(
-        function (response) {
-          if (response.data) {
-            self.success = true
+    var pages = {
+      'total': 3,
+      'current': 1
+    }
+    for (var i = 1; i <= pages.total; i++) {
+      pages.current = i
+      self.pb.start()
 
-            //
-            // Manually add labels to each dataset.
-            //
-            var frequency_labels = {
-              '0': 'A',
-              '7': 'W',
-              '14': 'B',
-              '30': 'M',
-              '45': 'Q',
-              '60': 'S',
-              '365': 'Y'
+      if (i === 1) {
+        self.delinquent = []
+        self.uptodate = []
+        self.archived = []
+        self.overdue = []
+        self.due = []
+      }
+
+      $http.get('/api/ageservice/age?results_per_page=1000&page=' + pages.current)
+        .then(
+          function (response) {
+            if (response.data) {
+              self.success = true
+
+              //
+              // Manually add labels to each dataset.
+              //
+              var frequency_labels = {
+                '0': 'A',
+                '7': 'W',
+                '14': 'B',
+                '30': 'M',
+                '45': 'Q',
+                '60': 'S',
+                '365': 'Y'
+              }
+
+              for (j = 0; j < response.data.objects.length; j++) {
+                response.data.objects[j].frequency_label = frequency_labels[response.data.objects[j].frequency]
+              }
+
+              //
+              // Organizing results.
+              //
+              self.delinquent = self.delinquent.concat(f(response.data.objects, { status: 'Delinquent', frequency_category: '!Archived' }, true))
+              self.uptodate = self.uptodate.concat(f(response.data.objects, { status: 'Up-to-date', frequency_category: '!Archived' }, true))
+              self.archived = self.archived.concat(f(response.data.objects, { frequency_category: 'Archived' }, true))
+              self.overdue = self.overdue.concat(f(response.data.objects, { status: 'Overdue', frequency_category: '!Archived' }, true))
+              self.due = self.due.concat(f(response.data.objects, { status: 'Due for update', frequency_category: '!Archived' }, true))
+
+            } else {
+              self.fail = {
+                failure: true,
+                message: 'Service not available.'
+              }
             }
-
-            for (i = 0; i < response.data.objects.length; i++) {
-              response.data.objects[i].frequency_label = frequency_labels[response.data.objects[i].frequency]
-            }
-
-            //
-            // Organizing results.
-            //
-            self.delinquent = f(response.data.objects, { status: 'Delinquent', frequency_category: '!Archived' }, true)
-            self.uptodate = f(response.data.objects, { status: 'Up-to-date', frequency_category: '!Archived' }, true)
-            self.archived = f(response.data.objects, { frequency_category: 'Archived' }, true)
-            self.overdue = f(response.data.objects, { status: 'Overdue', frequency_category: '!Archived' }, true)
-            self.due = f(response.data.objects, { status: 'Due for update', frequency_category: '!Archived' }, true)
-
-          } else {
+          },
+          function (response) {
             self.fail = {
               failure: true,
               message: 'Service not available.'
             }
+            console.log(response.data)
           }
-        },
-        function (response) {
-          self.fail = {
-            failure: true,
-            message: 'Service not available.'
-          }
-          console.log(response.data)
-        }
-    )
+      )
+      self.pb.complete()
+
+    }
   }]
 )
 
@@ -290,8 +310,6 @@ app.controller('ModalInstanceController', ['$scope', '$window', 'modalData',
     var self = $scope
     self.dataset = modalData.details
     $scope.dataset = modalData.details
-
-    console.log($scope.dataset)
 
     self.visit = function () {
       console.log('Visiting: https://data.hdx.rwlabs.org/dataset/' + self.dataset.result.id)
