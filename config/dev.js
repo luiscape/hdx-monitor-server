@@ -1,7 +1,7 @@
 module.exports = {
   'CkanInstance': 'https://data.hdx.rwlabs.org/',
   'DefaultApiKey': process.env.DEFAULT_API_KEY || null,
-  'version': 'v.0.1.16',
+  'version': 'v.0.2.0',
   'repository': 'https://github.com/luiscape/hdx-monitor-server',
   'port': process.env.PORT || 8080,
   'services': {
@@ -21,6 +21,10 @@ module.exports = {
     'funnelstats': {
       'host': 'funnelstats',
       'port': 7000
+    },
+    'comments': {
+      'host': 'comments',
+      'port': 8000
     }
   }
 }
