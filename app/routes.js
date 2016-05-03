@@ -137,7 +137,7 @@ module.exports = function (app, passport, config) {
     //
     // TODO: This test isn't working.
     //
-    if (typeof req.body === typeof Object) {
+    if (typeof req.body === typeof {}) {
       parameters = '?' + querystring.stringify(req.body)
     }
     var pass = req.originalUrl.replace('/api/' + serviceInfo.id, '')
