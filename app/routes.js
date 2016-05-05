@@ -133,12 +133,12 @@ module.exports = function (app, passport, config) {
     // but also pass extra parameters.
     //
     var parameters = ''
-
-    //
-    // TODO: This test isn't working.
-    //
     if (typeof req.body === typeof {}) {
-      parameters = '?' + querystring.stringify(req.body)
+      if (serviceInfo.id === 'datastore') {
+        parameters = '?' + querystring.stringify(req.body)
+      } else {
+        parameters = ''
+      }
     }
     var pass = req.originalUrl.replace('/api/' + serviceInfo.id, '')
     var options = _options(serviceInfo.id)
