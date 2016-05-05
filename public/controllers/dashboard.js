@@ -30,7 +30,7 @@ app.controller('DashboardController', ['$http', '$scope', '$filter', '$location'
     }
 
     var pages = {
-      'total': 3,
+      'total': 5,
       'current': 1
     }
     for (var i = 1; i <= pages.total; i++) {
